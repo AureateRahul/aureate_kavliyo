@@ -1,9 +1,6 @@
 name: Klaviyo Crawler
 
 on:
-  schedule:
-    # Runs every day at 6:00 AM UTC
-    - cron: '0 6 * * *'
   workflow_dispatch:
     # Also allows manual trigger from GitHub Actions UI
     inputs:
