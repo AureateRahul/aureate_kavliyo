@@ -1,0 +1,48 @@
+name: Klaviyo Crawler
+
+on:
+  schedule:
+    # Runs every day at 6:00 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Also allows manual trigger from GitHub Actions UI
+    inputs:
+      apis:
+        description: 'Which APIs to run (e.g. "1 2 3" or "3")'
+        required: false
+        default: '1 2 3'
+      preset:
+        description: 'Timeframe preset (e.g. last_30_days, last_365_days)'
+        required: false
+        default: 'last_365_days'
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        working-directory: backend
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: Run crawler
+        working-directory: backend
+        env:
+          KLAVIYO_API_KEY:      ${{ secrets.KLAVIYO_API_KEY }}
+          SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          APIS="${{ github.event.inputs.apis || '1 2 3' }}"
+          PRESET="${{ github.event.inputs.preset || 'last_365_days' }}"
+          python main.py --api $APIS --preset "$PRESET"
