@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# Local data (uploaded to Supabase Storage)
+backend/templates/
+backend/screenshots/
+backend/klaviyo_data.db
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Misc
+.DS_Store

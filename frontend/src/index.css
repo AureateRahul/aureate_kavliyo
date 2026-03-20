@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+}
+
+@layer utilities {
+  .thumb-iframe-wrap {
+    width: 64px;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 6px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .thumb-iframe-wrap:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(37,99,235,0.25);
+  }
+  .thumb-iframe-wrap iframe {
+    width: 800px;
+    height: 1000px;
+    transform: scale(0.08);
+    transform-origin: top left;
+    pointer-events: none;
+    border: none;
+  }
+  .scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: #f1f5f9; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+}
