@@ -12,6 +12,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.99.3",
     "@tanstack/react-table": "^8.21.3",
+    "framer-motion": "^12.38.0",
     "html2canvas": "^1.4.1",
     "lucide-react": "^0.577.0",
     "react": "^19.2.4",

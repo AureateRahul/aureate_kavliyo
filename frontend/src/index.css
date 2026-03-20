@@ -4,7 +4,7 @@
 
 @layer base {
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+  body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: #0f172a; }
   #root { min-height: 100vh; }
 }
 
@@ -21,7 +21,7 @@
   }
   .thumb-iframe-wrap:hover {
     transform: scale(1.08);
-    box-shadow: 0 4px 16px rgba(37,99,235,0.25);
+    box-shadow: 0 4px 16px rgba(74,222,128,0.25);
   }
   .thumb-iframe-wrap iframe {
     width: 800px;
@@ -32,6 +32,6 @@
     border: none;
   }
   .scrollbar-thin::-webkit-scrollbar { width: 5px; height: 5px; }
-  .scrollbar-thin::-webkit-scrollbar-track { background: #f1f5f9; }
-  .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: #1e293b; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #475569; border-radius: 99px; }
 }

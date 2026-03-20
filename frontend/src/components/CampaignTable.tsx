@@ -9,7 +9,7 @@ interface CampaignTableProps {
   onPreview: (c: Campaign) => void
 }
 
-type SortKey = 'open_rate' | 'click_rate' | 'conversion_value' | 'click_to_open_rate' | 'label' | 'subject'
+type SortKey = 'open_rate' | 'click_rate' | 'conversion_value' | 'click_to_open_rate' | 'label'
 type SortDir = 'asc' | 'desc'
 
 function pct(val: number | null, digits = 2) {
@@ -24,24 +24,25 @@ function usd(val: number | null) {
 const PAGE_SIZES = [10, 25, 50, 100]
 
 const SORT_OPTIONS: { key: SortKey; label: string }[] = [
-  { key: 'open_rate',          label: 'Open Rate'    },
-  { key: 'click_rate',         label: 'Click Rate'   },
-  { key: 'conversion_value',   label: 'Revenue'      },
-  { key: 'click_to_open_rate', label: 'CTO Rate'     },
-  { key: 'label',              label: 'Label'        },
-  { key: 'subject',            label: 'Subject'      },
+  { key: 'open_rate',          label: 'Open Rate'  },
+  { key: 'click_rate',         label: 'Click Rate' },
+  { key: 'conversion_value',   label: 'Revenue'    },
+  { key: 'click_to_open_rate', label: 'CTO Rate'   },
+  { key: 'label',              label: 'Label'      },
 ]
+
+const inputCls = 'text-xs border border-gray-700 rounded-lg bg-gray-900 text-gray-300 focus:outline-none focus:border-green-500 transition-colors'
+const selectCls = `${inputCls} px-2.5 py-1.5`
 
 export default function CampaignTable({ campaigns, loading, onPreview }: CampaignTableProps) {
   const [search, setSearch]           = useState('')
   const [channelFilter, setChannel]   = useState<string>('all')
-  const [templateFilter, setTemplate] = useState<string>('all')  // all | with | without
+  const [templateFilter, setTemplate] = useState<string>('all')
   const [sortKey, setSortKey]         = useState<SortKey>('open_rate')
   const [sortDir, setSortDir]         = useState<SortDir>('desc')
   const [page, setPage]               = useState(1)
   const [pageSize, setPageSize]       = useState(25)
 
-  // Derive unique channels for filter dropdown
   const channels = useMemo(() => {
     const set = new Set(campaigns.map(c => c.send_channel).filter(Boolean) as string[])
     return Array.from(set).sort()
@@ -70,8 +71,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
 
   const totalPages = Math.max(1, Math.ceil(sorted.length / pageSize))
   const paginated  = sorted.slice((page - 1) * pageSize, page * pageSize)
-
-  const resetPage = () => setPage(1)
+  const resetPage  = () => setPage(1)
 
   const toggleSort = (key: SortKey) => {
     if (sortKey === key) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
@@ -82,7 +82,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
   const SortBtn = ({ col }: { col: SortKey }) => (
     <button
       onClick={() => toggleSort(col)}
-      className={`inline-flex items-center gap-0.5 ml-0.5 ${sortKey === col ? 'text-brand-600' : 'text-slate-300 hover:text-slate-500'}`}
+      className={`inline-flex items-center gap-0.5 ml-0.5 ${sortKey === col ? 'text-green-400' : 'text-gray-600 hover:text-gray-400'}`}
     >
       {sortKey === col ? (sortDir === 'asc' ? '↑' : '↓') : '↕'}
     </button>
@@ -91,23 +91,23 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
   const activeFilters = [channelFilter !== 'all', templateFilter !== 'all', search !== ''].filter(Boolean).length
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+    <div className="bg-gray-800/60 rounded-xl border border-gray-700/50 shadow-sm overflow-hidden backdrop-blur-sm">
 
       {/* Toolbar */}
-      <div className="flex flex-col gap-3 px-5 py-4 border-b border-slate-100">
+      <div className="flex flex-col gap-3 px-5 py-4 border-b border-gray-700/50">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-sm font-semibold text-slate-900">Campaigns</h2>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <h2 className="text-sm font-semibold text-white">Campaigns</h2>
+            <p className="text-xs text-gray-500 mt-0.5">
               {filtered.length} of {campaigns.length} results
-              {activeFilters > 0 && <span className="ml-1.5 bg-brand-100 text-brand-700 px-1.5 py-0.5 rounded-full text-[10px] font-semibold">{activeFilters} filter{activeFilters > 1 ? 's' : ''} active</span>}
+              {activeFilters > 0 && (
+                <span className="ml-1.5 bg-green-900/60 text-green-400 px-1.5 py-0.5 rounded-full text-[10px] font-semibold border border-green-700/40">
+                  {activeFilters} filter{activeFilters > 1 ? 's' : ''} active
+                </span>
+              )}
             </p>
           </div>
-          <select
-            value={pageSize}
-            onChange={e => { setPageSize(+e.target.value); resetPage() }}
-            className="text-xs border border-slate-200 rounded-lg px-2 py-1.5 bg-slate-50 focus:outline-none focus:border-brand-400 text-slate-600"
-          >
+          <select value={pageSize} onChange={e => { setPageSize(+e.target.value); resetPage() }} className={selectCls}>
             {PAGE_SIZES.map(n => <option key={n} value={n}>Show {n}</option>)}
           </select>
         </div>
@@ -116,26 +116,23 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
         <div className="flex flex-wrap items-center gap-2">
           {/* Search */}
           <div className="relative flex-1 min-w-[180px] max-w-xs">
-            <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <input
-              type="text"
-              value={search}
-              onChange={e => { setSearch(e.target.value); resetPage() }}
-              placeholder="Search label, subject, ID…"
-              className="w-full pl-8 pr-3 py-1.5 text-xs border border-slate-200 rounded-lg bg-slate-50 focus:outline-none focus:border-brand-400 focus:bg-white transition-colors"
+              type="text" value={search} onChange={e => { setSearch(e.target.value); resetPage() }}
+              placeholder="Search label, ID…"
+              className={`w-full pl-8 pr-3 py-1.5 ${inputCls}`}
             />
             {search && (
-              <button onClick={() => { setSearch(''); resetPage() }} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-500 text-sm leading-none">×</button>
+              <button onClick={() => { setSearch(''); resetPage() }} className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 text-sm leading-none">×</button>
             )}
           </div>
 
           {/* Channel filter */}
           <select
-            value={channelFilter}
-            onChange={e => { setChannel(e.target.value); resetPage() }}
-            className={`text-xs border rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-brand-400 transition-colors ${channelFilter !== 'all' ? 'border-brand-400 bg-brand-50 text-brand-700 font-medium' : 'border-slate-200 bg-slate-50 text-slate-600'}`}
+            value={channelFilter} onChange={e => { setChannel(e.target.value); resetPage() }}
+            className={`${selectCls} ${channelFilter !== 'all' ? 'border-green-600 text-green-400' : ''}`}
           >
             <option value="all">All Channels</option>
             {channels.map(ch => <option key={ch} value={ch}>{ch}</option>)}
@@ -143,39 +140,32 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
 
           {/* Template filter */}
           <select
-            value={templateFilter}
-            onChange={e => { setTemplate(e.target.value); resetPage() }}
-            className={`text-xs border rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-brand-400 transition-colors ${templateFilter !== 'all' ? 'border-brand-400 bg-brand-50 text-brand-700 font-medium' : 'border-slate-200 bg-slate-50 text-slate-600'}`}
+            value={templateFilter} onChange={e => { setTemplate(e.target.value); resetPage() }}
+            className={`${selectCls} ${templateFilter !== 'all' ? 'border-green-600 text-green-400' : ''}`}
           >
             <option value="all">All Templates</option>
             <option value="with">Has Template</option>
             <option value="without">No Template</option>
           </select>
 
-          {/* Sort control */}
+          {/* Sort */}
           <div className="flex items-center gap-1.5 ml-auto">
-            <span className="text-xs text-slate-400">Sort by</span>
-            <select
-              value={sortKey}
-              onChange={e => { setSortKey(e.target.value as SortKey); resetPage() }}
-              className="text-xs border border-slate-200 rounded-lg px-2.5 py-1.5 bg-slate-50 focus:outline-none focus:border-brand-400 text-slate-600"
-            >
+            <span className="text-xs text-gray-500">Sort by</span>
+            <select value={sortKey} onChange={e => { setSortKey(e.target.value as SortKey); resetPage() }} className={selectCls}>
               {SORT_OPTIONS.map(o => <option key={o.key} value={o.key}>{o.label}</option>)}
             </select>
             <button
               onClick={() => setSortDir(d => d === 'asc' ? 'desc' : 'asc')}
-              className="px-2 py-1.5 text-xs border border-slate-200 rounded-lg bg-slate-50 hover:bg-white text-slate-600 transition-colors font-mono"
-              title="Toggle sort direction"
+              className="px-2 py-1.5 text-xs border border-gray-700 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-400 transition-colors font-mono"
             >
               {sortDir === 'asc' ? '↑ Asc' : '↓ Desc'}
             </button>
           </div>
 
-          {/* Clear filters */}
           {activeFilters > 0 && (
             <button
               onClick={() => { setSearch(''); setChannel('all'); setTemplate('all'); resetPage() }}
-              className="text-xs text-slate-400 hover:text-rose-500 transition-colors underline underline-offset-2"
+              className="text-xs text-gray-500 hover:text-red-400 transition-colors underline underline-offset-2"
             >
               Clear filters
             </button>
@@ -187,37 +177,24 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
       <div className="overflow-x-auto scrollbar-thin">
         <table className="w-full text-left text-xs">
           <thead>
-            <tr className="bg-slate-50 border-b border-slate-100 text-slate-500 uppercase tracking-wider">
+            <tr className="bg-gray-900/60 border-b border-gray-700/50 text-gray-400 uppercase tracking-wider">
               <th className="px-3 py-3 font-semibold w-[72px]">Preview</th>
-              <th className="px-3 py-3 font-semibold">
-                Label <SortBtn col="label" />
-              </th>
-              <th className="px-3 py-3 font-semibold">
-                Subject <SortBtn col="subject" />
-              </th>
+              <th className="px-3 py-3 font-semibold">Label <SortBtn col="label" /></th>
               <th className="px-3 py-3 font-semibold whitespace-nowrap">Channel</th>
-              <th className="px-3 py-3 font-semibold whitespace-nowrap">
-                Open Rate <SortBtn col="open_rate" />
-              </th>
-              <th className="px-3 py-3 font-semibold whitespace-nowrap">
-                Click Rate <SortBtn col="click_rate" />
-              </th>
-              <th className="px-3 py-3 font-semibold whitespace-nowrap">
-                Revenue <SortBtn col="conversion_value" />
-              </th>
-              <th className="px-3 py-3 font-semibold whitespace-nowrap">
-                CTO Rate <SortBtn col="click_to_open_rate" />
-              </th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Open Rate <SortBtn col="open_rate" /></th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Click Rate <SortBtn col="click_rate" /></th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Revenue <SortBtn col="conversion_value" /></th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">CTO Rate <SortBtn col="click_to_open_rate" /></th>
               <th className="px-3 py-3 font-semibold whitespace-nowrap">Downloads</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-50">
+          <tbody className="divide-y divide-gray-700/30">
             {loading && (
               [...Array(8)].map((_, i) => (
                 <tr key={i}>
-                  {[...Array(9)].map((_, j) => (
+                  {[...Array(8)].map((_, j) => (
                     <td key={j} className="px-3 py-3">
-                      <div className="h-3 bg-slate-100 rounded animate-pulse w-16" />
+                      <div className="h-3 bg-gray-700/60 rounded animate-pulse w-16" />
                     </td>
                   ))}
                 </tr>
@@ -225,48 +202,41 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
             )}
             {!loading && paginated.length === 0 && (
               <tr>
-                <td colSpan={9} className="text-center py-16 text-slate-400">
+                <td colSpan={8} className="text-center py-16 text-gray-500">
                   No campaigns match the current filters.
                 </td>
               </tr>
             )}
             {!loading && paginated.map(c => (
-              <tr key={c.id} className="hover:bg-slate-50/70 transition-colors">
+              <tr key={c.id} className="hover:bg-gray-700/20 transition-colors">
 
                 {/* Thumbnail */}
                 <td className="px-3 py-2">
                   {c.template_filename
                     ? <ThumbCell campaignId={c.campaign_id} subject={c.subject || ''} onClick={() => onPreview(c)} />
-                    : <div className="w-[60px] h-[44px] rounded border border-dashed border-slate-200 bg-slate-50 flex items-center justify-center text-slate-300 text-base">📄</div>
+                    : <div className="w-[60px] h-[44px] rounded border border-dashed border-gray-700 bg-gray-900/50 flex items-center justify-center text-gray-600 text-base">📄</div>
                   }
                 </td>
 
-                {/* Label — shows campaign ID on hover */}
-                <td className="px-3 py-2.5 max-w-[200px]">
-                  {c.label
-                    ? <span className="block truncate text-slate-700 font-medium" title={`${c.label}\n\nID: ${c.campaign_id}`}>{c.label}</span>
-                    : <span className="font-mono text-[11px] text-slate-400" title={c.campaign_id}>{c.campaign_id}</span>}
-                </td>
-
-                {/* Subject */}
+                {/* Label */}
                 <td className="px-3 py-2.5 max-w-[220px]">
-                  {c.subject
-                    ? <span className="block truncate text-slate-600" title={c.subject}>{c.subject}</span>
-                    : <span className="text-slate-300">—</span>}
+                  {c.label
+                    ? <span className="block truncate text-gray-200 font-medium" title={`${c.label}\n\nID: ${c.campaign_id}`}>{c.label}</span>
+                    : <span className="font-mono text-[11px] text-gray-500" title={c.campaign_id}>{c.campaign_id}</span>}
                 </td>
 
                 {/* Channel */}
                 <td className="px-3 py-2.5">
                   {c.send_channel
-                    ? <span className="bg-brand-100 text-brand-800 px-2 py-0.5 rounded-full text-[11px] font-medium whitespace-nowrap">{c.send_channel}</span>
-                    : <span className="text-slate-300">—</span>}
+                    ? <span className="bg-green-900/40 text-green-400 border border-green-700/40 px-2 py-0.5 rounded-full text-[11px] font-medium whitespace-nowrap">{c.send_channel}</span>
+                    : <span className="text-gray-600">—</span>}
                 </td>
 
                 {/* Metrics */}
-                <td className="px-3 py-2.5 font-mono text-sky-700 whitespace-nowrap">{pct(c.open_rate)}</td>
-                <td className="px-3 py-2.5 font-mono text-sky-700 whitespace-nowrap">{pct(c.click_rate, 3)}</td>
-                <td className="px-3 py-2.5 font-mono font-semibold text-emerald-700 whitespace-nowrap">{usd(c.conversion_value)}</td>
-                <td className="px-3 py-2.5 font-mono text-sky-700 whitespace-nowrap">{pct(c.click_to_open_rate, 3)}</td>
+                <td className="px-3 py-2.5 font-mono text-sky-400 whitespace-nowrap">{pct(c.open_rate)}</td>
+                <td className="px-3 py-2.5 font-mono text-sky-400 whitespace-nowrap">{pct(c.click_rate, 3)}</td>
+                <td className="px-3 py-2.5 font-mono font-semibold text-green-400 whitespace-nowrap">{usd(c.conversion_value)}</td>
+                <td className="px-3 py-2.5 font-mono text-sky-400 whitespace-nowrap">{pct(c.click_to_open_rate, 3)}</td>
 
                 {/* Downloads */}
                 <td className="px-3 py-2.5">
@@ -274,18 +244,14 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
                     ? <div className="flex gap-1.5">
                         <button
                           onClick={() => downloadFromStorage(getTemplateUrl(c.campaign_id), `${c.campaign_id}.html`)}
-                          className="text-[11px] bg-brand-700 hover:bg-brand-800 text-white px-2 py-1 rounded-md transition-colors whitespace-nowrap"
-                        >
-                          HTML
-                        </button>
+                          className="text-[11px] bg-green-700 hover:bg-green-600 text-white px-2 py-1 rounded-md transition-colors whitespace-nowrap"
+                        >HTML</button>
                         <button
                           onClick={() => downloadFromStorage(getScreenshotUrl(c.campaign_id), `${c.campaign_id}.png`)}
-                          className="text-[11px] bg-emerald-600 hover:bg-emerald-700 text-white px-2 py-1 rounded-md transition-colors whitespace-nowrap"
-                        >
-                          PNG
-                        </button>
+                          className="text-[11px] bg-sky-700 hover:bg-sky-600 text-white px-2 py-1 rounded-md transition-colors whitespace-nowrap"
+                        >PNG</button>
                       </div>
-                    : <span className="text-slate-300">—</span>}
+                    : <span className="text-gray-600">—</span>}
                 </td>
               </tr>
             ))}
@@ -294,27 +260,23 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-between px-5 py-3 border-t border-slate-100 bg-slate-50">
-        <p className="text-xs text-slate-400">
+      <div className="flex items-center justify-between px-5 py-3 border-t border-gray-700/50 bg-gray-900/40">
+        <p className="text-xs text-gray-500">
           {sorted.length === 0 ? 'No results' : `Showing ${Math.min((page - 1) * pageSize + 1, sorted.length)}–${Math.min(page * pageSize, sorted.length)} of ${sorted.length}`}
         </p>
         <div className="flex items-center gap-1">
-          <button onClick={() => setPage(1)} disabled={page === 1}
-            className="px-2 py-1 text-xs rounded border border-slate-200 hover:bg-white disabled:opacity-40 text-slate-600 transition-colors">«</button>
-          <button onClick={() => setPage(p => p - 1)} disabled={page === 1}
-            className="px-2 py-1 text-xs rounded border border-slate-200 hover:bg-white disabled:opacity-40 text-slate-600 transition-colors">‹</button>
+          <button onClick={() => setPage(1)} disabled={page === 1} className="px-2 py-1 text-xs rounded border border-gray-700 bg-gray-900 hover:bg-gray-800 disabled:opacity-30 text-gray-400 transition-colors">«</button>
+          <button onClick={() => setPage(p => p - 1)} disabled={page === 1} className="px-2 py-1 text-xs rounded border border-gray-700 bg-gray-900 hover:bg-gray-800 disabled:opacity-30 text-gray-400 transition-colors">‹</button>
           {[...Array(Math.min(5, totalPages))].map((_, i) => {
             const p = Math.max(1, Math.min(page - 2, totalPages - 4)) + i
             return (
               <button key={p} onClick={() => setPage(p)}
-                className={`w-7 h-7 text-xs rounded border transition-colors ${p === page ? 'bg-brand-700 border-brand-700 text-white' : 'border-slate-200 hover:bg-white text-slate-600'}`}
+                className={`w-7 h-7 text-xs rounded border transition-colors ${p === page ? 'bg-green-700 border-green-700 text-white' : 'border-gray-700 bg-gray-900 hover:bg-gray-800 text-gray-400'}`}
               >{p}</button>
             )
           })}
-          <button onClick={() => setPage(p => p + 1)} disabled={page === totalPages}
-            className="px-2 py-1 text-xs rounded border border-slate-200 hover:bg-white disabled:opacity-40 text-slate-600 transition-colors">›</button>
-          <button onClick={() => setPage(totalPages)} disabled={page === totalPages}
-            className="px-2 py-1 text-xs rounded border border-slate-200 hover:bg-white disabled:opacity-40 text-slate-600 transition-colors">»</button>
+          <button onClick={() => setPage(p => p + 1)} disabled={page === totalPages} className="px-2 py-1 text-xs rounded border border-gray-700 bg-gray-900 hover:bg-gray-800 disabled:opacity-30 text-gray-400 transition-colors">›</button>
+          <button onClick={() => setPage(totalPages)} disabled={page === totalPages} className="px-2 py-1 text-xs rounded border border-gray-700 bg-gray-900 hover:bg-gray-800 disabled:opacity-30 text-gray-400 transition-colors">»</button>
         </div>
       </div>
     </div>

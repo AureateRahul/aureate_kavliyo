@@ -1,3 +1,4 @@
+import time
 from supabase import create_client, Client
 from config import settings
 
@@ -76,12 +77,22 @@ def update_template_paths(client: Client, saved: list) -> None:
     """
     Updates template_file_path and sets api_call_3=1.
     saved: list of {campaign_id, file_path}
+    Retries up to 3 times on transient network errors.
     """
     for s in saved:
-        client.table("campaigns").update({
-            "template_file_path": s["file_path"],
-            "api_call_3":         1,
-        }).eq("campaign_id", s["campaign_id"]).execute()
+        for attempt in range(3):
+            try:
+                client.table("campaigns").update({
+                    "template_file_path": s["file_path"],
+                    "api_call_3":         1,
+                }).eq("campaign_id", s["campaign_id"]).execute()
+                break
+            except Exception as e:
+                if attempt < 2:
+                    print(f"  [retry] DB update failed ({e}), retrying in 5s...")
+                    time.sleep(5)
+                else:
+                    raise
 
 
 def get_pending_campaign_messages(client: Client, limit: int = None) -> list:
