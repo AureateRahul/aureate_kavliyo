@@ -178,6 +178,7 @@ def fetch_campaign_messages(campaign_ids: list) -> list:
                     "subject": subject,
                     "template_link": template_link,
                     "image_link": image_link,
+                    "send_time": attrs.get("created_at"),
                 })
 
             next_url = response.get("links", {}).get("next") or None

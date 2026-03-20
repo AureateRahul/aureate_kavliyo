@@ -38,6 +38,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
   const [search, setSearch]           = useState('')
   const [channelFilter, setChannel]   = useState<string>('all')
   const [templateFilter, setTemplate] = useState<string>('all')
+  const [monthFilter, setMonth]       = useState<string>('all')
   const [sortKey, setSortKey]         = useState<SortKey>('open_rate')
   const [sortDir, setSortDir]         = useState<SortDir>('desc')
   const [page, setPage]               = useState(1)
@@ -48,6 +49,18 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
     return Array.from(set).sort()
   }, [campaigns])
 
+  // Sorted unique year-month options from send_time
+  const months = useMemo(() => {
+    const set = new Set<string>()
+    campaigns.forEach(c => {
+      if (c.send_time) {
+        const d = new Date(c.send_time)
+        set.add(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`)
+      }
+    })
+    return Array.from(set).sort().reverse()
+  }, [campaigns])
+
   const filtered = useMemo(() => {
     const q = search.toLowerCase()
     return campaigns.filter(c => {
@@ -55,9 +68,15 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
       if (channelFilter !== 'all' && c.send_channel !== channelFilter) return false
       if (templateFilter === 'with'    && !c.template_filename) return false
       if (templateFilter === 'without' &&  c.template_filename) return false
+      if (monthFilter !== 'all') {
+        if (!c.send_time) return false
+        const d = new Date(c.send_time)
+        const ym = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
+        if (ym !== monthFilter) return false
+      }
       return true
     })
-  }, [campaigns, search, channelFilter, templateFilter])
+  }, [campaigns, search, channelFilter, templateFilter, monthFilter])
 
   const sorted = useMemo(() => {
     return [...filtered].sort((a, b) => {
@@ -88,7 +107,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
     </button>
   )
 
-  const activeFilters = [channelFilter !== 'all', templateFilter !== 'all', search !== ''].filter(Boolean).length
+  const activeFilters = [channelFilter !== 'all', templateFilter !== 'all', monthFilter !== 'all', search !== ''].filter(Boolean).length
 
   return (
     <div className="bg-gray-800/60 rounded-xl border border-gray-700/50 shadow-sm overflow-hidden backdrop-blur-sm">
@@ -148,6 +167,19 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
             <option value="without">No Template</option>
           </select>
 
+          {/* Month filter */}
+          <select
+            value={monthFilter} onChange={e => { setMonth(e.target.value); resetPage() }}
+            className={`${selectCls} ${monthFilter !== 'all' ? 'border-green-600 text-green-400' : ''}`}
+          >
+            <option value="all">All Months</option>
+            {months.map(ym => {
+              const [y, m] = ym.split('-')
+              const label = new Date(+y, +m - 1).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+              return <option key={ym} value={ym}>{label}</option>
+            })}
+          </select>
+
           {/* Sort */}
           <div className="flex items-center gap-1.5 ml-auto">
             <span className="text-xs text-gray-500">Sort by</span>
@@ -180,6 +212,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
             <tr className="bg-gray-900/60 border-b border-gray-700/50 text-gray-400 uppercase tracking-wider">
               <th className="px-3 py-3 font-semibold w-[72px]">Preview</th>
               <th className="px-3 py-3 font-semibold">Label <SortBtn col="label" /></th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Send Date</th>
               <th className="px-3 py-3 font-semibold whitespace-nowrap">Channel</th>
               <th className="px-3 py-3 font-semibold whitespace-nowrap">Open Rate <SortBtn col="open_rate" /></th>
               <th className="px-3 py-3 font-semibold whitespace-nowrap">Click Rate <SortBtn col="click_rate" /></th>
@@ -192,7 +225,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
             {loading && (
               [...Array(8)].map((_, i) => (
                 <tr key={i}>
-                  {[...Array(8)].map((_, j) => (
+                  {[...Array(9)].map((_, j) => (
                     <td key={j} className="px-3 py-3">
                       <div className="h-3 bg-gray-700/60 rounded animate-pulse w-16" />
                     </td>
@@ -202,7 +235,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
             )}
             {!loading && paginated.length === 0 && (
               <tr>
-                <td colSpan={8} className="text-center py-16 text-gray-500">
+                <td colSpan={9} className="text-center py-16 text-gray-500">
                   No campaigns match the current filters.
                 </td>
               </tr>
@@ -223,6 +256,13 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
                   {c.label
                     ? <span className="block truncate text-gray-200 font-medium" title={`${c.label}\n\nID: ${c.campaign_id}`}>{c.label}</span>
                     : <span className="font-mono text-[11px] text-gray-500" title={c.campaign_id}>{c.campaign_id}</span>}
+                </td>
+
+                {/* Send Date */}
+                <td className="px-3 py-2.5 whitespace-nowrap text-gray-400 font-mono text-[11px]">
+                  {c.send_time
+                    ? new Date(c.send_time).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                    : <span className="text-gray-600">—</span>}
                 </td>
 
                 {/* Channel */}
