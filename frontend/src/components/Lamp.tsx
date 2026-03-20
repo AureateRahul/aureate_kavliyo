@@ -22,13 +22,17 @@ export const Lamp: React.FC<LampProps> = ({ isOn, toggleLight }) => {
   }
 
   return (
-    <div className="relative flex h-full w-full flex-col items-center justify-start pt-10 md:justify-center md:pt-0">
+    <div className="relative flex h-full w-full flex-col items-center justify-center">
+      {/* Glow — centered in the full panel */}
       <motion.div
         initial={false}
         animate={{ opacity: isOn ? 0.6 : 0, scale: isOn ? 1 : 0.8 }}
         transition={{ duration: 0.3 }}
-        className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-[60%] rounded-full bg-green-400 blur-[100px]"
-      />
+        className="absolute inset-0 flex items-center justify-center pointer-events-none"
+      >
+        <div className="h-[500px] w-[500px] rounded-full bg-green-400 blur-[100px]" />
+      </motion.div>
+      <div className="relative flex items-center justify-center translate-x-8">
       <div className="relative z-10 h-[450px] w-[320px]">
         <svg width="320" height="450" viewBox="0 0 320 450" className="overflow-visible">
           <rect x="152" y="150" width="16" height="180" rx="2" fill="#4B5563" />
@@ -73,10 +77,11 @@ export const Lamp: React.FC<LampProps> = ({ isOn, toggleLight }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: !isOn ? 1 : 0 }}
           transition={{ delay: 1 }}
-          className="absolute left-0 top-[260px] whitespace-nowrap text-sm font-medium text-gray-500 md:-left-12"
+          className="absolute left-4 top-[260px] whitespace-nowrap text-sm font-medium text-gray-500"
         >
           Pull to turn on →
         </motion.div>
+      </div>
       </div>
     </div>
   )
