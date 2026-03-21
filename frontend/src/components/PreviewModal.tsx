@@ -98,12 +98,12 @@ export default function PreviewModal({ campaign, onClose }: PreviewModalProps) {
   )
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2">
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative bg-gray-900 rounded-2xl shadow-2xl border border-gray-700/60 w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden">
+      <div className="relative bg-gray-900 rounded-2xl shadow-2xl border border-gray-700/60 w-full max-w-7xl h-[98vh] flex flex-col overflow-hidden">
 
         {/* Header */}
         <div className="flex items-start justify-between px-5 py-4 border-b border-gray-700/50 flex-shrink-0">
@@ -141,12 +141,12 @@ export default function PreviewModal({ campaign, onClose }: PreviewModalProps) {
         </div>
 
         {/* Body */}
-        <div className="flex-1 overflow-hidden p-3">
+        <div className="flex-1 overflow-hidden">
 
           {/* HTML Tab */}
           {tab === 'html' && (
             htmlBlobUrl
-              ? <iframe ref={iframeRef} src={htmlBlobUrl} className="w-full h-full rounded-lg border border-gray-700" title="Email Preview" />
+              ? <iframe ref={iframeRef} src={htmlBlobUrl} className="w-full h-full border-0" title="Email Preview" />
               : <div className="w-full h-full flex items-center justify-center">{spinnerSvg()}</div>
           )}
 
@@ -215,7 +215,7 @@ export default function PreviewModal({ campaign, onClose }: PreviewModalProps) {
           </div>
           <div className="flex gap-2">
             <button
-              onClick={() => downloadFromStorage(templateUrl, `${safeId}.html`)}
+              onClick={() => window.open(templateUrl, '_blank')}
               className="flex items-center gap-1.5 text-xs bg-green-700 hover:bg-green-600 text-white px-3 py-1.5 rounded-lg transition-colors"
             >
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

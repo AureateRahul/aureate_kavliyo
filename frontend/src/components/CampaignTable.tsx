@@ -283,7 +283,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
                   {c.template_filename
                     ? <div className="flex gap-1.5">
                         <button
-                          onClick={() => downloadFromStorage(getTemplateUrl(c.campaign_id), `${c.campaign_id}.html`)}
+                          onClick={() => window.open(getTemplateUrl(c.campaign_id), '_blank')}
                           className="text-[11px] bg-green-700 hover:bg-green-600 text-white px-2 py-1 rounded-md transition-colors whitespace-nowrap"
                         >HTML</button>
                         <button
