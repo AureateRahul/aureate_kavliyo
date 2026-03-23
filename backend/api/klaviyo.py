@@ -180,14 +180,19 @@ def fetch_campaign_messages(campaign_ids: list) -> list:
                     .get("id", campaign_id)
                 )
 
+                # send_times[0].datetime = actual scheduled/sent time
+                send_times = attrs.get("send_times") or []
+                send_time = send_times[0].get("datetime") if send_times else None
+
                 rows.append({
                     "campaign_message_id": campaign_message_id,
-                    "campaign_id": rel_campaign_id,
-                    "label": label,
-                    "subject": subject,
-                    "template_link": template_link,
-                    "image_link": image_link,
-                    "send_time": attrs.get("created_at"),
+                    "campaign_id":         rel_campaign_id,
+                    "label":               label,
+                    "subject":             subject,
+                    "template_link":       template_link,
+                    "image_link":          image_link,
+                    "send_time":           send_time,
+                    "template_created":    attrs.get("created_at"),
                 })
 
             next_url = response.get("links", {}).get("next") or None

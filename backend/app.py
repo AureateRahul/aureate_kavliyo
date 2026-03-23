@@ -1,9 +1,42 @@
+import json
 import os
-from flask import Flask, jsonify, send_file, abort, render_template_string
+import subprocess
+from flask import Flask, jsonify, request, send_file, abort, render_template_string
+from flask_cors import CORS
 
 from db.repository import get_db_connection
 
 app = Flask(__name__)
+CORS(app)
+
+# ---------------------------------------------------------------------------
+# Load AI context once at startup
+# ---------------------------------------------------------------------------
+_AI_CONTEXT_PATH = os.path.join(
+    os.path.dirname(__file__), "..", "supabase", "functions", "ai-insights", "context.json"
+)
+try:
+    with open(_AI_CONTEXT_PATH, encoding="utf-8") as _f:
+        _AI_CONTEXT = json.load(_f)
+    print(f"[ai] Loaded context: {_AI_CONTEXT.get('total_campaigns')} campaigns")
+except Exception as _e:
+    _AI_CONTEXT = {}
+    print(f"[ai] Warning: could not load context.json — {_e}")
+
+_AI_SYSTEM_PROMPT = f"""You are an expert Klaviyo email marketing analyst for a healthcare/safety products company.
+
+You have COMPLETE access to all campaign performance data in the snapshot below.
+Use this data directly to answer questions — only mention if data is missing.
+
+FULL CAMPAIGN DATA SNAPSHOT (built: {_AI_CONTEXT.get('built_at', 'unknown')}, {_AI_CONTEXT.get('total_campaigns', 0)} campaigns):
+{json.dumps(_AI_CONTEXT)}
+
+Instructions:
+- Reference actual labels, subjects, open rates, and revenue from the data
+- For topic suggestions: identify themes from labels and subjects of top-performing campaigns
+- For subject line suggestions: analyze patterns in campaigns with open_rate > 0.30
+- Always cite specific numbers (e.g. "38% open rate in Nov 2025")
+- Format responses with ## headers, **bold** text, and bullet points"""
 
 TEMPLATES_DIR   = os.path.join(os.path.dirname(__file__), "templates")
 SCREENSHOTS_DIR = os.path.join(os.path.dirname(__file__), "screenshots")
@@ -11,6 +44,53 @@ os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
 
 # Supabase client (reused across requests)
 _supabase = get_db_connection()
+
+
+@app.route("/api/ai-insights", methods=["POST"])
+def ai_insights():
+    data = request.get_json(silent=True) or {}
+    question = data.get("question", "").strip()
+    history  = data.get("history", [])   # list of {role, content}
+    if not question:
+        return jsonify({"error": "No question provided"}), 400
+
+    # Build conversation context from history
+    convo = ""
+    if history:
+        pairs = []
+        for msg in history:
+            role    = msg.get("role", "")
+            content = msg.get("content", "").strip()
+            if not content:
+                continue
+            if role == "user":
+                pairs.append(f"Q: {content}")
+            else:
+                pairs.append(f"A: {content}")
+        if pairs:
+            convo = "\n\n---\nPREVIOUS CONVERSATION (for context only — do not repeat):\n" + "\n\n".join(pairs) + "\n---"
+
+    prompt = f"{_AI_SYSTEM_PROMPT}{convo}\n\nNow answer this new question thoroughly:\n{question}"
+
+    try:
+        claude_cmd = r"C:\Users\Rahul Agarwal\AppData\Roaming\npm\claude.cmd"
+        result = subprocess.run(
+            [claude_cmd, "--print"],
+            input=prompt,
+            capture_output=True,
+            text=True,
+            timeout=300,
+            encoding="utf-8",
+        )
+        answer = result.stdout.strip()
+        if result.returncode != 0 or not answer:
+            error_detail = result.stderr.strip() or "No output from Claude"
+            return jsonify({"error": error_detail}), 500
+        return jsonify({"answer": answer})
+    except subprocess.TimeoutExpired:
+        return jsonify({"error": "Claude CLI timed out — try a more specific question"}), 504
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route("/")

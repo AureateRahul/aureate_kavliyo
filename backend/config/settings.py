@@ -17,6 +17,9 @@ STATISTICS: list = [
 SUPABASE_URL: str         = os.getenv("SUPABASE_URL", "")
 SUPABASE_SERVICE_KEY: str = os.getenv("SUPABASE_SERVICE_KEY", "")
 
+# Anthropic
+ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
+
 if not API_KEY:
     raise ValueError("KLAVIYO_API_KEY is not set. Check your .env file.")
 

@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import StatsBar from './components/StatsBar'
 import CampaignTable from './components/CampaignTable'
 import PreviewModal from './components/PreviewModal'
+import AIInsights from './components/AIInsights'
 import { Lamp } from './components/Lamp'
 import { AuthForm } from './components/AuthForm'
 
@@ -37,6 +38,7 @@ function Dashboard() {
   const [loading, setLoading]     = useState(true)
   const [lastUpdated, setLastUpdated] = useState('')
   const [selected, setSelected]   = useState<Campaign | null>(null)
+  const [page, setPage]           = useState<'dashboard' | 'ai'>('dashboard')
 
   const loadData = useCallback(async () => {
     setLoading(true)
@@ -56,11 +58,21 @@ function Dashboard() {
 
   return (
     <div className="min-h-screen bg-slate-900">
-      <Navbar lastUpdated={lastUpdated} onRefresh={loadData} onLogout={() => supabase.auth.signOut()} />
-      <main className="max-w-[1600px] mx-auto px-6 py-6 space-y-6">
-        <StatsBar stats={loading ? null : stats} />
-        <CampaignTable campaigns={campaigns} loading={loading} onPreview={setSelected} />
-      </main>
+      <Navbar
+        lastUpdated={lastUpdated}
+        onRefresh={loadData}
+        onLogout={() => supabase.auth.signOut()}
+        page={page}
+        onNavigate={setPage}
+      />
+      {page === 'dashboard' ? (
+        <main className="max-w-[1600px] mx-auto px-6 py-6 space-y-6">
+          <StatsBar stats={loading ? null : stats} />
+          <CampaignTable campaigns={campaigns} loading={loading} onPreview={setSelected} />
+        </main>
+      ) : (
+        <AIInsights />
+      )}
       <PreviewModal campaign={selected} onClose={() => setSelected(null)} />
     </div>
   )

@@ -11,6 +11,7 @@ export interface Campaign {
   campaign_message_id: string | null
   label: string | null
   send_time: string | null
+  template_created: string | null
   subject: string | null
   template_link: string | null
   template_file_path: string | null

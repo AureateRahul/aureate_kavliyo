@@ -51,6 +51,7 @@ def update_campaign_messages(client: Client, rows: list) -> None:
             "template_link":       r["template_link"],
             "image_link":          r["image_link"],
             "send_time":           r.get("send_time"),
+            "template_created":    r.get("template_created"),
             "api_call_2":          1,
         }).eq("campaign_id", r["campaign_id"]).execute()
 

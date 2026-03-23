@@ -1,0 +1,3104 @@
+{
+  "built_at": "2026-03-23T07:00:49.907791+00:00",
+  "total_campaigns": 223,
+  "date_range": {
+    "earliest": "2025-03-21",
+    "latest": "2026-03-19"
+  },
+  "channels": [
+    "email"
+  ],
+  "months_available": [
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12",
+    "2026-01",
+    "2026-02",
+    "2026-03"
+  ],
+  "monthly": {
+    "2025-03": {
+      "count": 6,
+      "avg_open_rate": 0.437,
+      "avg_click_rate": 0.0025,
+      "total_revenue": 7435.21,
+      "top_campaigns": [
+        {
+          "label": "02/22 - Cancelled Subscription: KN95 Feature",
+          "subject": "Your Mask Protection Stopped—Let’s Fix That >>",
+          "open_rate": 0.5286,
+          "click_rate": 0.0042,
+          "revenue": 275.85,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JKRE3PJ6GDB3N5DQHG60SJN5.png"
+        },
+        {
+          "label": "03/25 - N99 + N95 Feature",
+          "subject": "Save 30% on our N99 Mask with Autoship & Save!",
+          "open_rate": 0.5033,
+          "click_rate": 0.0025,
+          "revenue": 2200.8,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JMYW4RVQCXC64ADXPDN0KX99.png"
+        },
+        {
+          "label": "03/29 - Cancelled Subscription: N95 Feature",
+          "subject": "A Second Chance for Hassle-Free Protection >>",
+          "open_rate": 0.4933,
+          "click_rate": 0.002,
+          "revenue": 1338.1,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JMMK8BHE779YZQ0PKCT1BM14.png"
+        },
+        {
+          "label": "03/27 - COVID-19 Test Kits CorDX feature",
+          "subject": "🤧 Is It Allergies, a Cold, or COVID-19?",
+          "open_rate": 0.4215,
+          "click_rate": 0.0014,
+          "revenue": 2155.0,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JN1MRQYH6CF986H1DBNTAK7K.png"
+        },
+        {
+          "label": "03/23 - Mask Quiz Feature",
+          "subject": "Find Your Perfect Mask Match in Minutes! >>",
+          "open_rate": 0.4001,
+          "click_rate": 0.0013,
+          "revenue": 291.38,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JMWAVNRRDB66225098FJNKHY.png"
+        }
+      ]
+    },
+    "2025-04": {
+      "count": 16,
+      "avg_open_rate": 0.5384,
+      "avg_click_rate": 0.0021,
+      "total_revenue": 48685.39,
+      "top_campaigns": [
+        {
+          "label": "04/12 - Reviews Driven Feature: Foggy Glasses",
+          "subject": "Say Goodbye to Foggy Glasses 👓",
+          "open_rate": 0.6752,
+          "click_rate": 0.0046,
+          "revenue": 2482.28,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JQS5T8WNJGRG0743YCJKFJ95.png"
+        },
+        {
+          "label": "04/17 - City Focus: Ride Shares & Taxis",
+          "subject": "Small space, big risk: Mask up in every ride 🚕",
+          "open_rate": 0.6602,
+          "click_rate": 0.0019,
+          "revenue": 2688.25,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JR1693PFQXJ4RVCD2K5WBDRE.png"
+        },
+        {
+          "label": "04/22 - N95 Feature – “Spring Clean Your Protection” Variation B",
+          "subject": "Fresh Air, Fresher Protection – N95 for Spring 🌷",
+          "open_rate": 0.6468,
+          "click_rate": 0.0018,
+          "revenue": 3053.62,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JRBA0H1ZVP71X9GZPWWCFCFK.png"
+        },
+        {
+          "label": "04/10 - Suburban Focus: Home Improvement & DIY Projects",
+          "subject": "DIY Without the Dust with WellBefore Masks",
+          "open_rate": 0.5674,
+          "click_rate": 0.0016,
+          "revenue": 2385.51,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JQF1B1SRH6GY8NKEAFPF8TNF.png"
+        },
+        {
+          "label": "04/15 - Why Choose 3D (KF94 Style) — “A 3D Fit for a Fresh Season” Variation B",
+          "subject": "🌺 Spring Protection, Elevated—Why KF94?",
+          "open_rate": 0.5589,
+          "click_rate": 0.0019,
+          "revenue": 3622.87,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JQVS2WC9SRPRR150CBF4D3WM.png"
+        }
+      ]
+    },
+    "2025-05": {
+      "count": 19,
+      "avg_open_rate": 0.4635,
+      "avg_click_rate": 0.0019,
+      "total_revenue": 43319.09,
+      "top_campaigns": [
+        {
+          "label": "May 24 - Wildfire + Mask up (test)",
+          "subject": "🚨 WILDFIRE ALERT: Mask Up, Stay Safe 🔥",
+          "open_rate": 0.7585,
+          "click_rate": 0.0015,
+          "revenue": 2034.55,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JVSZ6CFMKCNJ6YWK8N4WAVCJ.png"
+        },
+        {
+          "label": "05/13 - Why Thousands Trust WellBefore Every Day",
+          "subject": "Trusted by Thousands — Here’s Why",
+          "open_rate": 0.5943,
+          "click_rate": 0.0012,
+          "revenue": 3979.53,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JT3TZ2154PR68W76V02V6ZH6.png"
+        },
+        {
+          "label": "May 8 - Outbreak Alert : Measles Cases Are Rising Variation A",
+          "subject": "🦠 Fast-Spreading Measles: Are You Prepared?",
+          "open_rate": 0.5819,
+          "click_rate": 0.0017,
+          "revenue": 1952.72,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JTKDTNCT8TXHVVK9YAJAMKK7.png"
+        },
+        {
+          "label": "04/29 - Caregivers & Essential Workers – “Compassion Meets Protection”",
+          "subject": "The Right Mask for Those Who Care for Others 💙",
+          "open_rate": 0.5723,
+          "click_rate": 0.002,
+          "revenue": 2357.67,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JRXE7MXBMKC8RTEC16P2F311.png"
+        },
+        {
+          "label": "05/17 -  Gerard Hughes - Social Proof Email (clone)",
+          "subject": "Tested & Trusted by a Data Expert >>",
+          "open_rate": 0.5613,
+          "click_rate": 0.0014,
+          "revenue": 2145.87,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JVDPHV8MKW9M0STZQB99SCJM.png"
+        }
+      ]
+    },
+    "2025-06": {
+      "count": 19,
+      "avg_open_rate": 0.4858,
+      "avg_click_rate": 0.0023,
+      "total_revenue": 45046.71,
+      "top_campaigns": [
+        {
+          "label": "05/31 - Subscription Feature",
+          "subject": "💥 30% OFF Masks? Let’s Set It Off",
+          "open_rate": 0.6563,
+          "click_rate": 0.0016,
+          "revenue": 1928.75,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JVWCPDBYX07RN1N84NHAMFRZ.png"
+        },
+        {
+          "label": "06/17 -   International Shipping",
+          "subject": "🌍 Shipping Update: Now Delivering to Australia, the UK & Canada!",
+          "open_rate": 0.6144,
+          "click_rate": 0.0015,
+          "revenue": 4370.55,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JXJMSWCBQ9MMDSZFBHA5M04T.png"
+        },
+        {
+          "label": "06/24 - Independence SITEWIDE Sale Variation B",
+          "subject": "🇺🇸 4th of July Deal: 9% Off Sitewide 🎉",
+          "open_rate": 0.602,
+          "click_rate": 0.0014,
+          "revenue": 3523.09,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JXZAFAAGFAJAMH92BBSMSSJR.png"
+        },
+        {
+          "label": "06/07 - Clearance Sale",
+          "subject": "🚨 Clearance Sale Alert: 10% off",
+          "open_rate": 0.5792,
+          "click_rate": 0.0027,
+          "revenue": 2439.05,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JWV6QSMVBV8XS3P0FAJ4YN05.png"
+        },
+        {
+          "label": "06/15 - Price Drop on KN95 3D Mask",
+          "subject": "🚨 Price Drop Alert: Save 10% On KN95 3D Masks",
+          "open_rate": 0.5754,
+          "click_rate": 0.0017,
+          "revenue": 2646.48,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JXFZ5342PEXQJ9NVGFAGTTNB.png"
+        }
+      ]
+    },
+    "2025-07": {
+      "count": 25,
+      "avg_open_rate": 0.5097,
+      "avg_click_rate": 0.0026,
+      "total_revenue": 39651.18,
+      "top_campaigns": [
+        {
+          "label": "07/17 - Trial Pack Feature",
+          "subject": "Not Sure Which Mask to Try First?",
+          "open_rate": 0.644,
+          "click_rate": 0.0027,
+          "revenue": 110.2,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JZTGY2E7HV954VRNGWTBS2BR.png"
+        },
+        {
+          "label": "07/12 - 3D Adjustable Mask Feature",
+          "subject": "Breathe Easy, Even in the Heat ☀️",
+          "open_rate": 0.6384,
+          "click_rate": 0.0035,
+          "revenue": 1731.4,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JZ8JF5PVZ6R1JY2HKP3A08GA.png"
+        },
+        {
+          "label": "07/03 - Independence SITEWIDE Sale - Ends Tomorrow",
+          "subject": "🇺🇸 9% OFF Everything Ends Tomorrow!",
+          "open_rate": 0.6093,
+          "click_rate": 0.0012,
+          "revenue": 3493.77,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JYQ1FE8AHBX67THR42ZAK647.png"
+        },
+        {
+          "label": "07/22 - Summer Allergies + Wildfire Smoke? (UPDATED) Variation B",
+          "subject": "Summer Allergies + Wildfire Smoke? ☀️🔥",
+          "open_rate": 0.6065,
+          "click_rate": 0.0013,
+          "revenue": 1740.33,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K0QVM3NCFC8SJGBWA4P1TZ9A.png"
+        },
+        {
+          "label": "07/20 - Bulk Gloves Feature",
+          "subject": "Gloves That Can Handle the Heat 🧤",
+          "open_rate": 0.5901,
+          "click_rate": 0.0059,
+          "revenue": 732.66,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JZR4R4TP4FH11Z54H15EVGP9.png"
+        }
+      ]
+    },
+    "2025-08": {
+      "count": 17,
+      "avg_open_rate": 0.5007,
+      "avg_click_rate": 0.002,
+      "total_revenue": 56448.5,
+      "top_campaigns": [
+        {
+          "label": "08/03 - International Shipping Reminder",
+          "subject": "🌍 Now Shipping to Canada, UK & Australia!",
+          "open_rate": 0.6362,
+          "click_rate": 0.0017,
+          "revenue": 3755.5,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K0YGXHY52YZP3EZ5Z9YK5M27.png"
+        },
+        {
+          "label": "08/31 - Gloves Focused: Stock up for the Seasonal Rush",
+          "subject": "🧤 Ready for Fall? Stock Up on Exam Gloves Today",
+          "open_rate": 0.5867,
+          "click_rate": 0.0008,
+          "revenue": 572.84,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K2YWMR71X0R9XJTF1AYG0M7P.png"
+        },
+        {
+          "label": "08/10 - KN95 Breeze Feature",
+          "subject": "Breeze Through Summer & Beyond 😷",
+          "open_rate": 0.5674,
+          "click_rate": 0.0022,
+          "revenue": 1594.78,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K1EGVHGPC834JQ3GKWKY1ES8.png"
+        },
+        {
+          "label": "08/17 - Prepare to Stay Hygienic in Crowded Spaces",
+          "subject": "Prepare to Stay Hygienic in Crowded Spaces 😷",
+          "open_rate": 0.5654,
+          "click_rate": 0.0035,
+          "revenue": 3364.87,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K202SRBZ7853P7V7A2YZE6TB.png"
+        },
+        {
+          "label": "08/14 - Back to School Sale Last Chance",
+          "subject": "📚 Last Call for Back to School Discounts!",
+          "open_rate": 0.5653,
+          "click_rate": 0.001,
+          "revenue": 3977.76,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K1ZZT48QJ1ZRNTQBV3KM5MKF.png"
+        }
+      ]
+    },
+    "2025-09": {
+      "count": 19,
+      "avg_open_rate": 0.4267,
+      "avg_click_rate": 0.0553,
+      "total_revenue": 44889.65,
+      "top_campaigns": [
+        {
+          "label": "10/09 - Incontinence: Test",
+          "subject": "Real Stories = Real Confidence ⭐",
+          "open_rate": 1,
+          "click_rate": 1,
+          "revenue": 0,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K5CKCJZANBBZ22P81ZJ1CKTF.png"
+        },
+        {
+          "label": "09/02 - N99 Mask Feature",
+          "subject": "🍂 Meet Your Fall Essential: N99 Masks",
+          "open_rate": 0.549,
+          "click_rate": 0.0019,
+          "revenue": 1258.97,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K349ZG4PTJQD1D3C9PWBT58E.png"
+        },
+        {
+          "label": "09/07 - You're Exposed: Germ & Pathogen Exposure Instances",
+          "subject": "11 million germs on shopping cart handles 😮",
+          "open_rate": 0.4586,
+          "click_rate": 0.0021,
+          "revenue": 3021.55,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K3H4A4QH50HWHNKS036PX8J7.png"
+        },
+        {
+          "label": "09/09 - Traveling this Fall?",
+          "subject": "🍂 Heading somewhere this season?",
+          "open_rate": 0.456,
+          "click_rate": 0.0012,
+          "revenue": 2353.43,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K3KXTY7TYKARNBGPBVJNG6G5.png"
+        },
+        {
+          "label": "09/14 - September Style Picks: Mask Colors for Fall",
+          "subject": "🍂 Match your mask to every outfit",
+          "open_rate": 0.4498,
+          "click_rate": 0.0019,
+          "revenue": 2625.71,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K3VXD1K923HC5JWWEX6FT9T1.png"
+        }
+      ]
+    },
+    "2025-10": {
+      "count": 15,
+      "avg_open_rate": 0.3299,
+      "avg_click_rate": 0.0014,
+      "total_revenue": 33109.12,
+      "top_campaigns": [
+        {
+          "label": "09/23 - Product Launch: New Gloves + Back in Stock Gloves",
+          "subject": "Be First in Line for BFCM Deals! ⭐",
+          "open_rate": 0.4265,
+          "click_rate": 0.0025,
+          "revenue": 459.54,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K5VSE2KC2JGFNWPRD9GRBYZY.png"
+        },
+        {
+          "label": "10/31 - Breast Cancer Awareness Month: Last Chance",
+          "subject": "Wear Pink, Support the Fight 💗",
+          "open_rate": 0.3752,
+          "click_rate": 0.0008,
+          "revenue": 466.37,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K6N3Q1KMC3K6BW9MM46J3QDS.png"
+        },
+        {
+          "label": "10/07 - Sample / Trial Packs Promotion: Transform Your Hygiene Routine",
+          "subject": "Try Our Sample and Mix’n’Match Packs 😷",
+          "open_rate": 0.3685,
+          "click_rate": 0.0014,
+          "revenue": 2049.26,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K57GWGPQ98J7FSFH61PQRTH2.png"
+        },
+        {
+          "label": "10/05 - KN95 Tiktok Video Feature + Protect What Matters Most: Support for the Immunocompromised",
+          "subject": "KN95s in the Spotlight + Protecting the Most Vulnerable",
+          "open_rate": 0.3541,
+          "click_rate": 0.0014,
+          "revenue": 1547.98,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K4ZQGVGYPCZ2ET9F5T5SSPPH.png"
+        },
+        {
+          "label": "10/02 - Weekly News Roundup (Extended volume send)",
+          "subject": "Health Update + Smart Protection Picks for Fall 🍂",
+          "open_rate": 0.3531,
+          "click_rate": 0.0011,
+          "revenue": 3112.76,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K6BCX478ST8TDMGERKNB68YE.png"
+        }
+      ]
+    },
+    "2025-11": {
+      "count": 28,
+      "avg_open_rate": 0.3701,
+      "avg_click_rate": 0.037,
+      "total_revenue": 71871.24,
+      "top_campaigns": [
+        {
+          "label": "[Test] 11/07 - Subscription Offer: Up to 30% Off + Free Shipping on First Order",
+          "subject": "Subscribe today for 30% off + FREE shipping",
+          "open_rate": 1,
+          "click_rate": 1,
+          "revenue": 0,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9E057FCW7GTGA02KSX8H1QQ.png"
+        },
+        {
+          "label": "11/29 - Email #2: BFCM: Persona Focus [Caregiver]: BFCM Family Protection Bundle",
+          "subject": "🏠 Family Protection Bundles up to 20% OFF",
+          "open_rate": 0.6487,
+          "click_rate": 0.002,
+          "revenue": 1851.25,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9DBRAZ7K461RX7PQWDTMBXA.png"
+        },
+        {
+          "label": "11/23 - Email #2: BFCM: Health Tips of the Week - Safer Hosting: Holiday Gatherings Made Healthier [Plain Text Feature]",
+          "subject": "🥳 Your Holiday Hosting Tips + Up to 20% Off Essentials",
+          "open_rate": 0.6229,
+          "click_rate": 0.0026,
+          "revenue": 3230.65,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K83MRSW9NPWMNVX20GB196GY.png"
+        },
+        {
+          "label": "11/27 - Email #2: BFCM: Check Out Our Category Best Sellers #2 [Masks/Gloves/Incontinence]",
+          "subject": "✅ Our Top-Rated Health Essentials >>>",
+          "open_rate": 0.6016,
+          "click_rate": 0.0016,
+          "revenue": 2785.94,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K981NGQM8ZC2R9Z34AG68ZNQ.png"
+        },
+        {
+          "label": "11/20 - Email #2: BFCM: Health & Wellness Tips for a High Risk Seasonal Event",
+          "subject": "🎄 Be Ready for Every Holiday Moment  ✨",
+          "open_rate": 0.4915,
+          "click_rate": 0.0015,
+          "revenue": 2068.31,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K8V1YCGFH41S72PNJERJ9H6K.png"
+        }
+      ]
+    },
+    "2025-12": {
+      "count": 21,
+      "avg_open_rate": 0.3271,
+      "avg_click_rate": 0.001,
+      "total_revenue": 61180.56,
+      "top_campaigns": [
+        {
+          "label": "12/06 - Email #1: Product Category Feature: 3 Situations You’ll Wish You Had a Test Kit",
+          "subject": "3 situations you’ll wish you had a test kit 🦠",
+          "open_rate": 0.6483,
+          "click_rate": 0.0019,
+          "revenue": 2364.92,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9QD9W3JHMZTA08WS4F2E909.png"
+        },
+        {
+          "label": "12/03 - Email #2: Just Hours Remain for CM + Stocking Stuffers",
+          "subject": "⌛ Cyber Monday Ends in Hours",
+          "open_rate": 0.6018,
+          "click_rate": 0.0016,
+          "revenue": 1917.32,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KA2749PY1YV8GKVMBY076Q8T.png"
+        },
+        {
+          "label": "12/12 - International Customers Shipping",
+          "subject": "🚚 🌎 FREE Global Shipping on $100+ Essentials.",
+          "open_rate": 0.5409,
+          "click_rate": 0.0027,
+          "revenue": 172.6,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KC1YGF7C398H69Z023BA3VMM.png"
+        },
+        {
+          "label": "12/28 - Email #2 - EOY Sale + Black NOSH 95",
+          "subject": "💥 💰 Our Black N95 masks on sale.",
+          "open_rate": 0.371,
+          "click_rate": 0.0023,
+          "revenue": 2714.4,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KCHJAKMBATRKH041WG2XVM5D.png"
+        },
+        {
+          "label": "12/29 - EOY Sale: Final Day for the Current Offer",
+          "subject": "⏰ Final day to save up to 20% at Wellbefore.",
+          "open_rate": 0.3137,
+          "click_rate": 0.0011,
+          "revenue": 7765.49,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KCJ2MGHM130FAWR80WF5K22W.png"
+        }
+      ]
+    },
+    "2026-01": {
+      "count": 18,
+      "avg_open_rate": 0.4404,
+      "avg_click_rate": 0.0032,
+      "total_revenue": 57579.84,
+      "top_campaigns": [
+        {
+          "label": "01/02 - Product Feature for Close Converters: Test Kits",
+          "subject": "Fast Answers at Home in Minutes.",
+          "open_rate": 0.6607,
+          "click_rate": 0.0036,
+          "revenue": 1602.12,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KCSG75ZZSWMS5SCVZBVPFZQ9.png"
+        },
+        {
+          "label": "01/20 - Influencer Feature",
+          "subject": "💬 Influencers Trust WellBefore. Here’s Why.",
+          "open_rate": 0.6514,
+          "click_rate": 0.0029,
+          "revenue": 2095.45,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KE08AYQNVS9WHZN0722MG4KK.png"
+        },
+        {
+          "label": "12/21 - Email #2 - Nitrile Gloves [Back in Stock]",
+          "subject": "✅ Nitrile Gloves Are Back in Stock >>>",
+          "open_rate": 0.5848,
+          "click_rate": 0.0031,
+          "revenue": 4532.84,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KC7GHQQ35BKS62412WN0HCG6.png"
+        },
+        {
+          "label": "01/06 - Weekly News Roundup",
+          "subject": "⚠️ A Strong Flu Season Is Unfolding.",
+          "open_rate": 0.5735,
+          "click_rate": 0.0043,
+          "revenue": 3700.24,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KDNBAD0VZ2XD1XGQKFAVD5MC.png"
+        },
+        {
+          "label": "01/17 - Ultrasonic Toothbrush Feature",
+          "subject": "🦷 Introducing Our Kids Ultrasonic Brush >>",
+          "open_rate": 0.5648,
+          "click_rate": 0.0015,
+          "revenue": 1303.09,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KAEMZJ2S6K2VX33V7KY7JJP3.png"
+        }
+      ]
+    },
+    "2026-02": {
+      "count": 11,
+      "avg_open_rate": 0.4082,
+      "avg_click_rate": 0.0016,
+      "total_revenue": 27614.45,
+      "top_campaigns": [
+        {
+          "label": "Email #2: 01/17 - N95 NIOSH Mask Feature [Interest Segment]\"",
+          "subject": "Meet Our Best-Selling N95, Now in Black.",
+          "open_rate": 0.5883,
+          "click_rate": 0.0031,
+          "revenue": 2954.03,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KDTPFH05YK225BX62AY2WH6H.png"
+        },
+        {
+          "label": "02/17 - Tuesday Send: Subscription Push",
+          "subject": "Save 30% on every order when you subscribe.💥",
+          "open_rate": 0.5547,
+          "click_rate": 0.0009,
+          "revenue": 1583.3,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KFXN7WZ06M39ZW5ZYSVA4G98.png"
+        },
+        {
+          "label": "02/03 - Tuesday Send: Bi-Weekly News Round Up (1/2)",
+          "subject": "Health Alert: Nipah Virus in India 🦠",
+          "open_rate": 0.5462,
+          "click_rate": 0.0046,
+          "revenue": 2749.88,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KFGJGEAEBV5P1H6XV98NX70S.png"
+        },
+        {
+          "label": "02/24 - Tuesday Send: Weekly News Round Up (2/2)",
+          "subject": "🚨 Weekly Health Alert: Kids at Risk 🚨",
+          "open_rate": 0.5171,
+          "click_rate": 0.0012,
+          "revenue": 1719.94,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KHSAR4TP2ASTB3JCDDBWQS8P.png"
+        },
+        {
+          "label": "02/10 - Tuesday Send: Mask Highlight (1/2)",
+          "subject": "Schools, gyms, and subways: Mask up.😷",
+          "open_rate": 0.3692,
+          "click_rate": 0.002,
+          "revenue": 5235.46,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KFK879KG47S1SYP68E8MGMAQ.png"
+        }
+      ]
+    },
+    "2026-03": {
+      "count": 9,
+      "avg_open_rate": 0.3729,
+      "avg_click_rate": 0.0016,
+      "total_revenue": 23250.43,
+      "top_campaigns": [
+        {
+          "label": "03/10 - News Round Up",
+          "subject": "⚠️ This Week’s Global Health Update.",
+          "open_rate": 0.5002,
+          "click_rate": 0.0021,
+          "revenue": 2217.14,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KHYFERN12VRQ8T5D7RXFJFHE.png"
+        },
+        {
+          "label": "02/28 - Social Proof On WellBefore (RESEND)",
+          "subject": "💬 Why customers LOVE shopping with us 💙",
+          "open_rate": 0.4859,
+          "click_rate": 0.0015,
+          "revenue": 2162.78,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KJSAQ5N9ESXD3MHJ27Q47K4Z.png"
+        },
+        {
+          "label": "03/12 - Mask Focus",
+          "subject": "The Flu Is Still Here! 🦠",
+          "open_rate": 0.4524,
+          "click_rate": 0.0033,
+          "revenue": 6064.16,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KJQHQH4TFQZB0MRZJGPF6R34.png"
+        },
+        {
+          "label": "03/14 - Subscription Focus",
+          "subject": "Thank you for choosing WellBefore 💙",
+          "open_rate": 0.3757,
+          "click_rate": 0.0013,
+          "revenue": 1713.92,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KJZAFPY5PZ7Z97XF09AHPNYQ.png"
+        },
+        {
+          "label": "03/01 - Sunday Send: Everyday Precaution",
+          "subject": "⚕️Simple Steps for Daily Safety.",
+          "open_rate": 0.3481,
+          "click_rate": 0.0022,
+          "revenue": 4641.96,
+          "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KG7P99PX376CTZCYE8FB89R8.png"
+        }
+      ]
+    }
+  },
+  "top_by_open_rate": [
+    {
+      "campaign_id": "01K5CKCJZANBBZ22P81ZJ1CKTF",
+      "label": "10/09 - Incontinence: Test",
+      "subject": "Real Stories = Real Confidence ⭐",
+      "send_time": "2025-09-17T19:49:24+00:00",
+      "open_rate": 1,
+      "click_rate": 1,
+      "revenue": 0,
+      "cto_rate": 1,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K5CKCJZANBBZ22P81ZJ1CKTF.png"
+    },
+    {
+      "campaign_id": "01K9E057FCW7GTGA02KSX8H1QQ",
+      "label": "[Test] 11/07 - Subscription Offer: Up to 30% Off + Free Shipping on First Order",
+      "subject": "Subscribe today for 30% off + FREE shipping",
+      "send_time": "2025-11-07T01:52:46.254116+00:00",
+      "open_rate": 1,
+      "click_rate": 1,
+      "revenue": 0,
+      "cto_rate": 1,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9E057FCW7GTGA02KSX8H1QQ.png"
+    },
+    {
+      "campaign_id": "01JVSZ6CFMKCNJ6YWK8N4WAVCJ",
+      "label": "May 24 - Wildfire + Mask up (test)",
+      "subject": "🚨 WILDFIRE ALERT: Mask Up, Stay Safe 🔥",
+      "send_time": "2025-05-24T14:00:00+00:00",
+      "open_rate": 0.7585,
+      "click_rate": 0.0015,
+      "revenue": 2034.55,
+      "cto_rate": 0.0019,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JVSZ6CFMKCNJ6YWK8N4WAVCJ.png"
+    },
+    {
+      "campaign_id": "01JQS5T8WNJGRG0743YCJKFJ95",
+      "label": "04/12 - Reviews Driven Feature: Foggy Glasses",
+      "subject": "Say Goodbye to Foggy Glasses 👓",
+      "send_time": "2025-04-12T14:00:00+00:00",
+      "open_rate": 0.6752,
+      "click_rate": 0.0046,
+      "revenue": 2482.28,
+      "cto_rate": 0.0068,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JQS5T8WNJGRG0743YCJKFJ95.png"
+    },
+    {
+      "campaign_id": "01KCSG75ZZSWMS5SCVZBVPFZQ9",
+      "label": "01/02 - Product Feature for Close Converters: Test Kits",
+      "subject": "Fast Answers at Home in Minutes.",
+      "send_time": "2026-01-02T16:00:00+00:00",
+      "open_rate": 0.6607,
+      "click_rate": 0.0036,
+      "revenue": 1602.12,
+      "cto_rate": 0.0054,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KCSG75ZZSWMS5SCVZBVPFZQ9.png"
+    },
+    {
+      "campaign_id": "01JR1693PFQXJ4RVCD2K5WBDRE",
+      "label": "04/17 - City Focus: Ride Shares & Taxis",
+      "subject": "Small space, big risk: Mask up in every ride 🚕",
+      "send_time": "2025-04-17T14:00:00+00:00",
+      "open_rate": 0.6602,
+      "click_rate": 0.0019,
+      "revenue": 2688.25,
+      "cto_rate": 0.0029,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JR1693PFQXJ4RVCD2K5WBDRE.png"
+    },
+    {
+      "campaign_id": "01JVWCPDBYX07RN1N84NHAMFRZ",
+      "label": "05/31 - Subscription Feature",
+      "subject": "💥 30% OFF Masks? Let’s Set It Off",
+      "send_time": "2025-06-02T02:00:00+00:00",
+      "open_rate": 0.6563,
+      "click_rate": 0.0016,
+      "revenue": 1928.75,
+      "cto_rate": 0.0024,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JVWCPDBYX07RN1N84NHAMFRZ.png"
+    },
+    {
+      "campaign_id": "01KE08AYQNVS9WHZN0722MG4KK",
+      "label": "01/20 - Influencer Feature",
+      "subject": "💬 Influencers Trust WellBefore. Here’s Why.",
+      "send_time": "2026-01-20T21:00:00+00:00",
+      "open_rate": 0.6514,
+      "click_rate": 0.0029,
+      "revenue": 2095.45,
+      "cto_rate": 0.0044,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KE08AYQNVS9WHZN0722MG4KK.png"
+    },
+    {
+      "campaign_id": "01K9DBRAZ7K461RX7PQWDTMBXA",
+      "label": "11/29 - Email #2: BFCM: Persona Focus [Caregiver]: BFCM Family Protection Bundle",
+      "subject": "🏠 Family Protection Bundles up to 20% OFF",
+      "send_time": "2025-11-29T21:15:00+00:00",
+      "open_rate": 0.6487,
+      "click_rate": 0.002,
+      "revenue": 1851.25,
+      "cto_rate": 0.0032,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9DBRAZ7K461RX7PQWDTMBXA.png"
+    },
+    {
+      "campaign_id": "01K9QD9W3JHMZTA08WS4F2E909",
+      "label": "12/06 - Email #1: Product Category Feature: 3 Situations You’ll Wish You Had a Test Kit",
+      "subject": "3 situations you’ll wish you had a test kit 🦠",
+      "send_time": "2025-12-06T15:00:00+00:00",
+      "open_rate": 0.6483,
+      "click_rate": 0.0019,
+      "revenue": 2364.92,
+      "cto_rate": 0.0029,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9QD9W3JHMZTA08WS4F2E909.png"
+    },
+    {
+      "campaign_id": "01JRBA0H1ZVP71X9GZPWWCFCFK",
+      "label": "04/22 - N95 Feature – “Spring Clean Your Protection” Variation B",
+      "subject": "Fresh Air, Fresher Protection – N95 for Spring 🌷",
+      "send_time": "2025-04-22T14:30:00+00:00",
+      "open_rate": 0.6468,
+      "click_rate": 0.0018,
+      "revenue": 3053.62,
+      "cto_rate": 0.0029,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JRBA0H1ZVP71X9GZPWWCFCFK.png"
+    },
+    {
+      "campaign_id": "01JZTGY2E7HV954VRNGWTBS2BR",
+      "label": "07/17 - Trial Pack Feature",
+      "subject": "Not Sure Which Mask to Try First?",
+      "send_time": "2025-07-17T14:00:00+00:00",
+      "open_rate": 0.644,
+      "click_rate": 0.0027,
+      "revenue": 110.2,
+      "cto_rate": 0.0042,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JZTGY2E7HV954VRNGWTBS2BR.png"
+    },
+    {
+      "campaign_id": "01JZ8JF5PVZ6R1JY2HKP3A08GA",
+      "label": "07/12 - 3D Adjustable Mask Feature",
+      "subject": "Breathe Easy, Even in the Heat ☀️",
+      "send_time": "2025-07-13T02:00:00+00:00",
+      "open_rate": 0.6384,
+      "click_rate": 0.0035,
+      "revenue": 1731.4,
+      "cto_rate": 0.0054,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JZ8JF5PVZ6R1JY2HKP3A08GA.png"
+    },
+    {
+      "campaign_id": "01K0YGXHY52YZP3EZ5Z9YK5M27",
+      "label": "08/03 - International Shipping Reminder",
+      "subject": "🌍 Now Shipping to Canada, UK & Australia!",
+      "send_time": "2025-08-03T14:00:00+00:00",
+      "open_rate": 0.6362,
+      "click_rate": 0.0017,
+      "revenue": 3755.5,
+      "cto_rate": 0.0026,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K0YGXHY52YZP3EZ5Z9YK5M27.png"
+    },
+    {
+      "campaign_id": "01K83MRSW9NPWMNVX20GB196GY",
+      "label": "11/23 - Email #2: BFCM: Health Tips of the Week - Safer Hosting: Holiday Gatherings Made Healthier [Plain Text Feature]",
+      "subject": "🥳 Your Holiday Hosting Tips + Up to 20% Off Essentials",
+      "send_time": "2025-11-23T22:30:00+00:00",
+      "open_rate": 0.6229,
+      "click_rate": 0.0026,
+      "revenue": 3230.65,
+      "cto_rate": 0.0041,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K83MRSW9NPWMNVX20GB196GY.png"
+    },
+    {
+      "campaign_id": "01JXJMSWCBQ9MMDSZFBHA5M04T",
+      "label": "06/17 -   International Shipping",
+      "subject": "🌍 Shipping Update: Now Delivering to Australia, the UK & Canada!",
+      "send_time": "2025-06-17T14:00:00+00:00",
+      "open_rate": 0.6144,
+      "click_rate": 0.0015,
+      "revenue": 4370.55,
+      "cto_rate": 0.0025,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JXJMSWCBQ9MMDSZFBHA5M04T.png"
+    },
+    {
+      "campaign_id": "01JYQ1FE8AHBX67THR42ZAK647",
+      "label": "07/03 - Independence SITEWIDE Sale - Ends Tomorrow",
+      "subject": "🇺🇸 9% OFF Everything Ends Tomorrow!",
+      "send_time": "2025-07-03T14:00:00+00:00",
+      "open_rate": 0.6093,
+      "click_rate": 0.0012,
+      "revenue": 3493.77,
+      "cto_rate": 0.002,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JYQ1FE8AHBX67THR42ZAK647.png"
+    },
+    {
+      "campaign_id": "01K0QVM3NCFC8SJGBWA4P1TZ9A",
+      "label": "07/22 - Summer Allergies + Wildfire Smoke? (UPDATED) Variation B",
+      "subject": "Summer Allergies + Wildfire Smoke? ☀️🔥",
+      "send_time": "2025-07-22T14:00:00+00:00",
+      "open_rate": 0.6065,
+      "click_rate": 0.0013,
+      "revenue": 1740.33,
+      "cto_rate": 0.0021,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K0QVM3NCFC8SJGBWA4P1TZ9A.png"
+    },
+    {
+      "campaign_id": "01JXZAFAAGFAJAMH92BBSMSSJR",
+      "label": "06/24 - Independence SITEWIDE Sale Variation B",
+      "subject": "🇺🇸 4th of July Deal: 9% Off Sitewide 🎉",
+      "send_time": "2025-06-24T14:00:00+00:00",
+      "open_rate": 0.602,
+      "click_rate": 0.0014,
+      "revenue": 3523.09,
+      "cto_rate": 0.0023,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JXZAFAAGFAJAMH92BBSMSSJR.png"
+    },
+    {
+      "campaign_id": "01KA2749PY1YV8GKVMBY076Q8T",
+      "label": "12/03 - Email #2: Just Hours Remain for CM + Stocking Stuffers",
+      "subject": "⌛ Cyber Monday Ends in Hours",
+      "send_time": "2025-12-03T22:15:00+00:00",
+      "open_rate": 0.6018,
+      "click_rate": 0.0016,
+      "revenue": 1917.32,
+      "cto_rate": 0.0027,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KA2749PY1YV8GKVMBY076Q8T.png"
+    }
+  ],
+  "top_by_click_rate": [
+    {
+      "campaign_id": "01K5CKCJZANBBZ22P81ZJ1CKTF",
+      "label": "10/09 - Incontinence: Test",
+      "subject": "Real Stories = Real Confidence ⭐",
+      "send_time": "2025-09-17T19:49:24+00:00",
+      "open_rate": 1,
+      "click_rate": 1,
+      "revenue": 0,
+      "cto_rate": 1,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K5CKCJZANBBZ22P81ZJ1CKTF.png"
+    },
+    {
+      "campaign_id": "01K9E057FCW7GTGA02KSX8H1QQ",
+      "label": "[Test] 11/07 - Subscription Offer: Up to 30% Off + Free Shipping on First Order",
+      "subject": "Subscribe today for 30% off + FREE shipping",
+      "send_time": "2025-11-07T01:52:46.254116+00:00",
+      "open_rate": 1,
+      "click_rate": 1,
+      "revenue": 0,
+      "cto_rate": 1,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9E057FCW7GTGA02KSX8H1QQ.png"
+    },
+    {
+      "campaign_id": "01K4DSFEPSF7G6580E7QNGAS6H",
+      "label": "09/21 - Incontinence Highlight: Stay Active, Stay Protected",
+      "subject": "Absorbent underwear for a life without limits >>>",
+      "send_time": "2025-09-21T14:03:00+00:00",
+      "open_rate": 0.3038,
+      "click_rate": 0.0244,
+      "revenue": 0,
+      "cto_rate": 0.0805,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K4DSFEPSF7G6580E7QNGAS6H.png"
+    },
+    {
+      "campaign_id": "01KCSNZX1PS79WM41WH6FZB93Y",
+      "label": "01/02 - Product Feature for Close Converters: Incontinence\"",
+      "subject": "🌙 Sleep through the night with confidence.",
+      "send_time": "2026-01-02T19:00:00+00:00",
+      "open_rate": 0.3113,
+      "click_rate": 0.0137,
+      "revenue": 157.37,
+      "cto_rate": 0.0439,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KCSNZX1PS79WM41WH6FZB93Y.png"
+    },
+    {
+      "campaign_id": "01K0SRJXSTZJSK82JQ12MJDMBC",
+      "label": "BIS - A1_KN95_REGULAR-BLACK-LARGE",
+      "subject": "Trusted Replacements for KN95 Standard Ear Loops | Black | Large",
+      "send_time": "2025-07-22T19:08:46+00:00",
+      "open_rate": 0.4615,
+      "click_rate": 0.0113,
+      "revenue": 48.21,
+      "cto_rate": 0.0245,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K0SRJXSTZJSK82JQ12MJDMBC.png"
+    },
+    {
+      "campaign_id": "01JZAYTSPW2MEH4TS0ASHN8BEN",
+      "label": "Evergreen Template: Discontinued Products",
+      "subject": "Trusted Replacements for KN95 Standard Ear Loops | Black | Large",
+      "send_time": "2025-07-22T19:06:40+00:00",
+      "open_rate": 0.4853,
+      "click_rate": 0.009,
+      "revenue": 20.91,
+      "cto_rate": 0.0186,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JZAYTSPW2MEH4TS0ASHN8BEN.png"
+    },
+    {
+      "campaign_id": "01KEA1EK9SEJVY6B52KR5CKCR0",
+      "label": "01/09 - N95 Black NIOSH Mask Targeted Highlight",
+      "subject": "✔️ Black N95 Protection You Can Trust.",
+      "send_time": "2026-01-09T19:00:00+00:00",
+      "open_rate": 0.3424,
+      "click_rate": 0.007,
+      "revenue": 259.85,
+      "cto_rate": 0.0205,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KEA1EK9SEJVY6B52KR5CKCR0.png"
+    },
+    {
+      "campaign_id": "01JY44TV6H23R7E9CAE19TVCDH",
+      "label": "06/21 - KN95 Breeze Mask Feature",
+      "subject": "Your Summer Mask is Here ☀️",
+      "send_time": "2025-06-21T14:00:00+00:00",
+      "open_rate": 0.4749,
+      "click_rate": 0.0068,
+      "revenue": 4133.47,
+      "cto_rate": 0.0143,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JY44TV6H23R7E9CAE19TVCDH.png"
+    },
+    {
+      "campaign_id": "01JZR4R4TP4FH11Z54H15EVGP9",
+      "label": "07/20 - Bulk Gloves Feature",
+      "subject": "Gloves That Can Handle the Heat 🧤",
+      "send_time": "2025-07-20T14:00:00+00:00",
+      "open_rate": 0.5901,
+      "click_rate": 0.0059,
+      "revenue": 732.66,
+      "cto_rate": 0.01,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JZR4R4TP4FH11Z54H15EVGP9.png"
+    },
+    {
+      "campaign_id": "01KCWGA0HMXD9WD4E60DKHRMRF",
+      "label": "01/04 - New Near New You: Top Masks for Wearing at the Gym",
+      "subject": "🥳 New Near New You!",
+      "send_time": "2026-01-04T20:00:00+00:00",
+      "open_rate": 0.5033,
+      "click_rate": 0.0052,
+      "revenue": 5655.04,
+      "cto_rate": 0.0104,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KCWGA0HMXD9WD4E60DKHRMRF.png"
+    },
+    {
+      "campaign_id": "01K4QGZ24JHD4TXFVJCG7ZFHDK",
+      "label": "09/30 - Test Kits You Can Rely On",
+      "subject": "Test smarter, not harder ✅",
+      "send_time": "2025-09-30T14:00:00+00:00",
+      "open_rate": 0.4283,
+      "click_rate": 0.0049,
+      "revenue": 590.28,
+      "cto_rate": 0.0115,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K4QGZ24JHD4TXFVJCG7ZFHDK.png"
+    },
+    {
+      "campaign_id": "01JWBFM3BYWZWXA1SVDW6WB0X1",
+      "label": "05/31 -  Outbreaks, Warnings & More: Your Health News Roundup",
+      "subject": "COVID Isn’t Over: 300 Weekly Deaths Say Otherwise",
+      "send_time": "2025-05-29T14:00:00+00:00",
+      "open_rate": 0.5125,
+      "click_rate": 0.0049,
+      "revenue": 5184.79,
+      "cto_rate": 0.0096,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JWBFM3BYWZWXA1SVDW6WB0X1.png"
+    },
+    {
+      "campaign_id": "01JQS5T8WNJGRG0743YCJKFJ95",
+      "label": "04/12 - Reviews Driven Feature: Foggy Glasses",
+      "subject": "Say Goodbye to Foggy Glasses 👓",
+      "send_time": "2025-04-12T14:00:00+00:00",
+      "open_rate": 0.6752,
+      "click_rate": 0.0046,
+      "revenue": 2482.28,
+      "cto_rate": 0.0068,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JQS5T8WNJGRG0743YCJKFJ95.png"
+    },
+    {
+      "campaign_id": "01KFGJGEAEBV5P1H6XV98NX70S",
+      "label": "02/03 - Tuesday Send: Bi-Weekly News Round Up (1/2)",
+      "subject": "Health Alert: Nipah Virus in India 🦠",
+      "send_time": "2026-02-04T03:00:00+00:00",
+      "open_rate": 0.5462,
+      "click_rate": 0.0046,
+      "revenue": 2749.88,
+      "cto_rate": 0.0084,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KFGJGEAEBV5P1H6XV98NX70S.png"
+    },
+    {
+      "campaign_id": "01JQ468849N9NDD3N7TTN7048P",
+      "label": "04/01 - KN95 Breeze Feature – “A Breath of Fresh Air This Spring” Variation B",
+      "subject": "Meet the Most Breathable KN95 for Spring ☀️",
+      "send_time": "2025-04-01T14:00:00+00:00",
+      "open_rate": 0.5453,
+      "click_rate": 0.0046,
+      "revenue": 3577.74,
+      "cto_rate": 0.0083,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JQ468849N9NDD3N7TTN7048P.png"
+    },
+    {
+      "campaign_id": "01KDNBAD0VZ2XD1XGQKFAVD5MC",
+      "label": "01/06 - Weekly News Roundup",
+      "subject": "⚠️ A Strong Flu Season Is Unfolding.",
+      "send_time": "2026-01-06T18:00:00+00:00",
+      "open_rate": 0.5735,
+      "click_rate": 0.0043,
+      "revenue": 3700.24,
+      "cto_rate": 0.0076,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KDNBAD0VZ2XD1XGQKFAVD5MC.png"
+    },
+    {
+      "campaign_id": "01K1X8DWQGAVTT6GR3BJHKGT0E",
+      "label": "08/07 - Weekly News Round Up",
+      "subject": "🚨 NB.1.8.1 Variant on the Rise—Stay Safer While Traveling",
+      "send_time": "2025-08-07T14:00:00+00:00",
+      "open_rate": 0.5459,
+      "click_rate": 0.0043,
+      "revenue": 3650.01,
+      "cto_rate": 0.0078,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K1X8DWQGAVTT6GR3BJHKGT0E.png"
+    },
+    {
+      "campaign_id": "01JTRDHCM95BCEE83RWRZKXSR2",
+      "label": "May 12 - What You Need to Know About H5N1 (Avian Flu)",
+      "subject": "Avian Flu H5N1: Should You Be Concerned?",
+      "send_time": "2025-05-13T14:00:00+00:00",
+      "open_rate": 0.5605,
+      "click_rate": 0.0043,
+      "revenue": 2360.05,
+      "cto_rate": 0.0076,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JTRDHCM95BCEE83RWRZKXSR2.png"
+    },
+    {
+      "campaign_id": "01JKRE3PJ6GDB3N5DQHG60SJN5",
+      "label": "02/22 - Cancelled Subscription: KN95 Feature",
+      "subject": "Your Mask Protection Stopped—Let’s Fix That >>",
+      "send_time": "2025-03-21T02:00:00+00:00",
+      "open_rate": 0.5286,
+      "click_rate": 0.0042,
+      "revenue": 275.85,
+      "cto_rate": 0.0079,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JKRE3PJ6GDB3N5DQHG60SJN5.png"
+    },
+    {
+      "campaign_id": "01JYHAK34A7MGA0ZMW39ZNXEYD",
+      "label": "06/26 - TBD - News Round Up Variation B",
+      "subject": "Stay Alert: Razor Throat is on the Rise",
+      "send_time": "2025-06-26T14:00:00+00:00",
+      "open_rate": 0.4818,
+      "click_rate": 0.0041,
+      "revenue": 2787.28,
+      "cto_rate": 0.0086,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JYHAK34A7MGA0ZMW39ZNXEYD.png"
+    }
+  ],
+  "top_by_revenue": [
+    {
+      "campaign_id": "01K9FZ2GQNH7AVPH7E4YEBY6JV",
+      "label": "11/29 - Email #3: BFCM: 6 Hours Remain + Beyond COVID - The Many Uses of High Filtration Masks",
+      "subject": "⏰ Only 6 Hours Left",
+      "send_time": "2025-11-30T00:33:00+00:00",
+      "open_rate": 0.4657,
+      "click_rate": 0.0024,
+      "revenue": 11133,
+      "cto_rate": 0.0052,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9FZ2GQNH7AVPH7E4YEBY6JV.png"
+    },
+    {
+      "campaign_id": "01KG2JG6AT0031AQTEWQ9MGR44",
+      "label": "01/31 - Why WellBefore?",
+      "subject": "Why 800,000 people trust WellBefore.✨",
+      "send_time": "2026-01-31T21:00:00+00:00",
+      "open_rate": 0.3133,
+      "click_rate": 0.0009,
+      "revenue": 7930.77,
+      "cto_rate": 0.0029,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KG2JG6AT0031AQTEWQ9MGR44.png"
+    },
+    {
+      "campaign_id": "01KCJ2MGHM130FAWR80WF5K22W",
+      "label": "12/29 - EOY Sale: Final Day for the Current Offer",
+      "subject": "⏰ Final day to save up to 20% at Wellbefore.",
+      "send_time": "2025-12-29T15:15:00+00:00",
+      "open_rate": 0.3137,
+      "click_rate": 0.0011,
+      "revenue": 7765.49,
+      "cto_rate": 0.0037,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KCJ2MGHM130FAWR80WF5K22W.png"
+    },
+    {
+      "campaign_id": "01JSY8P9PH4ZV1A0X76V4MQD19",
+      "label": "04/30 - Flash Sale ends today",
+      "subject": "Final Hours: Save on Your Masks!",
+      "send_time": "2025-04-30T14:00:00+00:00",
+      "open_rate": 0.5434,
+      "click_rate": 0.0017,
+      "revenue": 7682.02,
+      "cto_rate": 0.0031,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JSY8P9PH4ZV1A0X76V4MQD19.png"
+    },
+    {
+      "campaign_id": "01KD3E9VSSAZ0EJV2CK4HJ9B8V",
+      "label": "01/10 - Just In: The Wellbefore Best Sellers of 2025 (& why) *Top 5*",
+      "subject": "Just In: 🌟 WellBefore’s Best Sellers of 2025.",
+      "send_time": "2026-01-10T19:00:00+00:00",
+      "open_rate": 0.557,
+      "click_rate": 0.0026,
+      "revenue": 7469.93,
+      "cto_rate": 0.0046,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KD3E9VSSAZ0EJV2CK4HJ9B8V.png"
+    },
+    {
+      "campaign_id": "01KEAD1KMB30HM53S78PGY985Y",
+      "label": "01/27 - The Certified Protection Guide: How to Spot Real vs. Fake PPE Online Variation C",
+      "subject": "✅ Real vs ❌ Fake PPE Explained.",
+      "send_time": "2026-01-27T23:00:00+00:00",
+      "open_rate": 0.3245,
+      "click_rate": 0.0019,
+      "revenue": 6606.47,
+      "cto_rate": 0.006,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KEAD1KMB30HM53S78PGY985Y.png"
+    },
+    {
+      "campaign_id": "01K3RX14NDKANSCY8D0S02Q3WC",
+      "label": "09/11 - End of Season, End of Stock: Clearance Sale",
+      "subject": "🚨 Clearance Prices on Best Sellers >>>>",
+      "send_time": "2025-09-11T14:04:00+00:00",
+      "open_rate": 0.4027,
+      "click_rate": 0.0027,
+      "revenue": 6140.69,
+      "cto_rate": 0.0066,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K3RX14NDKANSCY8D0S02Q3WC.png"
+    },
+    {
+      "campaign_id": "01KJQHQH4TFQZB0MRZJGPF6R34",
+      "label": "03/12 - Mask Focus",
+      "subject": "The Flu Is Still Here! 🦠",
+      "send_time": "2026-03-12T21:00:00+00:00",
+      "open_rate": 0.4524,
+      "click_rate": 0.0033,
+      "revenue": 6064.16,
+      "cto_rate": 0.0073,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KJQHQH4TFQZB0MRZJGPF6R34.png"
+    },
+    {
+      "campaign_id": "01KC9N1WAQ6CE9ZPF5MG8MVXJJ",
+      "label": "12/27 - EOY Sale Starts Today",
+      "subject": "💥🥳 End-of-the-Year Sale Starts Now.",
+      "send_time": "2025-12-27T15:30:00+00:00",
+      "open_rate": 0.2853,
+      "click_rate": 0.0015,
+      "revenue": 6026.12,
+      "cto_rate": 0.0054,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KC9N1WAQ6CE9ZPF5MG8MVXJJ.png"
+    },
+    {
+      "campaign_id": "01KCWGA0HMXD9WD4E60DKHRMRF",
+      "label": "01/04 - New Near New You: Top Masks for Wearing at the Gym",
+      "subject": "🥳 New Near New You!",
+      "send_time": "2026-01-04T20:00:00+00:00",
+      "open_rate": 0.5033,
+      "click_rate": 0.0052,
+      "revenue": 5655.04,
+      "cto_rate": 0.0104,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KCWGA0HMXD9WD4E60DKHRMRF.png"
+    },
+    {
+      "campaign_id": "01JSQA8FVG196XPJ4D8KTRF9SN",
+      "label": "04/29 - Flash Sale - Email Subscribers only",
+      "subject": "👉 FLASH SALE ALERT!",
+      "send_time": "2025-04-29T14:00:00+00:00",
+      "open_rate": 0.5545,
+      "click_rate": 0.0024,
+      "revenue": 5464.7,
+      "cto_rate": 0.0043,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JSQA8FVG196XPJ4D8KTRF9SN.png"
+    },
+    {
+      "campaign_id": "01KFK879KG47S1SYP68E8MGMAQ",
+      "label": "02/10 - Tuesday Send: Mask Highlight (1/2)",
+      "subject": "Schools, gyms, and subways: Mask up.😷",
+      "send_time": "2026-02-10T21:00:00+00:00",
+      "open_rate": 0.3692,
+      "click_rate": 0.002,
+      "revenue": 5235.46,
+      "cto_rate": 0.0053,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KFK879KG47S1SYP68E8MGMAQ.png"
+    },
+    {
+      "campaign_id": "01JWBFM3BYWZWXA1SVDW6WB0X1",
+      "label": "05/31 -  Outbreaks, Warnings & More: Your Health News Roundup",
+      "subject": "COVID Isn’t Over: 300 Weekly Deaths Say Otherwise",
+      "send_time": "2025-05-29T14:00:00+00:00",
+      "open_rate": 0.5125,
+      "click_rate": 0.0049,
+      "revenue": 5184.79,
+      "cto_rate": 0.0096,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JWBFM3BYWZWXA1SVDW6WB0X1.png"
+    },
+    {
+      "campaign_id": "01K2FECFATQRSADYA01NNSZJXA",
+      "label": "08/26 - Labor Day Sale is LIVE",
+      "subject": "💥 Labor Day Sale is LIVE 💥",
+      "send_time": "2025-08-26T14:00:00+00:00",
+      "open_rate": 0.4035,
+      "click_rate": 0.0014,
+      "revenue": 4989.37,
+      "cto_rate": 0.0034,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K2FECFATQRSADYA01NNSZJXA.png"
+    },
+    {
+      "campaign_id": "01JQY7FX3DWNY39FQ3GCCCNK4X",
+      "label": "04/05 - Autoship and Save Subscription Feature (clone)",
+      "subject": "💥 Up to 30% OFF Masks? Yes, Please!",
+      "send_time": "2025-04-05T14:00:00+00:00",
+      "open_rate": 0.4206,
+      "click_rate": 0.0015,
+      "revenue": 4983.76,
+      "cto_rate": 0.0035,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JQY7FX3DWNY39FQ3GCCCNK4X.png"
+    },
+    {
+      "campaign_id": "01K2MHG2SQ41JMWSJ88HAVTHC2",
+      "label": "08/28 - Labor Day Sale Reminder: N95 Feature",
+      "subject": "N95 Masks Now 7% OFF ⚡",
+      "send_time": "2025-08-28T09:00:00+00:00",
+      "open_rate": 0.4528,
+      "click_rate": 0.0021,
+      "revenue": 4937.35,
+      "cto_rate": 0.0047,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K2MHG2SQ41JMWSJ88HAVTHC2.png"
+    },
+    {
+      "campaign_id": "01JVCKRQZYH9EJW0ACREQNQCZN",
+      "label": "05/27 - Memorial Day - Sale ends today",
+      "subject": "⏰ Final Hours: Additional 9% Off Ends Tonight ⏰",
+      "send_time": "2025-05-27T14:00:00+00:00",
+      "open_rate": 0.5046,
+      "click_rate": 0.0009,
+      "revenue": 4781.42,
+      "cto_rate": 0.0018,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01JVCKRQZYH9EJW0ACREQNQCZN.png"
+    },
+    {
+      "campaign_id": "01K9Q57KVDS77P443XT3V69K9W",
+      "label": "12/01 - Cyber Monday Sale: Starts Today [72 Hours]",
+      "subject": "💥 Cyber Monday Starts NOW 💥",
+      "send_time": "2025-12-01T15:04:00+00:00",
+      "open_rate": 0.2806,
+      "click_rate": 0.0008,
+      "revenue": 4752.74,
+      "cto_rate": 0.0029,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K9Q57KVDS77P443XT3V69K9W.png"
+    },
+    {
+      "campaign_id": "01K7ST1476PEF2HZ49G06JM9E9",
+      "label": "11/15 - BFCM: Limited Stock Messaging Angle [Ensure You’re Covered for the Season]",
+      "subject": "Early Access Ends Soon ⏰",
+      "send_time": "2025-11-12T15:07:00+00:00",
+      "open_rate": 0.4036,
+      "click_rate": 0.0034,
+      "revenue": 4644.13,
+      "cto_rate": 0.0085,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01K7ST1476PEF2HZ49G06JM9E9.png"
+    },
+    {
+      "campaign_id": "01KG7P99PX376CTZCYE8FB89R8",
+      "label": "03/01 - Sunday Send: Everyday Precaution",
+      "subject": "⚕️Simple Steps for Daily Safety.",
+      "send_time": "2026-03-01T21:00:00+00:00",
+      "open_rate": 0.3481,
+      "click_rate": 0.0022,
+      "revenue": 4641.96,
+      "cto_rate": 0.0062,
+      "screenshot_path": "https://aqsghcpfredscovvtacm.supabase.co/storage/v1/object/public/screenshots/01KG7P99PX376CTZCYE8FB89R8.png"
+    }
+  ],
+  "all_subjects": [
+    {
+      "subject": "Real Stories = Real Confidence ⭐",
+      "label": "10/09 - Incontinence: Test",
+      "open_rate": 1,
+      "click_rate": 1,
+      "revenue": 0,
+      "month": "2025-09"
+    },
+    {
+      "subject": "Subscribe today for 30% off + FREE shipping",
+      "label": "[Test] 11/07 - Subscription Offer: Up to 30% Off + Free Shipping on First Order",
+      "open_rate": 1,
+      "click_rate": 1,
+      "revenue": 0,
+      "month": "2025-11"
+    },
+    {
+      "subject": "🚨 WILDFIRE ALERT: Mask Up, Stay Safe 🔥",
+      "label": "May 24 - Wildfire + Mask up (test)",
+      "open_rate": 0.7585,
+      "click_rate": 0.0015,
+      "revenue": 2034.55,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Say Goodbye to Foggy Glasses 👓",
+      "label": "04/12 - Reviews Driven Feature: Foggy Glasses",
+      "open_rate": 0.6752,
+      "click_rate": 0.0046,
+      "revenue": 2482.28,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Fast Answers at Home in Minutes.",
+      "label": "01/02 - Product Feature for Close Converters: Test Kits",
+      "open_rate": 0.6607,
+      "click_rate": 0.0036,
+      "revenue": 1602.12,
+      "month": "2026-01"
+    },
+    {
+      "subject": "Small space, big risk: Mask up in every ride 🚕",
+      "label": "04/17 - City Focus: Ride Shares & Taxis",
+      "open_rate": 0.6602,
+      "click_rate": 0.0019,
+      "revenue": 2688.25,
+      "month": "2025-04"
+    },
+    {
+      "subject": "💥 30% OFF Masks? Let’s Set It Off",
+      "label": "05/31 - Subscription Feature",
+      "open_rate": 0.6563,
+      "click_rate": 0.0016,
+      "revenue": 1928.75,
+      "month": "2025-06"
+    },
+    {
+      "subject": "💬 Influencers Trust WellBefore. Here’s Why.",
+      "label": "01/20 - Influencer Feature",
+      "open_rate": 0.6514,
+      "click_rate": 0.0029,
+      "revenue": 2095.45,
+      "month": "2026-01"
+    },
+    {
+      "subject": "🏠 Family Protection Bundles up to 20% OFF",
+      "label": "11/29 - Email #2: BFCM: Persona Focus [Caregiver]: BFCM Family Protection Bundle",
+      "open_rate": 0.6487,
+      "click_rate": 0.002,
+      "revenue": 1851.25,
+      "month": "2025-11"
+    },
+    {
+      "subject": "3 situations you’ll wish you had a test kit 🦠",
+      "label": "12/06 - Email #1: Product Category Feature: 3 Situations You’ll Wish You Had a Test Kit",
+      "open_rate": 0.6483,
+      "click_rate": 0.0019,
+      "revenue": 2364.92,
+      "month": "2025-12"
+    },
+    {
+      "subject": "Fresh Air, Fresher Protection – N95 for Spring 🌷",
+      "label": "04/22 - N95 Feature – “Spring Clean Your Protection” Variation B",
+      "open_rate": 0.6468,
+      "click_rate": 0.0018,
+      "revenue": 3053.62,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Not Sure Which Mask to Try First?",
+      "label": "07/17 - Trial Pack Feature",
+      "open_rate": 0.644,
+      "click_rate": 0.0027,
+      "revenue": 110.2,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Breathe Easy, Even in the Heat ☀️",
+      "label": "07/12 - 3D Adjustable Mask Feature",
+      "open_rate": 0.6384,
+      "click_rate": 0.0035,
+      "revenue": 1731.4,
+      "month": "2025-07"
+    },
+    {
+      "subject": "🌍 Now Shipping to Canada, UK & Australia!",
+      "label": "08/03 - International Shipping Reminder",
+      "open_rate": 0.6362,
+      "click_rate": 0.0017,
+      "revenue": 3755.5,
+      "month": "2025-08"
+    },
+    {
+      "subject": "🥳 Your Holiday Hosting Tips + Up to 20% Off Essentials",
+      "label": "11/23 - Email #2: BFCM: Health Tips of the Week - Safer Hosting: Holiday Gatherings Made Healthier [Plain Text Feature]",
+      "open_rate": 0.6229,
+      "click_rate": 0.0026,
+      "revenue": 3230.65,
+      "month": "2025-11"
+    },
+    {
+      "subject": "🌍 Shipping Update: Now Delivering to Australia, the UK & Canada!",
+      "label": "06/17 -   International Shipping",
+      "open_rate": 0.6144,
+      "click_rate": 0.0015,
+      "revenue": 4370.55,
+      "month": "2025-06"
+    },
+    {
+      "subject": "🇺🇸 9% OFF Everything Ends Tomorrow!",
+      "label": "07/03 - Independence SITEWIDE Sale - Ends Tomorrow",
+      "open_rate": 0.6093,
+      "click_rate": 0.0012,
+      "revenue": 3493.77,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Summer Allergies + Wildfire Smoke? ☀️🔥",
+      "label": "07/22 - Summer Allergies + Wildfire Smoke? (UPDATED) Variation B",
+      "open_rate": 0.6065,
+      "click_rate": 0.0013,
+      "revenue": 1740.33,
+      "month": "2025-07"
+    },
+    {
+      "subject": "🇺🇸 4th of July Deal: 9% Off Sitewide 🎉",
+      "label": "06/24 - Independence SITEWIDE Sale Variation B",
+      "open_rate": 0.602,
+      "click_rate": 0.0014,
+      "revenue": 3523.09,
+      "month": "2025-06"
+    },
+    {
+      "subject": "⌛ Cyber Monday Ends in Hours",
+      "label": "12/03 - Email #2: Just Hours Remain for CM + Stocking Stuffers",
+      "open_rate": 0.6018,
+      "click_rate": 0.0016,
+      "revenue": 1917.32,
+      "month": "2025-12"
+    },
+    {
+      "subject": "✅ Our Top-Rated Health Essentials >>>",
+      "label": "11/27 - Email #2: BFCM: Check Out Our Category Best Sellers #2 [Masks/Gloves/Incontinence]",
+      "open_rate": 0.6016,
+      "click_rate": 0.0016,
+      "revenue": 2785.94,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Trusted by Thousands — Here’s Why",
+      "label": "05/13 - Why Thousands Trust WellBefore Every Day",
+      "open_rate": 0.5943,
+      "click_rate": 0.0012,
+      "revenue": 3979.53,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Gloves That Can Handle the Heat 🧤",
+      "label": "07/20 - Bulk Gloves Feature",
+      "open_rate": 0.5901,
+      "click_rate": 0.0059,
+      "revenue": 732.66,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Meet Our Best-Selling N95, Now in Black.",
+      "label": "Email #2: 01/17 - N95 NIOSH Mask Feature [Interest Segment]\"",
+      "open_rate": 0.5883,
+      "click_rate": 0.0031,
+      "revenue": 2954.03,
+      "month": "2026-02"
+    },
+    {
+      "subject": "🧤 Ready for Fall? Stock Up on Exam Gloves Today",
+      "label": "08/31 - Gloves Focused: Stock up for the Seasonal Rush",
+      "open_rate": 0.5867,
+      "click_rate": 0.0008,
+      "revenue": 572.84,
+      "month": "2025-08"
+    },
+    {
+      "subject": "✅ Nitrile Gloves Are Back in Stock >>>",
+      "label": "12/21 - Email #2 - Nitrile Gloves [Back in Stock]",
+      "open_rate": 0.5848,
+      "click_rate": 0.0031,
+      "revenue": 4532.84,
+      "month": "2026-01"
+    },
+    {
+      "subject": "🦠 Fast-Spreading Measles: Are You Prepared?",
+      "label": "May 8 - Outbreak Alert : Measles Cases Are Rising Variation A",
+      "open_rate": 0.5819,
+      "click_rate": 0.0017,
+      "revenue": 1952.72,
+      "month": "2025-05"
+    },
+    {
+      "subject": "🚨 Clearance Sale Alert: 10% off",
+      "label": "06/07 - Clearance Sale",
+      "open_rate": 0.5792,
+      "click_rate": 0.0027,
+      "revenue": 2439.05,
+      "month": "2025-06"
+    },
+    {
+      "subject": "🚨 Price Drop Alert: Save 10% On KN95 3D Masks",
+      "label": "06/15 - Price Drop on KN95 3D Mask",
+      "open_rate": 0.5754,
+      "click_rate": 0.0017,
+      "revenue": 2646.48,
+      "month": "2025-06"
+    },
+    {
+      "subject": "⚠️ A Strong Flu Season Is Unfolding.",
+      "label": "01/06 - Weekly News Roundup",
+      "open_rate": 0.5735,
+      "click_rate": 0.0043,
+      "revenue": 3700.24,
+      "month": "2026-01"
+    },
+    {
+      "subject": "The Right Mask for Those Who Care for Others 💙",
+      "label": "04/29 - Caregivers & Essential Workers – “Compassion Meets Protection”",
+      "open_rate": 0.5723,
+      "click_rate": 0.002,
+      "revenue": 2357.67,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Measles Outbreak: 1,100+ Cases and Rising 🦠",
+      "label": "06/12 -  News Round Up",
+      "open_rate": 0.5714,
+      "click_rate": 0.0033,
+      "revenue": 2015.66,
+      "month": "2025-06"
+    },
+    {
+      "subject": "DIY Without the Dust with WellBefore Masks",
+      "label": "04/10 - Suburban Focus: Home Improvement & DIY Projects",
+      "open_rate": 0.5674,
+      "click_rate": 0.0016,
+      "revenue": 2385.51,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Breeze Through Summer & Beyond 😷",
+      "label": "08/10 - KN95 Breeze Feature",
+      "open_rate": 0.5674,
+      "click_rate": 0.0022,
+      "revenue": 1594.78,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Prepare to Stay Hygienic in Crowded Spaces 😷",
+      "label": "08/17 - Prepare to Stay Hygienic in Crowded Spaces",
+      "open_rate": 0.5654,
+      "click_rate": 0.0035,
+      "revenue": 3364.87,
+      "month": "2025-08"
+    },
+    {
+      "subject": "📚 Last Call for Back to School Discounts!",
+      "label": "08/14 - Back to School Sale Last Chance",
+      "open_rate": 0.5653,
+      "click_rate": 0.001,
+      "revenue": 3977.76,
+      "month": "2025-08"
+    },
+    {
+      "subject": "🦷 Introducing Our Kids Ultrasonic Brush >>",
+      "label": "01/17 - Ultrasonic Toothbrush Feature",
+      "open_rate": 0.5648,
+      "click_rate": 0.0015,
+      "revenue": 1303.09,
+      "month": "2026-01"
+    },
+    {
+      "subject": "Back to School Sale Starts NOW ✏️",
+      "label": "08/05 - Back to School Sale Starts NOW Variation A",
+      "open_rate": 0.5641,
+      "click_rate": 0.0012,
+      "revenue": 3010.13,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Tested & Trusted by a Data Expert >>",
+      "label": "05/17 -  Gerard Hughes - Social Proof Email (clone)",
+      "open_rate": 0.5613,
+      "click_rate": 0.0014,
+      "revenue": 2145.87,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Avian Flu H5N1: Should You Be Concerned?",
+      "label": "May 12 - What You Need to Know About H5N1 (Avian Flu)",
+      "open_rate": 0.5605,
+      "click_rate": 0.0043,
+      "revenue": 2360.05,
+      "month": "2025-05"
+    },
+    {
+      "subject": "🌺 Spring Protection, Elevated—Why KF94?",
+      "label": "04/15 - Why Choose 3D (KF94 Style) — “A 3D Fit for a Fresh Season” Variation B",
+      "open_rate": 0.5589,
+      "click_rate": 0.0019,
+      "revenue": 3622.87,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Just In: 🌟 WellBefore’s Best Sellers of 2025.",
+      "label": "01/10 - Just In: The Wellbefore Best Sellers of 2025 (& why) *Top 5*",
+      "open_rate": 0.557,
+      "click_rate": 0.0026,
+      "revenue": 7469.93,
+      "month": "2026-01"
+    },
+    {
+      "subject": "Wellness for You & Your Little Ones 😷",
+      "label": "04/24 - Suburban Focus: School Drop-Offs & Kids’ Activities",
+      "open_rate": 0.5555,
+      "click_rate": 0.001,
+      "revenue": 2283.78,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Save 30% on every order when you subscribe.💥",
+      "label": "02/17 - Tuesday Send: Subscription Push",
+      "open_rate": 0.5547,
+      "click_rate": 0.0009,
+      "revenue": 1583.3,
+      "month": "2026-02"
+    },
+    {
+      "subject": "👉 FLASH SALE ALERT!",
+      "label": "04/29 - Flash Sale - Email Subscribers only",
+      "open_rate": 0.5545,
+      "click_rate": 0.0024,
+      "revenue": 5464.7,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Breathe Easy This Summer 🔆",
+      "label": "05/15 - KN95 Breeze Series Face Mask (clone)",
+      "open_rate": 0.5538,
+      "click_rate": 0.0021,
+      "revenue": 2059.64,
+      "month": "2025-05"
+    },
+    {
+      "subject": "🚨 Get a FREE sample pack + save 30% sitewide.",
+      "label": "01/08 - Subscription Offer: Up to 30% Off Sitewide plus become a subscriber and get a sample pack worth of $10 free (can be gloves or masks)",
+      "open_rate": 0.5521,
+      "click_rate": 0.0027,
+      "revenue": 1998.07,
+      "month": "2026-01"
+    },
+    {
+      "subject": "🍂 Meet Your Fall Essential: N99 Masks",
+      "label": "09/02 - N99 Mask Feature",
+      "open_rate": 0.549,
+      "click_rate": 0.0019,
+      "revenue": 1258.97,
+      "month": "2025-09"
+    },
+    {
+      "subject": "💥 72 Hours of Subscription Savings >>",
+      "label": "08/31 - Subscription Flash Sale (72hrs.)",
+      "open_rate": 0.5481,
+      "click_rate": 0.0011,
+      "revenue": 2525.99,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Don’t Travel Without This Mask 🧳",
+      "label": "07/09 -  Summer Travel? Pack Your WellBefore Mask",
+      "open_rate": 0.5468,
+      "click_rate": 0.002,
+      "revenue": 1728.22,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Compete With Your Friends! 🏆",
+      "label": "06/24 - Share Your WellBefore Moment — Get $5 Credit (General Engaged) Variation A",
+      "open_rate": 0.5467,
+      "click_rate": 0.0009,
+      "revenue": 1995.39,
+      "month": "2025-06"
+    },
+    {
+      "subject": "Health Alert: Nipah Virus in India 🦠",
+      "label": "02/03 - Tuesday Send: Bi-Weekly News Round Up (1/2)",
+      "open_rate": 0.5462,
+      "click_rate": 0.0046,
+      "revenue": 2749.88,
+      "month": "2026-02"
+    },
+    {
+      "subject": "🚨 NB.1.8.1 Variant on the Rise—Stay Safer While Traveling",
+      "label": "08/07 - Weekly News Round Up",
+      "open_rate": 0.5459,
+      "click_rate": 0.0043,
+      "revenue": 3650.01,
+      "month": "2025-08"
+    },
+    {
+      "subject": "🦠Stay Ahead of LP.8.1 variant with Our New Test Kits",
+      "label": "05/22 - New Product: Test Kits",
+      "open_rate": 0.5458,
+      "click_rate": 0.0032,
+      "revenue": 1687.06,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Meet the Most Breathable KN95 for Spring ☀️",
+      "label": "04/01 - KN95 Breeze Feature – “A Breath of Fresh Air This Spring” Variation B",
+      "open_rate": 0.5453,
+      "click_rate": 0.0046,
+      "revenue": 3577.74,
+      "month": "2025-04"
+    },
+    {
+      "subject": "❤️ Get Ready for Memorial Day 💙",
+      "label": "05/19 - Pre-Memorial Day Sale",
+      "open_rate": 0.5436,
+      "click_rate": 0.0014,
+      "revenue": 2898.83,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Final Hours: Save on Your Masks!",
+      "label": "04/30 - Flash Sale ends today",
+      "open_rate": 0.5434,
+      "click_rate": 0.0017,
+      "revenue": 7682.02,
+      "month": "2025-04"
+    },
+    {
+      "subject": "✨ Our Newest Health Essentials. >>>>",
+      "label": "RESEND - Wellbefore's Latest & Greatest [Newest Products Feature Email] (clone)",
+      "open_rate": 0.5416,
+      "click_rate": 0.0024,
+      "revenue": 2561.03,
+      "month": "2026-01"
+    },
+    {
+      "subject": "🚚 🌎 FREE Global Shipping on $100+ Essentials.",
+      "label": "12/12 - International Customers Shipping",
+      "open_rate": 0.5409,
+      "click_rate": 0.0027,
+      "revenue": 172.6,
+      "month": "2025-12"
+    },
+    {
+      "subject": "20% OFF When You Bundle—Easy, Smart, Done.",
+      "label": "06/14 - Bundle & Save 20% Feature",
+      "open_rate": 0.5402,
+      "click_rate": 0.0015,
+      "revenue": 2042.86,
+      "month": "2025-06"
+    },
+    {
+      "subject": "Price Just Dropped: KN95 Denim Mask on Sale",
+      "label": "06/05 - Price Drop on KN95 Mask",
+      "open_rate": 0.5399,
+      "click_rate": 0.0021,
+      "revenue": 4327.49,
+      "month": "2025-06"
+    },
+    {
+      "subject": "On the Move? Get Protection That Keeps Up. 🚑",
+      "label": "05/20 - Emergency Responders – “Protection That Moves With You”",
+      "open_rate": 0.5306,
+      "click_rate": 0.0011,
+      "revenue": 2132.94,
+      "month": "2025-06"
+    },
+    {
+      "subject": "Your Mask Protection Stopped—Let’s Fix That >>",
+      "label": "02/22 - Cancelled Subscription: KN95 Feature",
+      "open_rate": 0.5286,
+      "click_rate": 0.0042,
+      "revenue": 275.85,
+      "month": "2025-03"
+    },
+    {
+      "subject": "Spring Brings Change – Stay Protected Against New Variants",
+      "label": "04/08 - Protect Against Emerging Variants in 2025 – “Spring into Smarter Protection” Variation B",
+      "open_rate": 0.5272,
+      "click_rate": 0.0015,
+      "revenue": 3777.28,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Air Quality Alert? Grab Your NIOSH N95",
+      "label": "07/27 - N95 Mask Feature",
+      "open_rate": 0.5252,
+      "click_rate": 0.0016,
+      "revenue": 2448.33,
+      "month": "2025-07"
+    },
+    {
+      "subject": "We Want to Feature You—$5 Credit + Giveaway Inside",
+      "label": "06/22 - Share Your WellBefore Moment — Get $5 Credit Variation B",
+      "open_rate": 0.5232,
+      "click_rate": 0.0013,
+      "revenue": 2931.59,
+      "month": "2025-06"
+    },
+    {
+      "subject": "🚨 Urgent: Wildfires Are Spreading Fast — Protect Your Lungs",
+      "label": "07/24 - Weekly News Round Up",
+      "open_rate": 0.5224,
+      "click_rate": 0.0012,
+      "revenue": 1266.34,
+      "month": "2025-07"
+    },
+    {
+      "subject": "🚨 Weekly Health Alert: Kids at Risk 🚨",
+      "label": "02/24 - Tuesday Send: Weekly News Round Up (2/2)",
+      "open_rate": 0.5171,
+      "click_rate": 0.0012,
+      "revenue": 1719.94,
+      "month": "2026-02"
+    },
+    {
+      "subject": "☀️ First Responders: Gear Up for a Safer Summer",
+      "label": "07/15 - Top Campaign Refeature",
+      "open_rate": 0.5156,
+      "click_rate": 0.001,
+      "revenue": 1728.96,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Featured in The New York Times—Trusted by Thousands",
+      "label": "05/29 - Social Proof + Referral",
+      "open_rate": 0.5151,
+      "click_rate": 0.0014,
+      "revenue": 1326.01,
+      "month": "2025-05"
+    },
+    {
+      "subject": "COVID Isn’t Over: 300 Weekly Deaths Say Otherwise",
+      "label": "05/31 -  Outbreaks, Warnings & More: Your Health News Roundup",
+      "open_rate": 0.5125,
+      "click_rate": 0.0049,
+      "revenue": 5184.79,
+      "month": "2025-05"
+    },
+    {
+      "subject": "💅 Introducing Perfect Masks for Nail & Beauty Experts",
+      "label": "06/19 - Comfort Meets Safety: Perfect Masks for Nail & Beauty Experts",
+      "open_rate": 0.5107,
+      "click_rate": 0.0024,
+      "revenue": 1451.7,
+      "month": "2025-06"
+    },
+    {
+      "subject": "Exclusive Deal: Get 10% Off Rapid Test Kits >>",
+      "label": "06/07- Test Kits Feature - New COVID Variant",
+      "open_rate": 0.5053,
+      "click_rate": 0.0012,
+      "revenue": 2152.64,
+      "month": "2025-06"
+    },
+    {
+      "subject": "⏰ Final Hours: Additional 9% Off Ends Tonight ⏰",
+      "label": "05/27 - Memorial Day - Sale ends today",
+      "open_rate": 0.5046,
+      "click_rate": 0.0009,
+      "revenue": 4781.42,
+      "month": "2025-05"
+    },
+    {
+      "subject": "KN95 Kids Masks - Burgundy - Extra Small is discontinued",
+      "label": "BIS - D1_KN95_PETITE-BURGUNDY-EXTRA-SMALL",
+      "open_rate": 0.5042,
+      "click_rate": 0.0014,
+      "revenue": 0,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Save 30% on our N99 Mask with Autoship & Save!",
+      "label": "03/25 - N99 + N95 Feature",
+      "open_rate": 0.5033,
+      "click_rate": 0.0025,
+      "revenue": 2200.8,
+      "month": "2025-03"
+    },
+    {
+      "subject": "🥳 New Near New You!",
+      "label": "01/04 - New Near New You: Top Masks for Wearing at the Gym",
+      "open_rate": 0.5033,
+      "click_rate": 0.0052,
+      "revenue": 5655.04,
+      "month": "2026-01"
+    },
+    {
+      "subject": "🇺🇸 Last Call: Sale Ends Tonight!",
+      "label": "07/04 - Independence SITEWIDE Sale - Last Chance",
+      "open_rate": 0.5009,
+      "click_rate": 0.0019,
+      "revenue": 3825.53,
+      "month": "2025-07"
+    },
+    {
+      "subject": "⚠️ This Week’s Global Health Update.",
+      "label": "03/10 - News Round Up",
+      "open_rate": 0.5002,
+      "click_rate": 0.0021,
+      "revenue": 2217.14,
+      "month": "2026-03"
+    },
+    {
+      "subject": "A Second Chance for Hassle-Free Protection >>",
+      "label": "03/29 - Cancelled Subscription: N95 Feature",
+      "open_rate": 0.4933,
+      "click_rate": 0.002,
+      "revenue": 1338.1,
+      "month": "2025-03"
+    },
+    {
+      "subject": "Meet the Most Breathable KN95 for Spring ☀️",
+      "label": "04/01 - KN95 Breeze Feature – “A Breath of Fresh Air This Spring” (copy) Variation B",
+      "open_rate": 0.4916,
+      "click_rate": 0.0027,
+      "revenue": 640.27,
+      "month": "2025-04"
+    },
+    {
+      "subject": "🎄 Be Ready for Every Holiday Moment  ✨",
+      "label": "11/20 - Email #2: BFCM: Health & Wellness Tips for a High Risk Seasonal Event",
+      "open_rate": 0.4915,
+      "click_rate": 0.0015,
+      "revenue": 2068.31,
+      "month": "2025-11"
+    },
+    {
+      "subject": "You Had a Good Thing Going… Let’s Restart It",
+      "label": "05/17 - Cancelled Subscription Feature",
+      "open_rate": 0.4908,
+      "click_rate": 0.0021,
+      "revenue": 807.75,
+      "month": "2025-05"
+    },
+    {
+      "subject": "9% OFF Top Masks + Test Kits 🇺🇸",
+      "label": "07/01 - Independence SITEWIDE Sale - Best Sellers Feature Variation A",
+      "open_rate": 0.4895,
+      "click_rate": 0.0011,
+      "revenue": 2584.98,
+      "month": "2025-07"
+    },
+    {
+      "subject": "We Miss You! Rejoin for 30% Off 💙",
+      "label": "04/19 - Cancelled Subscription Feature",
+      "open_rate": 0.4874,
+      "click_rate": 0.0035,
+      "revenue": 1611.38,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Your Favorite KN95s Now Just $1.04? Yes, With Autoship",
+      "label": "07/06 - Up to 30% OFF Autoship & Save Variation B",
+      "open_rate": 0.4872,
+      "click_rate": 0.0017,
+      "revenue": 4358.34,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Allergy Season’s Coming—Bundle & Save Up to 20%",
+      "label": "04/26 - Bundle & Save",
+      "open_rate": 0.4863,
+      "click_rate": 0.0012,
+      "revenue": 2481.43,
+      "month": "2025-04"
+    },
+    {
+      "subject": "💬 Why customers LOVE shopping with us 💙",
+      "label": "02/28 - Social Proof On WellBefore (RESEND)",
+      "open_rate": 0.4859,
+      "click_rate": 0.0015,
+      "revenue": 2162.78,
+      "month": "2026-03"
+    },
+    {
+      "subject": "Trusted Replacements for KN95 Standard Ear Loops | Black | Large",
+      "label": "Evergreen Template: Discontinued Products",
+      "open_rate": 0.4853,
+      "click_rate": 0.009,
+      "revenue": 20.91,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Travel Hack: Bring This, Skip the Sick Days 🤒",
+      "label": "07/31 - No One Likes Getting Sick on Vacation",
+      "open_rate": 0.4849,
+      "click_rate": 0.0017,
+      "revenue": 2029.06,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Subscribe today for 30% off + FREE shipping",
+      "label": "11/06 - Subscription Offer: Up to 30% Off + Free Shipping on First Order",
+      "open_rate": 0.484,
+      "click_rate": 0.0014,
+      "revenue": 1953.29,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Stay Alert: Razor Throat is on the Rise",
+      "label": "06/26 - TBD - News Round Up Variation B",
+      "open_rate": 0.4818,
+      "click_rate": 0.0041,
+      "revenue": 2787.28,
+      "month": "2025-06"
+    },
+    {
+      "subject": "Gone Green (Literally) - But These New Masks Rock",
+      "label": "BIS - D4_KN95_PETITE-GREEN-EXTRA-SMALL",
+      "open_rate": 0.479,
+      "click_rate": 0,
+      "revenue": 0,
+      "month": "2025-07"
+    },
+    {
+      "subject": "ICYMI: NEW Dino Toothbrushes for Kids!",
+      "label": "07/13 - Dinosaur Toothbrushes Reminder",
+      "open_rate": 0.4756,
+      "click_rate": 0.0019,
+      "revenue": 276.02,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Your Summer Mask is Here ☀️",
+      "label": "06/21 - KN95 Breeze Mask Feature",
+      "open_rate": 0.4749,
+      "click_rate": 0.0068,
+      "revenue": 4133.47,
+      "month": "2025-06"
+    },
+    {
+      "subject": "🇺🇸 9% OFF Hypoallergenic Gloves You Need This Summer 🎉",
+      "label": "06/29 - Independence SITEWIDE Sale - Gloves Feature Variation B",
+      "open_rate": 0.4744,
+      "click_rate": 0.0024,
+      "revenue": 1210.57,
+      "month": "2025-06"
+    },
+    {
+      "subject": "50% OFF Dino Toothbrushes for a Limited Time!",
+      "label": "08/03 - Dino Toothbrush Value Pack Sale",
+      "open_rate": 0.4734,
+      "click_rate": 0.0014,
+      "revenue": 1480.36,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Spring Brings Change – Stay Protected Against New Variants",
+      "label": "04/08 - Protect Against Emerging Variants in 2025 – “Spring into Smarter Protection” (Men Only) Variation B",
+      "open_rate": 0.4723,
+      "click_rate": 0.001,
+      "revenue": 715,
+      "month": "2025-04"
+    },
+    {
+      "subject": "This Week's News >>",
+      "label": "07/10 - Weekly News Round Up",
+      "open_rate": 0.472,
+      "click_rate": 0.0008,
+      "revenue": 1592.68,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Cool Masks for Hot Days ☀️",
+      "label": "07/29 - Lightweight & Cool: Masks Designed for Summer Comfort",
+      "open_rate": 0.4694,
+      "click_rate": 0.0034,
+      "revenue": 1784.06,
+      "month": "2025-07"
+    },
+    {
+      "subject": "⏰ Only 6 Hours Left",
+      "label": "11/29 - Email #3: BFCM: 6 Hours Remain + Beyond COVID - The Many Uses of High Filtration Masks",
+      "open_rate": 0.4657,
+      "click_rate": 0.0024,
+      "revenue": 11133,
+      "month": "2025-11"
+    },
+    {
+      "subject": "3 Reasons to Stock Up on COVID Test Kits 🤒",
+      "label": "08/24 - Covid Test Kits",
+      "open_rate": 0.4638,
+      "click_rate": 0.0039,
+      "revenue": 3996.04,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Trusted Replacements for KN95 Standard Ear Loops | Black | Large",
+      "label": "BIS - A1_KN95_REGULAR-BLACK-LARGE",
+      "open_rate": 0.4615,
+      "click_rate": 0.0113,
+      "revenue": 48.21,
+      "month": "2025-07"
+    },
+    {
+      "subject": "8 Fresh New Designs >>>>",
+      "label": "08/30: KN95 3D Pro - New Designs Have Launched",
+      "open_rate": 0.4611,
+      "click_rate": 0.0025,
+      "revenue": 3657.01,
+      "month": "2025-08"
+    },
+    {
+      "subject": "11 million germs on shopping cart handles 😮",
+      "label": "09/07 - You're Exposed: Germ & Pathogen Exposure Instances",
+      "open_rate": 0.4586,
+      "click_rate": 0.0021,
+      "revenue": 3021.55,
+      "month": "2025-09"
+    },
+    {
+      "subject": "🍂 Heading somewhere this season?",
+      "label": "09/09 - Traveling this Fall?",
+      "open_rate": 0.456,
+      "click_rate": 0.0012,
+      "revenue": 2353.43,
+      "month": "2025-09"
+    },
+    {
+      "subject": "NEW Dinosaur Toothbrushes for Kids >> >>",
+      "label": "07/02 - New Dinosaur Toothbrushes",
+      "open_rate": 0.4555,
+      "click_rate": 0.001,
+      "revenue": 1336.94,
+      "month": "2025-07"
+    },
+    {
+      "subject": "🚨 NEW: 3D KN95 Pro Large Masks Just Dropped",
+      "label": "08/19 - NEW Large KN95 Masks",
+      "open_rate": 0.4555,
+      "click_rate": 0.0019,
+      "revenue": 4071.65,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Help us build better health solutions ✨",
+      "label": "07/01 - New Launches Survey",
+      "open_rate": 0.4551,
+      "click_rate": 0.0036,
+      "revenue": 4597.7,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Stay Safe from Smoke and Haze from Wildfires",
+      "label": "TBD - Fire Season Update (Madre Fire California) (clone)",
+      "open_rate": 0.4537,
+      "click_rate": 0.0023,
+      "revenue": 936.25,
+      "month": "2025-07"
+    },
+    {
+      "subject": "N95 Masks Now 7% OFF ⚡",
+      "label": "08/28 - Labor Day Sale Reminder: N95 Feature",
+      "open_rate": 0.4528,
+      "click_rate": 0.0021,
+      "revenue": 4937.35,
+      "month": "2025-08"
+    },
+    {
+      "subject": "The Flu Is Still Here! 🦠",
+      "label": "03/12 - Mask Focus",
+      "open_rate": 0.4524,
+      "click_rate": 0.0033,
+      "revenue": 6064.16,
+      "month": "2026-03"
+    },
+    {
+      "subject": "🍂 Match your mask to every outfit",
+      "label": "09/14 - September Style Picks: Mask Colors for Fall",
+      "open_rate": 0.4498,
+      "click_rate": 0.0019,
+      "revenue": 2625.71,
+      "month": "2025-09"
+    },
+    {
+      "subject": "Only 3 Days Left ⏰",
+      "label": "08/12 - Back to School Sale Last 3 Days: Teachers/Parents Focused",
+      "open_rate": 0.4479,
+      "click_rate": 0.0021,
+      "revenue": 3219.89,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Ready to Build the Perfect Bundle?",
+      "label": "07/08 - Mix 'n Match Feature",
+      "open_rate": 0.4441,
+      "click_rate": 0.0008,
+      "revenue": 1280.29,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Unlock Your 9% Discount: Memorial Day Sale is live",
+      "label": "05/23 - Memorial Day Sale",
+      "open_rate": 0.4374,
+      "click_rate": 0.0011,
+      "revenue": 3802.97,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Don't Miss Up to 30% Off Trusted Masks!",
+      "label": "05/03 -  Subscription Feature",
+      "open_rate": 0.4373,
+      "click_rate": 0.001,
+      "revenue": 2320.23,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Test smarter, not harder ✅",
+      "label": "09/30 - Test Kits You Can Rely On",
+      "open_rate": 0.4283,
+      "click_rate": 0.0049,
+      "revenue": 590.28,
+      "month": "2025-09"
+    },
+    {
+      "subject": "Be First in Line for BFCM Deals! ⭐",
+      "label": "09/23 - Product Launch: New Gloves + Back in Stock Gloves",
+      "open_rate": 0.4265,
+      "click_rate": 0.0025,
+      "revenue": 459.54,
+      "month": "2025-10"
+    },
+    {
+      "subject": "Extra 7% OFF — 2 Days Only!",
+      "label": "07/29 - Subscription Flash Sale Variation A",
+      "open_rate": 0.4259,
+      "click_rate": 0.0019,
+      "revenue": 0,
+      "month": "2025-07"
+    },
+    {
+      "subject": "Out & About? Don’t Forget Your Mask >>",
+      "label": "04/03 - City Focus: Running Errands in High-Traffic Areas",
+      "open_rate": 0.4226,
+      "click_rate": 0.0014,
+      "revenue": 1235.5,
+      "month": "2025-04"
+    },
+    {
+      "subject": "🤧 Is It Allergies, a Cold, or COVID-19?",
+      "label": "03/27 - COVID-19 Test Kits CorDX feature",
+      "open_rate": 0.4215,
+      "click_rate": 0.0014,
+      "revenue": 2155.0,
+      "month": "2025-03"
+    },
+    {
+      "subject": "💥 Up to 30% OFF Masks? Yes, Please!",
+      "label": "04/05 - Autoship and Save Subscription Feature (clone)",
+      "open_rate": 0.4206,
+      "click_rate": 0.0015,
+      "revenue": 4983.76,
+      "month": "2025-04"
+    },
+    {
+      "subject": "Early access to Black Friday savings is officially open! Your 48-hour head start is here 🕒",
+      "label": "11/09 - Email #1: BFCM: Early Access Starts Now (Final)",
+      "open_rate": 0.4073,
+      "click_rate": 0.0037,
+      "revenue": 4364.98,
+      "month": "2025-11"
+    },
+    {
+      "subject": "🛡 Stay Ahead: Flu Prep & COVID Rise — Your Weekly Health Alert",
+      "label": "08/21 - Weekly News Round Up",
+      "open_rate": 0.4059,
+      "click_rate": 0.0016,
+      "revenue": 3455.34,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Early Access Ends Soon ⏰",
+      "label": "11/15 - BFCM: Limited Stock Messaging Angle [Ensure You’re Covered for the Season]",
+      "open_rate": 0.4036,
+      "click_rate": 0.0034,
+      "revenue": 4644.13,
+      "month": "2025-11"
+    },
+    {
+      "subject": "💥 Labor Day Sale is LIVE 💥",
+      "label": "08/26 - Labor Day Sale is LIVE",
+      "open_rate": 0.4035,
+      "click_rate": 0.0014,
+      "revenue": 4989.37,
+      "month": "2025-08"
+    },
+    {
+      "subject": "🚨 Clearance Prices on Best Sellers >>>>",
+      "label": "09/11 - End of Season, End of Stock: Clearance Sale",
+      "open_rate": 0.4027,
+      "click_rate": 0.0027,
+      "revenue": 6140.69,
+      "month": "2025-09"
+    },
+    {
+      "subject": "🛡 Weekly Health Alert: Wildfire Smoke & COVID Uptick — What to Do Now",
+      "label": "09/04 - Weekly News Round Up",
+      "open_rate": 0.4024,
+      "click_rate": 0.0013,
+      "revenue": 2426.78,
+      "month": "2025-09"
+    },
+    {
+      "subject": "Where’s WellBefore Worn? 🌎",
+      "label": "09/16 - Map of Protection: Where Wellbefore is Worn",
+      "open_rate": 0.4023,
+      "click_rate": 0.0009,
+      "revenue": 2238.25,
+      "month": "2025-09"
+    },
+    {
+      "subject": "Find Your Perfect Mask Match in Minutes! >>",
+      "label": "03/23 - Mask Quiz Feature",
+      "open_rate": 0.4001,
+      "click_rate": 0.0013,
+      "revenue": 291.38,
+      "month": "2025-03"
+    },
+    {
+      "subject": "⏰ Final Day to Save an Extra 7% >>",
+      "label": "09/02 - Subscription Flash Sale 24hrs. Remain)",
+      "open_rate": 0.3902,
+      "click_rate": 0.001,
+      "revenue": 2658.1,
+      "month": "2025-09"
+    },
+    {
+      "subject": "⏰ Sale Ending Soon",
+      "label": "09/27 - Limited Flash Sale Last Chance (Extended Volume Send)",
+      "open_rate": 0.3821,
+      "click_rate": 0.0011,
+      "revenue": 4393.51,
+      "month": "2025-09"
+    },
+    {
+      "subject": "KN95 3D vs. Cheap Masks →",
+      "label": "09/21 - The Truth About Cheap Masks",
+      "open_rate": 0.3794,
+      "click_rate": 0.0024,
+      "revenue": 3898.24,
+      "month": "2025-09"
+    },
+    {
+      "subject": "Thank you for choosing WellBefore 💙",
+      "label": "03/14 - Subscription Focus",
+      "open_rate": 0.3757,
+      "click_rate": 0.0013,
+      "revenue": 1713.92,
+      "month": "2026-03"
+    },
+    {
+      "subject": "Wear Pink, Support the Fight 💗",
+      "label": "10/31 - Breast Cancer Awareness Month: Last Chance",
+      "open_rate": 0.3752,
+      "click_rate": 0.0008,
+      "revenue": 466.37,
+      "month": "2025-10"
+    },
+    {
+      "subject": "Brushing just got dino-mite 🦖✨",
+      "label": "09/06 - Oral Care Highlight: 3 Fun Colors, 1 Healthier Smile",
+      "open_rate": 0.3733,
+      "click_rate": 0.0007,
+      "revenue": 2870.44,
+      "month": "2025-09"
+    },
+    {
+      "subject": "💥 💰 Our Black N95 masks on sale.",
+      "label": "12/28 - Email #2 - EOY Sale + Black NOSH 95",
+      "open_rate": 0.371,
+      "click_rate": 0.0023,
+      "revenue": 2714.4,
+      "month": "2025-12"
+    },
+    {
+      "subject": "Schools, gyms, and subways: Mask up.😷",
+      "label": "02/10 - Tuesday Send: Mask Highlight (1/2)",
+      "open_rate": 0.3692,
+      "click_rate": 0.002,
+      "revenue": 5235.46,
+      "month": "2026-02"
+    },
+    {
+      "subject": "⏳ Labor Day Sale Ends Tonight",
+      "label": "08/29 - Labor Day Last Chance",
+      "open_rate": 0.3691,
+      "click_rate": 0.0008,
+      "revenue": 4189.61,
+      "month": "2025-08"
+    },
+    {
+      "subject": "Try Our Sample and Mix’n’Match Packs 😷",
+      "label": "10/07 - Sample / Trial Packs Promotion: Transform Your Hygiene Routine",
+      "open_rate": 0.3685,
+      "click_rate": 0.0014,
+      "revenue": 2049.26,
+      "month": "2025-10"
+    },
+    {
+      "subject": "🛡Your Weekly Health Alert — Be Ready for Flu Season",
+      "label": "09/18 - Weekly News Roundup",
+      "open_rate": 0.3634,
+      "click_rate": 0.001,
+      "revenue": 1692.36,
+      "month": "2025-09"
+    },
+    {
+      "subject": "KN95s in the Spotlight + Protecting the Most Vulnerable",
+      "label": "10/05 - KN95 Tiktok Video Feature + Protect What Matters Most: Support for the Immunocompromised",
+      "open_rate": 0.3541,
+      "click_rate": 0.0014,
+      "revenue": 1547.98,
+      "month": "2025-10"
+    },
+    {
+      "subject": "Health Update + Smart Protection Picks for Fall 🍂",
+      "label": "10/02 - Weekly News Roundup (Extended volume send)",
+      "open_rate": 0.3531,
+      "click_rate": 0.0011,
+      "revenue": 3112.76,
+      "month": "2025-10"
+    },
+    {
+      "subject": "The science of safer breathing 🫁",
+      "label": "09/30 - The Science Behind Our Masks",
+      "open_rate": 0.3525,
+      "click_rate": 0.0009,
+      "revenue": 2967.64,
+      "month": "2025-09"
+    },
+    {
+      "subject": "⚡ 7% Off Our Best-Sellers Ends Soon",
+      "label": "09/26 - Limited Time Flash Sale Reminder",
+      "open_rate": 0.3505,
+      "click_rate": 0.0008,
+      "revenue": 2029.82,
+      "month": "2025-09"
+    },
+    {
+      "subject": "⚕️Simple Steps for Daily Safety.",
+      "label": "03/01 - Sunday Send: Everyday Precaution",
+      "open_rate": 0.3481,
+      "click_rate": 0.0022,
+      "revenue": 4641.96,
+      "month": "2026-03"
+    },
+    {
+      "subject": "Happy Valentine's Day 🌸🩷",
+      "label": "02/14 - Targeted Send: Happy Valentine's Day",
+      "open_rate": 0.347,
+      "click_rate": 0.0009,
+      "revenue": 1821.08,
+      "month": "2026-02"
+    },
+    {
+      "subject": "🩺 Winter Health Watch: Triple-Virus Season + Flu-Like Food Bug Surge",
+      "label": "11/09 - Weekly News Alert",
+      "open_rate": 0.3447,
+      "click_rate": 0.0012,
+      "revenue": 3505.12,
+      "month": "2025-11"
+    },
+    {
+      "subject": "✔️ Black N95 Protection You Can Trust.",
+      "label": "01/09 - N95 Black NIOSH Mask Targeted Highlight",
+      "open_rate": 0.3424,
+      "click_rate": 0.007,
+      "revenue": 259.85,
+      "month": "2026-01"
+    },
+    {
+      "subject": "🧤 New Gloves Just Dropped + Best Sellers Are Back!",
+      "label": "09/23 - Product Launch: New Gloves + Back in Stock Gloves",
+      "open_rate": 0.3387,
+      "click_rate": 0.0011,
+      "revenue": 1848.12,
+      "month": "2025-09"
+    },
+    {
+      "subject": "⏰ Last chance to save 7%.",
+      "label": "02/15 - Last Chance/Urgency for Valentine's Day",
+      "open_rate": 0.3355,
+      "click_rate": 0.0007,
+      "revenue": 4491.94,
+      "month": "2026-02"
+    },
+    {
+      "subject": "Don’t Miss These Customer Favorites >>>",
+      "label": "11/18 - Email #2: BFCM: Check Out Our Category Best Sellers #1 [Masks/Test Kits/Oral Care]",
+      "open_rate": 0.3337,
+      "click_rate": 0.0009,
+      "revenue": 1844.69,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Get up to 30% off + a $10 Dino Toothbrush gift with your subscription.",
+      "label": "11/13 - Subscription Offer: Up to 30% Off + Free Dino Toothbrush with Order",
+      "open_rate": 0.333,
+      "click_rate": 0.0006,
+      "revenue": 1716.87,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Happy Women's Day! 💁‍♀️🩷",
+      "label": "03/08 - Happy Women's Day from WellBefore",
+      "open_rate": 0.3278,
+      "click_rate": 0.001,
+      "revenue": 2226.32,
+      "month": "2026-03"
+    },
+    {
+      "subject": "Fresh Season, Safe Workplace ✅",
+      "label": "03/17 - Spring Reset: Safety in Your Workplace",
+      "open_rate": 0.3253,
+      "click_rate": 0.0009,
+      "revenue": 2926.59,
+      "month": "2026-03"
+    },
+    {
+      "subject": "✅ Real vs ❌ Fake PPE Explained.",
+      "label": "01/27 - The Certified Protection Guide: How to Spot Real vs. Fake PPE Online Variation C",
+      "open_rate": 0.3245,
+      "click_rate": 0.0019,
+      "revenue": 6606.47,
+      "month": "2026-01"
+    },
+    {
+      "subject": "Wear Pink, Make an Impact 💗",
+      "label": "10/12 - Breast Cancer Awareness Month: Our Commitment",
+      "open_rate": 0.3242,
+      "click_rate": 0.0011,
+      "revenue": 2723.86,
+      "month": "2025-10"
+    },
+    {
+      "subject": "⚡ Flash Sale: 7% Off 3 Best-Sellers",
+      "label": "09/25 - Limited Time Flash Sale (Extended Volume Send)",
+      "open_rate": 0.324,
+      "click_rate": 0.0008,
+      "revenue": 1875.76,
+      "month": "2025-09"
+    },
+    {
+      "subject": "The Mask Style Guide: Protection That Matches Your Look 😷",
+      "label": "09/21 - The Truth About Cheap Masks",
+      "open_rate": 0.3233,
+      "click_rate": 0.0014,
+      "revenue": 3254.46,
+      "month": "2025-10"
+    },
+    {
+      "subject": "Essentials for every room in your house. 🏥",
+      "label": "02/19 - Thursday Send: Everyday Care for Your Family",
+      "open_rate": 0.3195,
+      "click_rate": 0.0011,
+      "revenue": 1467.13,
+      "month": "2026-02"
+    },
+    {
+      "subject": "Missed them? The new KN95 3D Pro Styles Are Waiting 🤩",
+      "label": "10/26 - KN95 3D Pro - New Designs Have Launched (Part 2)",
+      "open_rate": 0.3164,
+      "click_rate": 0.0024,
+      "revenue": 3768.87,
+      "month": "2025-10"
+    },
+    {
+      "subject": "🦷 Cute, Practical, and Totally Essential.",
+      "label": "03/05 - Thursday Send: The Importance of Oral Care [Gen]",
+      "open_rate": 0.3157,
+      "click_rate": 0.001,
+      "revenue": 1204.67,
+      "month": "2026-03"
+    },
+    {
+      "subject": "⏰ Final day to save up to 20% at Wellbefore.",
+      "label": "12/29 - EOY Sale: Final Day for the Current Offer",
+      "open_rate": 0.3137,
+      "click_rate": 0.0011,
+      "revenue": 7765.49,
+      "month": "2025-12"
+    },
+    {
+      "subject": "Why 800,000 people trust WellBefore.✨",
+      "label": "01/31 - Why WellBefore?",
+      "open_rate": 0.3133,
+      "click_rate": 0.0009,
+      "revenue": 7930.77,
+      "month": "2026-01"
+    },
+    {
+      "subject": "✈️🎄Travel Healthy This Holiday >>>",
+      "label": "11/20 - Email #1: BFCM: Persona Focus [Travel]: Don’t Bring Germs Home for the Holidays",
+      "open_rate": 0.3128,
+      "click_rate": 0.0006,
+      "revenue": 2328.99,
+      "month": "2025-11"
+    },
+    {
+      "subject": "🌙 Sleep through the night with confidence.",
+      "label": "01/02 - Product Feature for Close Converters: Incontinence\"",
+      "open_rate": 0.3113,
+      "click_rate": 0.0137,
+      "revenue": 157.37,
+      "month": "2026-01"
+    },
+    {
+      "subject": "Introducing Our New Black N95 Mask",
+      "label": "Date TBD: N95 NIOSH Black Launch",
+      "open_rate": 0.3112,
+      "click_rate": 0.002,
+      "revenue": 4038.46,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Scientist-Proven Protection + Stock Up Before the Surge 😷",
+      "label": "09/21 - The Truth About Cheap Masks",
+      "open_rate": 0.3095,
+      "click_rate": 0.001,
+      "revenue": 1609.25,
+      "month": "2025-10"
+    },
+    {
+      "subject": "🛡 Fall Virus Update 🦠",
+      "label": "10/19 - Weekly News Round Up",
+      "open_rate": 0.3093,
+      "click_rate": 0.0023,
+      "revenue": 2438.44,
+      "month": "2025-10"
+    },
+    {
+      "subject": "Goodbye Foggy Glasses! 👓",
+      "label": "11/16 - Reviews Feature: Preventing Foggy Glasses with the KN95 3D",
+      "open_rate": 0.3087,
+      "click_rate": 0.0019,
+      "revenue": 3555.61,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Over 1 Million Masks Sold! 🎉",
+      "label": "10/28 - Over 1 Million Masks Sold — Here’s Why + Shop Clearance Sale",
+      "open_rate": 0.3077,
+      "click_rate": 0.0014,
+      "revenue": 2689.61,
+      "month": "2025-10"
+    },
+    {
+      "subject": "🧟 Scare Away Germs with Up to 30% Off",
+      "label": "10/23 -  Don’t Risk a Scare — Protect Your Health This Halloween: Subscription Feature (Take up to 30% Off)",
+      "open_rate": 0.3071,
+      "click_rate": 0.001,
+      "revenue": 3260.53,
+      "month": "2025-10"
+    },
+    {
+      "subject": "Autoship and Save 30% >>>>",
+      "label": "02/05 - Thursday Send: Subscription Push",
+      "open_rate": 0.3062,
+      "click_rate": 0.0008,
+      "revenue": 1554.37,
+      "month": "2026-02"
+    },
+    {
+      "subject": "🔥 Save Up to 20% Sitewide >>>>",
+      "label": "11/22 - BFCM: Newest Product Drops Feature + Black Friday Prices",
+      "open_rate": 0.3056,
+      "click_rate": 0.0008,
+      "revenue": 3774.93,
+      "month": "2025-11"
+    },
+    {
+      "subject": "✅ Put your protection on repeat.",
+      "label": "02/26 - Thursday Send: Subscription Push",
+      "open_rate": 0.3055,
+      "click_rate": 0.001,
+      "revenue": 2417.09,
+      "month": "2026-02"
+    },
+    {
+      "subject": "Why pay full price? Autoship & save up to 40%!",
+      "label": "12/11 - Subscription Offer: Up to 30% Off Sitewide plus become a subscriber and receive an additional 10% off",
+      "open_rate": 0.3045,
+      "click_rate": 0.0005,
+      "revenue": 2421.8,
+      "month": "2025-12"
+    },
+    {
+      "subject": "Absorbent underwear for a life without limits >>>",
+      "label": "09/21 - Incontinence Highlight: Stay Active, Stay Protected",
+      "open_rate": 0.3038,
+      "click_rate": 0.0244,
+      "revenue": 0,
+      "month": "2025-09"
+    },
+    {
+      "subject": "⏰ Final 48 Hours: WellBefore’s Biggest Sale Ends Soon!",
+      "label": "11/28 - BFCM: Sale ends in 48 Hours",
+      "open_rate": 0.3021,
+      "click_rate": 0.0009,
+      "revenue": 2897.53,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Give the gift of care. 💓",
+      "label": "02/12 - 7% Off Valentine's Day Sale, Acts of Love",
+      "open_rate": 0.3014,
+      "click_rate": 0.0007,
+      "revenue": 1620.23,
+      "month": "2026-02"
+    },
+    {
+      "subject": "✨ Meet the WellBefore Kids Electric Toothbrush!",
+      "label": "10/09 - Kids Ultrasonic Toothbrush Announcement",
+      "open_rate": 0.2999,
+      "click_rate": 0.0006,
+      "revenue": 1696.77,
+      "month": "2025-10"
+    },
+    {
+      "subject": "🏋️ Gym Essentials to Keep You Safe",
+      "label": "11/23 - BFCM: Persona Focus [Workout]: Stronger Hygiene for Stronger Workouts",
+      "open_rate": 0.2995,
+      "click_rate": 0.0009,
+      "revenue": 1405.41,
+      "month": "2025-11"
+    },
+    {
+      "subject": "⏰ Cyber Monday Ends Tomorrow  >>>",
+      "label": "12/02 - Cyber Monday Sale: Ends Tomorrow",
+      "open_rate": 0.2993,
+      "click_rate": 0.0007,
+      "revenue": 3139.9,
+      "month": "2025-12"
+    },
+    {
+      "subject": "🌟Top-Rated Masks, Backed by Real Reviews.",
+      "label": "Email #1 - 01/25 - Reviews Driven: What Customers Love about Wellbefore Masks",
+      "open_rate": 0.2989,
+      "click_rate": 0.0017,
+      "revenue": 2340.31,
+      "month": "2026-01"
+    },
+    {
+      "subject": "Top Picks Are Disappearing Fast!",
+      "label": "11/15- Limited Stock Messaging Angle [Ensure You’re Covered for the Season]",
+      "open_rate": 0.297,
+      "click_rate": 0.001,
+      "revenue": 2351.27,
+      "month": "2025-11"
+    },
+    {
+      "subject": "⏰ 72 Hours Left: Black Friday Savings End Soon",
+      "label": "11/27 - Email #1: BFCM: Sale ends in 72 Hours - Simple Feature with countdown timer [Plain Text Feature]",
+      "open_rate": 0.2968,
+      "click_rate": 0.0006,
+      "revenue": 2243.4,
+      "month": "2025-11"
+    },
+    {
+      "subject": "A note of gratitude from WellBefore CEO.",
+      "label": "12/25 - Genuine Thank you from Shaz + Free Shipping on all orders of $50+",
+      "open_rate": 0.2959,
+      "click_rate": 0.0008,
+      "revenue": 3150.24,
+      "month": "2025-12"
+    },
+    {
+      "subject": "🚌 Public Transit? Protect Yourself the Easy Way",
+      "label": "11/12 - Email #1: BFCM: Persona Focus [Public Transit]: Transit Survival Kit",
+      "open_rate": 0.2941,
+      "click_rate": 0.0008,
+      "revenue": 448.73,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Up to 30% off plus FREE shipping.",
+      "label": "01/15 - Subscription Offer: Up to 30% Off Sitewide plus Free Shipping on First Order",
+      "open_rate": 0.2921,
+      "click_rate": 0.001,
+      "revenue": 2432.09,
+      "month": "2026-01"
+    },
+    {
+      "subject": "💦 Alcohol-Free Sanitizer by WellBefore",
+      "label": "10/21 - Hand Sanitizer Launch Announcement",
+      "open_rate": 0.2914,
+      "click_rate": 0.0015,
+      "revenue": 2162.68,
+      "month": "2025-10"
+    },
+    {
+      "subject": "💥 Up to 20% OFF ends TONIGHT!",
+      "label": "11/29 - Email #1: BFCM: Ends Today [Plain Text Feature]",
+      "open_rate": 0.2905,
+      "click_rate": 0.0007,
+      "revenue": 2640.34,
+      "month": "2025-11"
+    },
+    {
+      "subject": "💬 What Real Users Love About WellBefore.",
+      "label": "12/21 - Influencer Feature",
+      "open_rate": 0.2896,
+      "click_rate": 0.0008,
+      "revenue": 3172.24,
+      "month": "2026-01"
+    },
+    {
+      "subject": "Black Friday deals are here 🖤",
+      "label": "11/18 - Email #1: BFCM: Starts Now - Full List Launch",
+      "open_rate": 0.2891,
+      "click_rate": 0.0011,
+      "revenue": 3352.07,
+      "month": "2025-11"
+    },
+    {
+      "subject": "⏰ Clock’s Ticking: Cyber Monday Ends Tonight",
+      "label": "12/03 - Email #1: Cyber Monday Ends TODAY. Plain text email.",
+      "open_rate": 0.2885,
+      "click_rate": 0.0006,
+      "revenue": 2230.01,
+      "month": "2025-12"
+    },
+    {
+      "subject": "⏰ Final Hours: Holiday Savings End Today.",
+      "label": "12/20 - Mid December Offer Last Chance",
+      "open_rate": 0.2862,
+      "click_rate": 0.0009,
+      "revenue": 4109.01,
+      "month": "2025-12"
+    },
+    {
+      "subject": "30% Off Sitewide When You Subscribe.",
+      "label": "01/22 - Subscription Offer: Up to 30% Off Sitewide plus Free Dino Toothbrush with Order",
+      "open_rate": 0.2859,
+      "click_rate": 0.0007,
+      "revenue": 1202.7,
+      "month": "2026-01"
+    },
+    {
+      "subject": "💥🥳 End-of-the-Year Sale Starts Now.",
+      "label": "12/27 - EOY Sale Starts Today",
+      "open_rate": 0.2853,
+      "click_rate": 0.0015,
+      "revenue": 6026.12,
+      "month": "2025-12"
+    },
+    {
+      "subject": "🚨 🚚 Last Call for Holiday Shipping.",
+      "label": "12/09 - Shipping: Last Dates to Get Your Products on Time",
+      "open_rate": 0.2838,
+      "click_rate": 0.0009,
+      "revenue": 2985.71,
+      "month": "2025-12"
+    },
+    {
+      "subject": "🦠 Flu Season Is Peaking",
+      "label": "11/13 - Flu Season is Peaking - Get Protected Now",
+      "open_rate": 0.2837,
+      "click_rate": 0.0007,
+      "revenue": 578.36,
+      "month": "2025-11"
+    },
+    {
+      "subject": "💥 End of the year sale continues... 💥",
+      "label": "12/28 - Email #1 - EOY Sale: The Top 3 Products our Customers Buy Again and Again",
+      "open_rate": 0.2828,
+      "click_rate": 0.0009,
+      "revenue": 2469.93,
+      "month": "2025-12"
+    },
+    {
+      "subject": "🚨 Up to 30% Off + Free $10 Sample Pack",
+      "label": "10/30 - Subscription Offer: Up to 30% Off + $10 Free Sample Pack",
+      "open_rate": 0.2825,
+      "click_rate": 0.0008,
+      "revenue": 1868.74,
+      "month": "2025-10"
+    },
+    {
+      "subject": "Give the Gift of Wellness This Holiday 🎄🎁",
+      "label": "12/14 - Wellbefore Gift Guide",
+      "open_rate": 0.2824,
+      "click_rate": 0.0009,
+      "revenue": 2217.61,
+      "month": "2025-12"
+    },
+    {
+      "subject": "💥 Buy 2 WellBefore products and get 15% off sitewide.",
+      "label": "12/16 - Mid December Offer Begins",
+      "open_rate": 0.2823,
+      "click_rate": 0.0006,
+      "revenue": 2165.54,
+      "month": "2025-12"
+    },
+    {
+      "subject": "💰 Double Up and Save 15%.",
+      "label": "12/17 - Mid December Offer Reminder",
+      "open_rate": 0.2814,
+      "click_rate": 0.0005,
+      "revenue": 1698.79,
+      "month": "2025-12"
+    },
+    {
+      "subject": "Up to 20% off Black Friday deal on our most trusted mask.",
+      "label": "11/25 - BF Offer + Influencer Feature",
+      "open_rate": 0.2807,
+      "click_rate": 0.0007,
+      "revenue": 2749.59,
+      "month": "2025-11"
+    },
+    {
+      "subject": "❄️ Are You Winter-Ready? Let’s Find Out",
+      "label": "01/13 - Health Tips & Education: Your January Health score - Where do you land?",
+      "open_rate": 0.2807,
+      "click_rate": 0.0009,
+      "revenue": 2560.23,
+      "month": "2026-01"
+    },
+    {
+      "subject": "💥 Cyber Monday Starts NOW 💥",
+      "label": "12/01 - Cyber Monday Sale: Starts Today [72 Hours]",
+      "open_rate": 0.2806,
+      "click_rate": 0.0008,
+      "revenue": 4752.74,
+      "month": "2025-12"
+    },
+    {
+      "subject": "💥 End of Year Sale Upgrade 💥",
+      "label": "12/30 - EOY Sale: Sale Offer Transition First Day",
+      "open_rate": 0.279,
+      "click_rate": 0.0011,
+      "revenue": 3893.78,
+      "month": "2025-12"
+    },
+    {
+      "subject": "Stay Protected on Transit: KN95 & 3D Masks >>",
+      "label": "03/18 - Masks for Public Transport Workers (RESEND)",
+      "open_rate": 0.2754,
+      "click_rate": 0.0036,
+      "revenue": 1174.08,
+      "month": "2025-03"
+    },
+    {
+      "subject": "⏰ Final Hours: End of Year Sale Ends Tonight.",
+      "label": "12/31 - EOY Sale: Sale Offer Transition Final Day",
+      "open_rate": 0.2735,
+      "click_rate": 0.0008,
+      "revenue": 3661.18,
+      "month": "2025-12"
+    },
+    {
+      "subject": "✈️ Family Travel Essentials Are Here >>>",
+      "label": "12/20 - Persona Focus [Travel]: The Family Travel Health Guide",
+      "open_rate": 0.273,
+      "click_rate": 0.0006,
+      "revenue": 1059.03,
+      "month": "2025-12"
+    },
+    {
+      "subject": "💥 Black Friday Sale begins TOMORROW 💥",
+      "label": "11/17 - Email #2: BFCM: Starts Tomorrow [Simply a hero with a countdown timer]",
+      "open_rate": 0.2671,
+      "click_rate": 0.0006,
+      "revenue": 221.56,
+      "month": "2025-11"
+    },
+    {
+      "subject": "Breathable Summer Masks Are Here ☀️",
+      "label": "06/21 - KN95 Breeze Mask Feature (RESEND)",
+      "open_rate": 0.2498,
+      "click_rate": 0.003,
+      "revenue": 1342.12,
+      "month": "2025-06"
+    },
+    {
+      "subject": "Celebrate Eid with Peace of Mind 🌙",
+      "label": "03/19 - Eid Mubarak!",
+      "open_rate": 0.2253,
+      "click_rate": 0.001,
+      "revenue": 92.89,
+      "month": "2026-03"
+    },
+    {
+      "subject": "❤️ Additional 5% Off Healthcare Essentials 💙",
+      "label": "05/20 - Pre-Memorial Day Sale RESEND",
+      "open_rate": 0.1903,
+      "click_rate": 0.0009,
+      "revenue": 757.11,
+      "month": "2025-05"
+    },
+    {
+      "subject": "The Right Mask for Those Who Care for Others 💙",
+      "label": "RESEND - Caregivers & Essential Workers – “Compassion Meets Protection” (clone)",
+      "open_rate": 0.1706,
+      "click_rate": 0.0015,
+      "revenue": 608.86,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Avian Flu, H5N1: Should You Be Concerned?",
+      "label": "May 12 - What You Need to Know About H5N1 (Avian Flu) (Resend)",
+      "open_rate": 0.1586,
+      "click_rate": 0.0022,
+      "revenue": 995,
+      "month": "2025-05"
+    },
+    {
+      "subject": "COVID Isn’t Over: 300 Weekly Deaths Say Otherwise",
+      "label": "05/31 -  Outbreaks, Warnings & More: Your Health News Roundup (RESEND)",
+      "open_rate": 0.1429,
+      "click_rate": 0.0036,
+      "revenue": 1170.79,
+      "month": "2025-06"
+    },
+    {
+      "subject": "Unlock additional 9% Discount: Memorial Day Sale is ON",
+      "label": "05/23 - Memorial Day Sale (clone)",
+      "open_rate": 0.1169,
+      "click_rate": 0.0007,
+      "revenue": 1259.03,
+      "month": "2025-05"
+    },
+    {
+      "subject": "Discover the foundation of healthy habits >>>",
+      "label": "12/06 - Email #2: Personal Care Routine [Hand Sanitizer & Toothbrush & New Mask Feature]",
+      "open_rate": 0.1156,
+      "click_rate": 0.0001,
+      "revenue": 264.44,
+      "month": "2025-12"
+    },
+    {
+      "subject": "Featured in The New York Times—Trusted by Thousands!",
+      "label": "Social Proof + Referral - RESEND",
+      "open_rate": 0.1114,
+      "click_rate": 0.0006,
+      "revenue": 444.29,
+      "month": "2025-06"
+    },
+    {
+      "subject": "FSA/HSA-Eligible Products Waiting for You >>>",
+      "label": "11/06 - Reminder to use up FSA/HSA [Feature FSA & HSA Approved Products]",
+      "open_rate": 0.075,
+      "click_rate": 0.0002,
+      "revenue": 186.76,
+      "month": "2025-11"
+    },
+    {
+      "subject": "✅ This Week’s Spotlight >>>",
+      "label": "11/04 - Product Features of the Week",
+      "open_rate": 0.0129,
+      "click_rate": 0.0,
+      "revenue": 0,
+      "month": "2025-11"
+    }
+  ]
+}

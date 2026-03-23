@@ -5,7 +5,7 @@ const CAMPAIGN_COLUMNS = [
   'id', 'campaign_id', 'send_channel',
   'open_rate', 'click_rate', 'conversion_value', 'click_to_open_rate',
   'timeframe_start', 'timeframe_end',
-  'campaign_message_id', 'label', 'send_time', 'subject', 'template_link',
+  'campaign_message_id', 'label', 'send_time', 'template_created', 'subject', 'template_link',
   'template_file_path',
   'api_call_1', 'api_call_2', 'api_call_3',
 ].join(', ')
@@ -37,6 +37,7 @@ export async function fetchCampaigns(): Promise<Campaign[]> {
     campaign_message_id: (row.campaign_message_id as string) ?? null,
     label:               (row.label as string) ?? null,
     send_time:           (row.send_time as string) ?? null,
+    template_created:    (row.template_created as string) ?? null,
     subject:             (row.subject as string) ?? null,
     template_link:       (row.template_link as string) ?? null,
     template_file_path:  (row.template_file_path as string) ?? null,
