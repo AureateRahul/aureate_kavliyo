@@ -33,6 +33,7 @@ def _capture_screenshot(html_path: str, campaign_id: str) -> str | None:
         return None
 
     # Upload PNG to Supabase Storage
+    storage_url = None
     try:
         with open(png_path, "rb") as f:
             _sb.storage.from_("screenshots").upload(
@@ -40,9 +41,17 @@ def _capture_screenshot(html_path: str, campaign_id: str) -> str | None:
                 f.read(),
                 file_options={"content-type": "image/png", "upsert": "true"},
             )
+        storage_url = _sb.storage.from_("screenshots").get_public_url(f"{campaign_id}.png")
         print(f"  [storage] uploaded screenshots/{campaign_id}.png")
     except Exception as e:
         print(f"  [storage] screenshot upload failed for {campaign_id}: {e}")
+
+    # Save public URL to DB
+    if storage_url:
+        try:
+            _sb.table("campaigns").update({"screenshot_path": storage_url}).eq("campaign_id", campaign_id).execute()
+        except Exception as e:
+            print(f"  [db] screenshot_path update failed for {campaign_id}: {e}")
 
     return png_path
 
