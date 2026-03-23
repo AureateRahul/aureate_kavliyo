@@ -201,7 +201,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
           </select>
 
           {/* Created Month filter */}
-          {/* <select
+          <select
             value={createdMonthFilter} onChange={e => { setCreatedMonth(e.target.value); resetPage() }}
             className={`${selectCls} ${createdMonthFilter !== 'all' ? 'border-green-600 text-green-400' : ''}`}
           >
@@ -211,7 +211,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
               const label = new Date(+y, +m - 1).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
               return <option key={ym} value={ym}>{label}</option>
             })}
-          </select> */}
+          </select>
 
           {/* Sort */}
           <div className="flex items-center gap-1.5 ml-auto">
