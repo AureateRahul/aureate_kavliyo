@@ -4,10 +4,22 @@ from api import client
 from config import settings
 from supabase import create_client as _sb_create
 
-_sb = _sb_create(settings.SUPABASE_URL, settings.SUPABASE_SERVICE_KEY)
+_sb = None
+
+
+def _get_sb():
+    global _sb
+    if _sb is None:
+        if not settings.SUPABASE_URL or not settings.SUPABASE_SERVICE_KEY:
+            raise RuntimeError("Supabase environment variables are not configured")
+        _sb = _sb_create(settings.SUPABASE_URL, settings.SUPABASE_SERVICE_KEY)
+    return _sb
 
 _ROOT        = os.path.dirname(os.path.dirname(__file__))
-_SCREENSHOTS = os.path.join(_ROOT, "screenshots")
+_RUNTIME_ROOT = os.path.join("/tmp", "klaviyo_data_crawl") if os.getenv("VERCEL") else _ROOT
+_TEMPLATES = os.path.join(_RUNTIME_ROOT, "templates")
+_SCREENSHOTS = os.path.join(_RUNTIME_ROOT, "screenshots")
+os.makedirs(_TEMPLATES, exist_ok=True)
 os.makedirs(_SCREENSHOTS, exist_ok=True)
 
 
@@ -36,12 +48,12 @@ def _capture_screenshot(html_path: str, campaign_id: str) -> str | None:
     storage_url = None
     try:
         with open(png_path, "rb") as f:
-            _sb.storage.from_("screenshots").upload(
+            _get_sb().storage.from_("screenshots").upload(
                 f"{campaign_id}.png",
                 f.read(),
                 file_options={"content-type": "image/png", "upsert": "true"},
             )
-        storage_url = _sb.storage.from_("screenshots").get_public_url(f"{campaign_id}.png")
+        storage_url = _get_sb().storage.from_("screenshots").get_public_url(f"{campaign_id}.png")
         print(f"  [storage] uploaded screenshots/{campaign_id}.png")
     except Exception as e:
         print(f"  [storage] screenshot upload failed for {campaign_id}: {e}")
@@ -49,7 +61,7 @@ def _capture_screenshot(html_path: str, campaign_id: str) -> str | None:
     # Save public URL to DB
     if storage_url:
         try:
-            _sb.table("campaigns").update({"screenshot_path": storage_url}).eq("campaign_id", campaign_id).execute()
+            _get_sb().table("campaigns").update({"screenshot_path": storage_url}).eq("campaign_id", campaign_id).execute()
         except Exception as e:
             print(f"  [db] screenshot_path update failed for {campaign_id}: {e}")
 
@@ -211,7 +223,7 @@ def fetch_templates(campaign_messages: list) -> list:
     """
     import os
 
-    output_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "templates")
+    output_dir = _TEMPLATES
     os.makedirs(output_dir, exist_ok=True)
 
     saved = []
@@ -245,7 +257,7 @@ def fetch_templates(campaign_messages: list) -> list:
 
         # Upload to Supabase Storage so the frontend can serve it without Flask
         try:
-            _sb.storage.from_("templates").upload(
+            _get_sb().storage.from_("templates").upload(
                 f"{campaign_id}.html",
                 html.encode("utf-8"),
                 file_options={"content-type": "text/html; charset=utf-8", "upsert": "true"},

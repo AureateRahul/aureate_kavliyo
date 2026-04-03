@@ -14,7 +14,7 @@ This repo now includes backend Vercel config in [backend/vercel.json](backend/ve
 	- KLAVIYO_API_KEY
 	- SUPABASE_URL
 	- SUPABASE_SERVICE_KEY
-	- ANTHROPIC_API_KEY (required for /api/ai-insights)
+	- ANTHROPIC_API_KEY (optional, only needed if you use /api/ai-insights)
 5. Deploy.
 
 The backend will be served from your Vercel domain and all paths are routed to Flask app.py.

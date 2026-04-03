@@ -5,6 +5,8 @@ from config import settings
 
 def get_db_connection() -> Client:
     """Return a Supabase client using the service-role key (bypasses RLS)."""
+    if not settings.SUPABASE_URL or not settings.SUPABASE_SERVICE_KEY:
+        raise RuntimeError("Supabase environment variables are not configured")
     return create_client(settings.SUPABASE_URL, settings.SUPABASE_SERVICE_KEY)
 
 

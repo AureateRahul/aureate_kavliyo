@@ -1,6 +1,8 @@
 import json
 import os
 import subprocess
+from datetime import datetime, timezone
+from functools import lru_cache
 from flask import Flask, jsonify, request, send_file, abort, render_template_string
 from flask_cors import CORS
 
@@ -48,10 +50,30 @@ Instructions:
 
 TEMPLATES_DIR   = os.path.join(os.path.dirname(__file__), "templates")
 SCREENSHOTS_DIR = os.path.join(os.path.dirname(__file__), "screenshots")
-os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
+RUNTIME_ROOT = os.path.join("/tmp", "klaviyo_data_crawl") if os.getenv("VERCEL") else os.path.dirname(__file__)
+RUNTIME_TEMPLATES_DIR = os.path.join(RUNTIME_ROOT, "templates")
+RUNTIME_SCREENSHOTS_DIR = os.path.join(RUNTIME_ROOT, "screenshots")
+if not os.getenv("VERCEL"):
+  os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
+os.makedirs(RUNTIME_TEMPLATES_DIR, exist_ok=True)
+os.makedirs(RUNTIME_SCREENSHOTS_DIR, exist_ok=True)
 
-# Supabase client (reused across requests)
-_supabase = get_db_connection()
+@lru_cache(maxsize=1)
+def get_supabase_client():
+    return get_db_connection()
+
+
+def _db_error_response(exc: Exception):
+    return jsonify({"error": str(exc)}), 503
+
+
+@app.route("/api/health")
+def api_health():
+    return jsonify({
+        "ok": True,
+        "supabase_configured": bool(os.getenv("SUPABASE_URL") and os.getenv("SUPABASE_SERVICE_KEY")),
+        "klaviyo_configured": bool(os.getenv("KLAVIYO_API_KEY")),
+    })
 
 
 @app.route("/api/ai-insights", methods=["POST"])
@@ -103,23 +125,30 @@ def ai_insights():
 
 @app.route("/")
 def index():
-    return render_template_string(HTML)
+  return jsonify({
+    "message": "deployed successfully",
+    "current_time": datetime.now(timezone.utc).isoformat(),
+  })
 
 
 @app.route("/api/campaigns")
 def api_campaigns():
-    result = (
-        _supabase.table("campaigns")
-        .select(
-            "id, campaign_id, send_channel, "
-            "open_rate, click_rate, conversion_value, click_to_open_rate, "
-            "timeframe_start, timeframe_end, "
-            "campaign_message_id, subject, template_link, "
-            "template_file_path, api_call_1, api_call_2, api_call_3"
+    try:
+        supabase = get_supabase_client()
+        result = (
+            supabase.table("campaigns")
+            .select(
+                "id, campaign_id, send_channel, "
+                "open_rate, click_rate, conversion_value, click_to_open_rate, "
+                "timeframe_start, timeframe_end, "
+                "campaign_message_id, subject, template_link, "
+                "template_file_path, api_call_1, api_call_2, api_call_3"
+            )
+            .order("id")
+            .execute()
         )
-        .order("id")
-        .execute()
-    )
+    except Exception as exc:
+        return _db_error_response(exc)
     data = []
     for row in result.data:
         if row.get("template_file_path"):
@@ -128,8 +157,8 @@ def api_campaigns():
             row["template_filename"] = None
         safe_id = "".join(c for c in row["campaign_id"] if c.isalnum())
         row["has_screenshot"] = os.path.exists(
-            os.path.join(SCREENSHOTS_DIR, f"{safe_id}.png")
-        )
+            os.path.join(RUNTIME_SCREENSHOTS_DIR, f"{safe_id}.png")
+        ) or os.path.exists(os.path.join(SCREENSHOTS_DIR, f"{safe_id}.png"))
         data.append(row)
     return jsonify(data)
 
@@ -137,10 +166,14 @@ def api_campaigns():
 @app.route("/api/stats")
 def api_stats():
     from db.repository import _count
-    total  = _count(_supabase)
-    done_1 = _count(_supabase, api_call_1=1)
-    done_2 = _count(_supabase, api_call_2=1)
-    done_3 = _count(_supabase, api_call_3=1)
+    try:
+        supabase = get_supabase_client()
+        total  = _count(supabase)
+        done_1 = _count(supabase, api_call_1=1)
+        done_2 = _count(supabase, api_call_2=1)
+        done_3 = _count(supabase, api_call_3=1)
+    except Exception as exc:
+        return _db_error_response(exc)
     return jsonify({"total": total, "done_1": done_1, "done_2": done_2, "done_3": done_3})
 
 
@@ -163,7 +196,11 @@ def api_refresh_metrics():
     except Exception as exc:
         return jsonify({"error": str(exc)}), 500
 
-    result = refresh_metrics_last_90_days(_supabase, rows)
+    try:
+        supabase = get_supabase_client()
+        result = refresh_metrics_last_90_days(supabase, rows)
+    except Exception as exc:
+        return _db_error_response(exc)
     return jsonify({
         "updated":          result["updated"],
         "inserted":         result["inserted"],
@@ -174,7 +211,11 @@ def api_refresh_metrics():
 @app.route("/api/run-api2", methods=["POST"])
 def api_run_api2():
     data = request.get_json(silent=True) or {}
-    campaign_ids = data.get("campaign_ids") or get_pending_campaign_ids(_supabase)
+    try:
+        supabase = get_supabase_client()
+        campaign_ids = data.get("campaign_ids") or get_pending_campaign_ids(supabase)
+    except Exception as exc:
+        return _db_error_response(exc)
     if not campaign_ids:
         return jsonify({"error": "No pending campaigns for API 2"}), 400
 
@@ -183,7 +224,10 @@ def api_run_api2():
     except Exception as exc:
         return jsonify({"error": str(exc)}), 500
 
-    update_campaign_messages(_supabase, rows)
+    try:
+        update_campaign_messages(supabase, rows)
+    except Exception as exc:
+        return _db_error_response(exc)
     return jsonify({"processed": len(rows)})
 
 
@@ -192,14 +236,18 @@ def api_run_api3():
     data = request.get_json(silent=True) or {}
     campaign_ids = data.get("campaign_ids")
 
-    if campaign_ids:
-        # Filter pending messages for the given campaign IDs
-        messages = [
-            m for m in get_pending_campaign_messages(_supabase)
-            if m["campaign_id"] in campaign_ids
-        ]
-    else:
-        messages = get_pending_campaign_messages(_supabase)
+    try:
+        supabase = get_supabase_client()
+        if campaign_ids:
+            # Filter pending messages for the given campaign IDs
+            messages = [
+                m for m in get_pending_campaign_messages(supabase)
+                if m["campaign_id"] in campaign_ids
+            ]
+        else:
+            messages = get_pending_campaign_messages(supabase)
+    except Exception as exc:
+        return _db_error_response(exc)
 
     if not messages:
         return jsonify({"error": "No pending campaigns for API 3"}), 400
@@ -209,14 +257,19 @@ def api_run_api3():
     except Exception as exc:
         return jsonify({"error": str(exc)}), 500
 
-    update_template_paths(_supabase, saved)
+    try:
+        update_template_paths(supabase, saved)
+    except Exception as exc:
+        return _db_error_response(exc)
     return jsonify({"processed": len(saved)})
 
 
 @app.route("/download/<campaign_id>")
 def download_template(campaign_id):
     safe_id = "".join(c for c in campaign_id if c.isalnum())
-    file_path = os.path.join(TEMPLATES_DIR, f"{safe_id}.html")
+    file_path = os.path.join(RUNTIME_TEMPLATES_DIR, f"{safe_id}.html")
+    if not os.path.exists(file_path):
+        file_path = os.path.join(TEMPLATES_DIR, f"{safe_id}.html")
     if not os.path.exists(file_path):
         abort(404)
     return send_file(file_path, as_attachment=True, download_name=f"{safe_id}.html")
@@ -225,7 +278,9 @@ def download_template(campaign_id):
 @app.route("/preview/<campaign_id>")
 def preview_template(campaign_id):
     safe_id = "".join(c for c in campaign_id if c.isalnum())
-    file_path = os.path.join(TEMPLATES_DIR, f"{safe_id}.html")
+    file_path = os.path.join(RUNTIME_TEMPLATES_DIR, f"{safe_id}.html")
+    if not os.path.exists(file_path):
+        file_path = os.path.join(TEMPLATES_DIR, f"{safe_id}.html")
     if not os.path.exists(file_path):
         abort(404)
     return send_file(file_path)
@@ -235,11 +290,13 @@ def preview_template(campaign_id):
 def screenshot(campaign_id):
     """Generate (or serve cached) a PNG screenshot of the email template."""
     safe_id = "".join(c for c in campaign_id if c.isalnum())
-    html_path = os.path.join(TEMPLATES_DIR, f"{safe_id}.html")
+    html_path = os.path.join(RUNTIME_TEMPLATES_DIR, f"{safe_id}.html")
+    if not os.path.exists(html_path):
+        html_path = os.path.join(TEMPLATES_DIR, f"{safe_id}.html")
     if not os.path.exists(html_path):
         abort(404)
 
-    png_path = os.path.join(SCREENSHOTS_DIR, f"{safe_id}.png")
+    png_path = os.path.join(RUNTIME_SCREENSHOTS_DIR, f"{safe_id}.png")
 
     if not os.path.exists(png_path):
         try:
@@ -261,11 +318,13 @@ def screenshot(campaign_id):
 def download_image(campaign_id):
     """Download the PNG screenshot as a file."""
     safe_id = "".join(c for c in campaign_id if c.isalnum())
-    html_path = os.path.join(TEMPLATES_DIR, f"{safe_id}.html")
+    html_path = os.path.join(RUNTIME_TEMPLATES_DIR, f"{safe_id}.html")
+    if not os.path.exists(html_path):
+        html_path = os.path.join(TEMPLATES_DIR, f"{safe_id}.html")
     if not os.path.exists(html_path):
         abort(404)
 
-    png_path = os.path.join(SCREENSHOTS_DIR, f"{safe_id}.png")
+    png_path = os.path.join(RUNTIME_SCREENSHOTS_DIR, f"{safe_id}.png")
 
     if not os.path.exists(png_path):
         try:

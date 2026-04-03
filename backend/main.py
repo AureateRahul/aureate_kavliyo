@@ -117,6 +117,7 @@ def print_status(conn) -> None:
 
 
 def run(args: argparse.Namespace) -> None:
+    settings.validate_required_settings()
     conn = get_db_connection()
     initialize_db(conn)
 

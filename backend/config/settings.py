@@ -20,8 +20,12 @@ SUPABASE_SERVICE_KEY: str = os.getenv("SUPABASE_SERVICE_KEY", "")
 # Anthropic
 ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
 
-if not API_KEY:
-    raise ValueError("KLAVIYO_API_KEY is not set. Check your .env file.")
+def validate_required_settings(require_anthropic: bool = False) -> None:
+    if not API_KEY:
+        raise ValueError("KLAVIYO_API_KEY is not set. Check your environment variables.")
 
-if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
-    raise ValueError("SUPABASE_URL and SUPABASE_SERVICE_KEY must be set in .env")
+    if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
+        raise ValueError("SUPABASE_URL and SUPABASE_SERVICE_KEY must be set in your environment variables.")
+
+    if require_anthropic and not ANTHROPIC_API_KEY:
+        raise ValueError("ANTHROPIC_API_KEY is not set.")
