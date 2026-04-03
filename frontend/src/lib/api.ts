@@ -1,6 +1,47 @@
 import { supabase } from './supabase'
 import type { Campaign, Stats } from '../types'
 
+const BACKEND = (import.meta.env.VITE_BACKEND_URL as string | undefined)?.replace(/\/$/, '') || 'http://localhost:5000'
+
+export interface RefreshResult {
+  updated: number
+  inserted: number
+  new_campaign_ids: string[]
+}
+
+export async function refreshMetrics(timeframe: string): Promise<RefreshResult> {
+  const res = await fetch(`${BACKEND}/api/refresh-metrics`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ timeframe }),
+  })
+  const json = await res.json()
+  if (!res.ok) throw new Error(json.error || 'Refresh failed')
+  return json
+}
+
+export async function runApi2(campaignIds: string[]): Promise<{ processed: number }> {
+  const res = await fetch(`${BACKEND}/api/run-api2`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ campaign_ids: campaignIds }),
+  })
+  const json = await res.json()
+  if (!res.ok) throw new Error(json.error || 'API 2 failed')
+  return json
+}
+
+export async function runApi3(campaignIds: string[]): Promise<{ processed: number }> {
+  const res = await fetch(`${BACKEND}/api/run-api3`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ campaign_ids: campaignIds }),
+  })
+  const json = await res.json()
+  if (!res.ok) throw new Error(json.error || 'API 3 failed')
+  return json
+}
+
 const CAMPAIGN_COLUMNS = [
   'id', 'campaign_id', 'send_channel',
   'open_rate', 'click_rate', 'conversion_value', 'click_to_open_rate',

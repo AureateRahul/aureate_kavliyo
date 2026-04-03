@@ -3,12 +3,13 @@ type Page = 'dashboard' | 'ai'
 interface NavbarProps {
   lastUpdated: string
   onRefresh: () => void
+  onPullData: () => void
   onLogout: () => void
   page: Page
   onNavigate: (page: Page) => void
 }
 
-export default function Navbar({ lastUpdated, onRefresh, onLogout, page, onNavigate }: NavbarProps) {
+export default function Navbar({ lastUpdated, onRefresh, onPullData, onLogout, page, onNavigate }: NavbarProps) {
   return (
     <nav className="bg-gray-900 text-white shadow-lg border-b border-gray-700/50 sticky top-0 z-40">
       <div className="max-w-[1600px] mx-auto px-6 h-14 flex items-center justify-between">
@@ -47,6 +48,16 @@ export default function Navbar({ lastUpdated, onRefresh, onLogout, page, onNavig
               {lastUpdated && (
                 <span className="text-gray-400 text-xs hidden sm:block">{lastUpdated}</span>
               )}
+              <button
+                onClick={onPullData}
+                className="flex items-center gap-1.5 text-xs bg-green-800/60 hover:bg-green-700/70 border border-green-700/50 text-green-300 hover:text-green-100 px-3 py-1.5 rounded-lg transition-colors"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                    d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4" />
+                </svg>
+                Pull Latest Data
+              </button>
               <button
                 onClick={onRefresh}
                 className="flex items-center gap-1.5 text-xs bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 hover:text-white px-3 py-1.5 rounded-lg transition-colors"

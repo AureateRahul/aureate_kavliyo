@@ -34,6 +34,70 @@ def upsert_campaign_values(client: Client, rows: list) -> None:
     client.table("campaigns").upsert(payload, on_conflict="campaign_id").execute()
 
 
+def refresh_metrics_last_90_days(client: Client, rows: list) -> dict:
+    """
+    For each row returned by API 1 (last_90_days):
+      - Existing campaign_id → UPDATE only the 4 metrics columns.
+      - New campaign_id      → INSERT full row with api_call_1=1.
+
+    Returns {"updated": int, "inserted": int}.
+    """
+    if not rows:
+        return {"updated": 0, "inserted": 0}
+
+    # Fetch all existing campaign_ids in one query
+    incoming_ids = [r["campaign_id"] for r in rows if r.get("campaign_id")]
+    existing = set()
+    # Supabase `in_` filter; chunk to avoid URL-length limits
+    chunk_size = 200
+    for i in range(0, len(incoming_ids), chunk_size):
+        chunk = incoming_ids[i : i + chunk_size]
+        result = (
+            client.table("campaigns")
+            .select("campaign_id")
+            .in_("campaign_id", chunk)
+            .execute()
+        )
+        for rec in result.data:
+            existing.add(rec["campaign_id"])
+
+    to_update = [r for r in rows if r.get("campaign_id") in existing]
+    to_insert = [r for r in rows if r.get("campaign_id") not in existing]
+
+    # UPDATE — only the 4 metrics + updated_at (leave all other columns untouched)
+    for r in to_update:
+        client.table("campaigns").update({
+            "open_rate":          r["open_rate"],
+            "click_rate":         r["click_rate"],
+            "conversion_value":   r["conversion_value"],
+            "click_to_open_rate": r["click_to_open_rate"],
+        }).eq("campaign_id", r["campaign_id"]).execute()
+
+    # INSERT — full row for brand-new campaigns
+    if to_insert:
+        insert_payload = [
+            {
+                "campaign_id":        r["campaign_id"],
+                "send_channel":       r["send_channel"],
+                "open_rate":          r["open_rate"],
+                "click_rate":         r["click_rate"],
+                "conversion_value":   r["conversion_value"],
+                "click_to_open_rate": r["click_to_open_rate"],
+                "timeframe_start":    r["timeframe_start"],
+                "timeframe_end":      r["timeframe_end"],
+                "api_call_1":         1,
+            }
+            for r in to_insert
+        ]
+        client.table("campaigns").insert(insert_payload).execute()
+
+    return {
+        "updated": len(to_update),
+        "inserted": len(to_insert),
+        "new_campaign_ids": [r["campaign_id"] for r in to_insert if r.get("campaign_id")],
+    }
+
+
 # ---------------------------------------------------------------------------
 # API 2 — Campaign Messages
 # ---------------------------------------------------------------------------

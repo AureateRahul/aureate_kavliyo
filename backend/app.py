@@ -4,7 +4,15 @@ import subprocess
 from flask import Flask, jsonify, request, send_file, abort, render_template_string
 from flask_cors import CORS
 
-from db.repository import get_db_connection
+from db.repository import (
+    get_db_connection,
+    refresh_metrics_last_90_days,
+    update_campaign_messages,
+    update_template_paths,
+    get_pending_campaign_ids,
+    get_pending_campaign_messages,
+)
+from api.klaviyo import fetch_campaign_values_report, fetch_campaign_messages, fetch_templates
 
 app = Flask(__name__)
 CORS(app)
@@ -134,6 +142,75 @@ def api_stats():
     done_2 = _count(_supabase, api_call_2=1)
     done_3 = _count(_supabase, api_call_3=1)
     return jsonify({"total": total, "done_1": done_1, "done_2": done_2, "done_3": done_3})
+
+
+_VALID_TIMEFRAMES = {
+    "today", "yesterday", "this_week", "last_7_days", "last_week",
+    "this_month", "last_30_days", "last_month", "last_90_days",
+    "last_3_months", "last_365_days", "last_12_months", "this_year", "last_year",
+}
+
+
+@app.route("/api/refresh-metrics", methods=["POST"])
+def api_refresh_metrics():
+    data = request.get_json(silent=True) or {}
+    timeframe_key = data.get("timeframe", "last_90_days")
+    if timeframe_key not in _VALID_TIMEFRAMES:
+        return jsonify({"error": f"Invalid timeframe '{timeframe_key}'"}), 400
+
+    try:
+        rows = fetch_campaign_values_report({"key": timeframe_key})
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 500
+
+    result = refresh_metrics_last_90_days(_supabase, rows)
+    return jsonify({
+        "updated":          result["updated"],
+        "inserted":         result["inserted"],
+        "new_campaign_ids": result["new_campaign_ids"],
+    })
+
+
+@app.route("/api/run-api2", methods=["POST"])
+def api_run_api2():
+    data = request.get_json(silent=True) or {}
+    campaign_ids = data.get("campaign_ids") or get_pending_campaign_ids(_supabase)
+    if not campaign_ids:
+        return jsonify({"error": "No pending campaigns for API 2"}), 400
+
+    try:
+        rows = fetch_campaign_messages(campaign_ids)
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 500
+
+    update_campaign_messages(_supabase, rows)
+    return jsonify({"processed": len(rows)})
+
+
+@app.route("/api/run-api3", methods=["POST"])
+def api_run_api3():
+    data = request.get_json(silent=True) or {}
+    campaign_ids = data.get("campaign_ids")
+
+    if campaign_ids:
+        # Filter pending messages for the given campaign IDs
+        messages = [
+            m for m in get_pending_campaign_messages(_supabase)
+            if m["campaign_id"] in campaign_ids
+        ]
+    else:
+        messages = get_pending_campaign_messages(_supabase)
+
+    if not messages:
+        return jsonify({"error": "No pending campaigns for API 3"}), 400
+
+    try:
+        saved = fetch_templates(messages)
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 500
+
+    update_template_paths(_supabase, saved)
+    return jsonify({"processed": len(saved)})
 
 
 @app.route("/download/<campaign_id>")

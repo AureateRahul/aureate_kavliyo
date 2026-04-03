@@ -8,6 +8,7 @@ import StatsBar from './components/StatsBar'
 import CampaignTable from './components/CampaignTable'
 import PreviewModal from './components/PreviewModal'
 import AIInsights from './components/AIInsights'
+import RefreshMetricsModal from './components/RefreshMetricsModal'
 import { Lamp } from './components/Lamp'
 import { AuthForm } from './components/AuthForm'
 
@@ -39,6 +40,7 @@ function Dashboard() {
   const [lastUpdated, setLastUpdated] = useState('')
   const [selected, setSelected]   = useState<Campaign | null>(null)
   const [page, setPage]           = useState<'dashboard' | 'ai'>('dashboard')
+  const [pullOpen, setPullOpen]   = useState(false)
 
   const loadData = useCallback(async () => {
     setLoading(true)
@@ -61,6 +63,7 @@ function Dashboard() {
       <Navbar
         lastUpdated={lastUpdated}
         onRefresh={loadData}
+        onPullData={() => setPullOpen(true)}
         onLogout={() => supabase.auth.signOut()}
         page={page}
         onNavigate={setPage}
@@ -74,6 +77,11 @@ function Dashboard() {
         <AIInsights />
       )}
       <PreviewModal campaign={selected} onClose={() => setSelected(null)} />
+      <RefreshMetricsModal
+        open={pullOpen}
+        onClose={() => setPullOpen(false)}
+        onDataRefreshed={loadData}
+      />
     </div>
   )
 }

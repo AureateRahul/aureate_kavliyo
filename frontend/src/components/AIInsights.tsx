@@ -22,6 +22,7 @@ interface Conversation {
 // ---------------------------------------------------------------------------
 const STORAGE_KEY = 'ai_insights_conversations'
 const ACTIVE_KEY  = 'ai_insights_active_id'
+const BACKEND = (import.meta.env.VITE_BACKEND_URL as string | undefined)?.replace(/\/$/, '') || 'http://localhost:5000'
 
 function loadConversations(): Conversation[] {
   try {
@@ -198,7 +199,7 @@ export default function AIInsights() {
     try {
       const controller = new AbortController()
       const timer = setTimeout(() => controller.abort(), 310_000)
-      const res = await fetch('http://localhost:5000/api/ai-insights', {
+      const res = await fetch(`${BACKEND}/api/ai-insights`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question, history: active.messages }),
