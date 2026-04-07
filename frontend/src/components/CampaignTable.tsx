@@ -296,7 +296,10 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
                 {/* Send Date */}
                 <td className="px-3 py-2.5 whitespace-nowrap text-gray-400 font-mono text-[11px]">
                   {c.send_time
-                    ? new Date(c.send_time).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                    ? <div>
+                        <div>{new Date(c.send_time).toLocaleDateString('en-US', { timeZone: 'America/Chicago', month: 'short', day: 'numeric', year: 'numeric' })}</div>
+                        <div>{new Date(c.send_time).toLocaleTimeString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', minute: '2-digit', hour12: true })}</div>
+                      </div>
                     : <span className="text-gray-600">—</span>}
                 </td>
 
