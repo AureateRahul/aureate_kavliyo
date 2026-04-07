@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { Campaign } from '../types'
 import { getTemplateUrl, getScreenshotUrl, downloadFromStorage } from '../lib/storage'
-import { generateScreenshot, downloadBlob } from '../lib/screenshot'
+import { generateScreenshotWithBestMethod, downloadBlob } from '../lib/screenshot'
 
 interface PreviewModalProps {
   campaign: Campaign | null
@@ -17,6 +17,7 @@ export default function PreviewModal({ campaign, onClose }: PreviewModalProps) {
   const [imgError, setImgError]           = useState(false)
   const [generating, setGenerating]       = useState(false)
   const [generatedBlob, setGeneratedBlob] = useState<Blob | null>(null)
+  const [captureInfo, setCaptureInfo]     = useState('')
   const iframeRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function PreviewModal({ campaign, onClose }: PreviewModalProps) {
     setImgError(false)
     setGenerating(false)
     setGeneratedBlob(null)
+    setCaptureInfo('')
 
     let url = ''
     fetch(getTemplateUrl(campaign.campaign_id))
@@ -60,11 +62,14 @@ export default function PreviewModal({ campaign, onClose }: PreviewModalProps) {
   const handleGenerateScreenshot = async () => {
     setGenerating(true)
     try {
-      const blob = await generateScreenshot(campaign.campaign_id)
-      setGeneratedBlob(blob)
+      const result = await generateScreenshotWithBestMethod(campaign.campaign_id)
+      setGeneratedBlob(result.blob)
+      setCaptureInfo(`Generated with ${result.engine} in ${result.durationMs} ms`)
       setImgError(false)
+      console.table(result.attempts)
     } catch (err) {
       console.error('Screenshot generation failed:', err)
+      setCaptureInfo('')
     } finally {
       setGenerating(false)
     }
@@ -78,12 +83,15 @@ export default function PreviewModal({ campaign, onClose }: PreviewModalProps) {
       setTab('image')
       setGenerating(true)
       try {
-        const blob = await generateScreenshot(campaign.campaign_id)
-        setGeneratedBlob(blob)
+        const result = await generateScreenshotWithBestMethod(campaign.campaign_id)
+        setGeneratedBlob(result.blob)
+        setCaptureInfo(`Generated with ${result.engine} in ${result.durationMs} ms`)
         setImgError(false)
-        downloadBlob(blob, `${safeId}.png`)
+        console.table(result.attempts)
+        downloadBlob(result.blob, `${safeId}.png`)
       } catch (err) {
         console.error('Screenshot generation failed:', err)
+        setCaptureInfo('')
       } finally {
         setGenerating(false)
       }
@@ -195,7 +203,10 @@ export default function PreviewModal({ campaign, onClose }: PreviewModalProps) {
               )}
 
               {generatedBlob && !generating && (
-                <img src={URL.createObjectURL(generatedBlob)} alt="Generated screenshot" className="max-w-full rounded" />
+                <div className="w-full flex flex-col items-center gap-2 py-2">
+                  {captureInfo && <p className="text-xs text-green-400">{captureInfo}</p>}
+                  <img src={URL.createObjectURL(generatedBlob)} alt="Generated screenshot" className="max-w-full rounded" />
+                </div>
               )}
             </div>
           )}

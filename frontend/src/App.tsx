@@ -48,7 +48,7 @@ function Dashboard() {
       const [c, s] = await Promise.all([fetchCampaigns(), fetchStats()])
       setCampaigns(c)
       setStats(s)
-      setLastUpdated('Updated ' + new Date().toLocaleTimeString())
+      setLastUpdated('Updated ' + new Date().toLocaleTimeString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true }) + ' CST')
     } catch (err) {
       console.error('Supabase fetch error:', err)
     } finally {
