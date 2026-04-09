@@ -15,6 +15,9 @@ CREATE TABLE IF NOT EXISTS campaigns (
     click_rate          DOUBLE PRECISION,
     conversion_value    DOUBLE PRECISION,
     click_to_open_rate  DOUBLE PRECISION,
+    total_sent          BIGINT,
+    cost                DOUBLE PRECISION,
+    roas                DOUBLE PRECISION,
     timeframe_start     TEXT,
     timeframe_end       TEXT,
 
@@ -35,6 +38,34 @@ CREATE TABLE IF NOT EXISTS campaigns (
     fetched_at          TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at          TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE IF NOT EXISTS user_profiles (
+    id              BIGSERIAL PRIMARY KEY,
+    per_email_cost  TEXT
+);
+
+ALTER TABLE user_profiles ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS allow_all_read ON user_profiles;
+CREATE POLICY allow_all_read
+ON user_profiles
+FOR SELECT
+USING (true);
+
+DROP POLICY IF EXISTS allow_authenticated_insert ON user_profiles;
+CREATE POLICY allow_authenticated_insert
+ON user_profiles
+FOR INSERT
+TO authenticated
+WITH CHECK (true);
+
+DROP POLICY IF EXISTS allow_authenticated_update ON user_profiles;
+CREATE POLICY allow_authenticated_update
+ON user_profiles
+FOR UPDATE
+TO authenticated
+USING (true)
+WITH CHECK (true);
 """
 
 

@@ -4,12 +4,13 @@ interface NavbarProps {
   lastUpdated: string
   onRefresh: () => void
   onPullData: () => void
+  onEmailCostSettings: () => void
   onLogout: () => void
   page: Page
   onNavigate: (page: Page) => void
 }
 
-export default function Navbar({ lastUpdated, onRefresh, onPullData, onLogout, page, onNavigate }: NavbarProps) {
+export default function Navbar({ lastUpdated, onRefresh, onPullData, onEmailCostSettings, onLogout, page, onNavigate }: NavbarProps) {
   return (
     <nav className="bg-gray-900 text-white shadow-lg border-b border-gray-700/50 sticky top-0 z-40">
       <div className="max-w-[1600px] mx-auto px-6 h-14 flex items-center justify-between">
@@ -67,6 +68,12 @@ export default function Navbar({ lastUpdated, onRefresh, onPullData, onLogout, p
                     d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
                 Refresh
+              </button>
+              <button
+                onClick={onEmailCostSettings}
+                className="flex items-center gap-1.5 text-xs bg-indigo-900/40 hover:bg-indigo-800/50 border border-indigo-700/50 text-indigo-300 hover:text-indigo-100 px-3 py-1.5 rounded-lg transition-colors"
+              >
+                Email Cost Settings
               </button>
             </>
           )}

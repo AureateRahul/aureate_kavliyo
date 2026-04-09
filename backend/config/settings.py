@@ -11,6 +11,7 @@ STATISTICS: list = [
     "click_rate",
     "conversion_value",
     "click_to_open_rate",
+    "recipients",
 ]
 
 # Supabase

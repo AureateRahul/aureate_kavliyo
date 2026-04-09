@@ -23,11 +23,12 @@ type Step = 'select' | 'fetching' | 'done' | 'running-api2' | 'running-api3' | '
 
 interface Props {
   open: boolean
+  userId: string
   onClose: () => void
   onDataRefreshed: () => void
 }
 
-export default function RefreshMetricsModal({ open, onClose, onDataRefreshed }: Props) {
+export default function RefreshMetricsModal({ open, userId, onClose, onDataRefreshed }: Props) {
   const [timeframe, setTimeframe]   = useState('last_90_days')
   const [step, setStep]             = useState<Step>('select')
   const [result, setResult]         = useState<RefreshResult | null>(null)
@@ -63,7 +64,7 @@ export default function RefreshMetricsModal({ open, onClose, onDataRefreshed }: 
     setStep('fetching')
     setError('')
     try {
-      const r = await refreshMetrics(timeframe)
+      const r = await refreshMetrics(timeframe, userId)
       setResult(r)
       setStep('done')
       onDataRefreshed()

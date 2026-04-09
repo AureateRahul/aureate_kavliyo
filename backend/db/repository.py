@@ -3,11 +3,101 @@ from supabase import create_client, Client
 from config import settings
 
 
+def _to_float(value, default: float = 0.0) -> float:
+    try:
+        if value is None:
+            return default
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _to_int(value, default: int = 0) -> int:
+    try:
+        if value is None:
+            return default
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def apply_cost_roas(rows: list, per_email_cost: float) -> list:
+    """
+    Adds derived fields for each API 1 row:
+      - total_sent (from recipients)
+      - cost       = total_sent * per_email_cost
+      - roas       = conversion_value / cost  (None when cost <= 0)
+    """
+    computed = []
+    cost_per_email = _to_float(per_email_cost, 0.0)
+
+    for r in rows:
+        total_sent = _to_int(r.get("total_sent"), 0)
+        conversion_value = _to_float(r.get("conversion_value"), 0.0)
+        total_cost = total_sent * cost_per_email
+        roas = (conversion_value / total_cost) if total_cost > 0 else None
+
+        out = dict(r)
+        out["total_sent"] = total_sent
+        out["cost"] = total_cost
+        out["roas"] = roas
+        computed.append(out)
+
+    return computed
+
+
 def get_db_connection() -> Client:
     """Return a Supabase client using the service-role key (bypasses RLS)."""
     if not settings.SUPABASE_URL or not settings.SUPABASE_SERVICE_KEY:
         raise RuntimeError("Supabase environment variables are not configured")
     return create_client(settings.SUPABASE_URL, settings.SUPABASE_SERVICE_KEY)
+
+
+def get_user_per_email_cost(client: Client, user_id: str = "") -> float | None:
+    """
+    Reads global per_email_cost from user_profiles singleton row (id=1).
+    Returns None if missing or unavailable.
+    """
+    data = None
+
+    try:
+        result = (
+            client.table("user_profiles")
+            .select("per_email_cost")
+            .eq("id", 1)
+            .limit(1)
+            .execute()
+        )
+        data = result.data
+    except Exception:
+        data = None
+
+    if not data:
+        try:
+            # Last fallback: first available row
+            result = client.table("user_profiles").select("per_email_cost").order("id").limit(1).execute()
+            data = result.data
+        except Exception:
+            data = None
+
+    if not data:
+        return None
+    return _to_float(data[0].get("per_email_cost"), 0.0)
+
+
+def set_user_per_email_cost(client: Client, user_id: str = "", per_email_cost: float = 0.0) -> float:
+    """
+    Updates global per_email_cost in user_profiles singleton row (id=1).
+    Returns the normalized saved value.
+    """
+    value = _to_float(per_email_cost, 0.0)
+
+    client.table("user_profiles").upsert(
+        {"id": 1, "per_email_cost": str(value)},
+        on_conflict="id"
+    ).execute()
+
+    return value
 
 
 # ---------------------------------------------------------------------------
@@ -27,6 +117,9 @@ def upsert_campaign_values(client: Client, rows: list) -> None:
             "click_rate":         r["click_rate"],
             "conversion_value":   r["conversion_value"],
             "click_to_open_rate": r["click_to_open_rate"],
+            "total_sent":         r.get("total_sent"),
+            "cost":               r.get("cost"),
+            "roas":               r.get("roas"),
             "timeframe_start":    r["timeframe_start"],
             "timeframe_end":      r["timeframe_end"],
             "api_call_1":         1,
@@ -73,7 +166,21 @@ def refresh_metrics_last_90_days(client: Client, rows: list) -> dict:
             "click_rate":         r["click_rate"],
             "conversion_value":   r["conversion_value"],
             "click_to_open_rate": r["click_to_open_rate"],
+            "total_sent":         r.get("total_sent"),
         }).eq("campaign_id", r["campaign_id"]).execute()
+
+        # Keep historical cost snapshots stable, but backfill old rows missing cost.
+        if r.get("cost") is not None:
+            try:
+                (
+                    client.table("campaigns")
+                    .update({"cost": r.get("cost"), "roas": r.get("roas")})
+                    .eq("campaign_id", r["campaign_id"])
+                    .is_("cost", "null")
+                    .execute()
+                )
+            except Exception:
+                pass
 
     # INSERT — full row for brand-new campaigns
     if to_insert:
@@ -85,6 +192,9 @@ def refresh_metrics_last_90_days(client: Client, rows: list) -> dict:
                 "click_rate":         r["click_rate"],
                 "conversion_value":   r["conversion_value"],
                 "click_to_open_rate": r["click_to_open_rate"],
+                "total_sent":         r.get("total_sent"),
+                "cost":               r.get("cost"),
+                "roas":               r.get("roas"),
                 "timeframe_start":    r["timeframe_start"],
                 "timeframe_end":      r["timeframe_end"],
                 "api_call_1":         1,

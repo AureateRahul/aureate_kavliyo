@@ -131,6 +131,7 @@ def fetch_campaign_values_report(timeframe: dict) -> list:
                 "click_rate": statistics.get("click_rate"),
                 "conversion_value": statistics.get("conversion_value"),
                 "click_to_open_rate": statistics.get("click_to_open_rate"),
+                "total_sent": statistics.get("recipients"),
                 "timeframe_start": timeframe_start,
                 "timeframe_end": timeframe_end,
             })

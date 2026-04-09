@@ -14,7 +14,7 @@ Usage:
 
 import sys
 
-from db.repository import get_db_connection, refresh_metrics_last_90_days
+from db.repository import get_db_connection, refresh_metrics_last_90_days, get_user_per_email_cost, apply_cost_roas
 from db.schema import initialize_db
 from api.klaviyo import fetch_campaign_values_report
 
@@ -32,6 +32,13 @@ def main() -> None:
     except Exception as exc:
         print(f"[FAIL] API 1 error: {exc}")
         sys.exit(1)
+
+    per_email_cost = get_user_per_email_cost(conn)
+    if per_email_cost:
+        print(f"[INFO] per_email_cost = {per_email_cost} — computing cost & ROAS")
+        rows = apply_cost_roas(rows, per_email_cost)
+    else:
+        print("[WARN] per_email_cost not set — cost & ROAS will be NULL")
 
     print(f"[INFO] API 1 returned {len(rows)} campaigns. Refreshing DB...")
     result = refresh_metrics_last_90_days(conn, rows)

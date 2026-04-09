@@ -9,6 +9,9 @@ from flask_cors import CORS
 from db.repository import (
     get_db_connection,
     refresh_metrics_last_90_days,
+    apply_cost_roas,
+    get_user_per_email_cost,
+    set_user_per_email_cost,
     update_campaign_messages,
     update_template_paths,
     get_pending_campaign_ids,
@@ -139,7 +142,7 @@ def api_campaigns():
             supabase.table("campaigns")
             .select(
                 "id, campaign_id, send_channel, "
-                "open_rate, click_rate, conversion_value, click_to_open_rate, "
+                "open_rate, click_rate, conversion_value, click_to_open_rate, total_sent, cost, roas, "
                 "timeframe_start, timeframe_end, "
                 "campaign_message_id, subject, template_link, "
                 "template_file_path, api_call_1, api_call_2, api_call_3"
@@ -198,14 +201,62 @@ def api_refresh_metrics():
 
     try:
         supabase = get_supabase_client()
-        result = refresh_metrics_last_90_days(supabase, rows)
+        # Read per_email_cost once per API 1 run so all campaigns use the same snapshot value.
+        per_email_cost = get_user_per_email_cost(supabase) or 0.0
+        computed_rows = apply_cost_roas(rows, per_email_cost)
+        result = refresh_metrics_last_90_days(supabase, computed_rows)
     except Exception as exc:
         return _db_error_response(exc)
     return jsonify({
         "updated":          result["updated"],
         "inserted":         result["inserted"],
         "new_campaign_ids": result["new_campaign_ids"],
+        "per_email_cost":   per_email_cost,
     })
+
+
+@app.route("/api/user-email-cost", methods=["GET"])
+def api_get_user_email_cost():
+  try:
+    supabase = get_supabase_client()
+    per_email_cost = get_user_per_email_cost(supabase)
+  except Exception as exc:
+    return _db_error_response(exc)
+
+  return jsonify({"per_email_cost": per_email_cost or 0.0})
+
+
+@app.route("/api/user-email-cost", methods=["POST"])
+def api_set_user_email_cost():
+    data = request.get_json(silent=True) or {}
+
+    monthly_cost = data.get("monthly_cost")
+    total_email_credits = data.get("total_email_credits")
+    per_email_cost = data.get("per_email_cost")
+
+    if per_email_cost is None:
+        try:
+            monthly = float(monthly_cost)
+            credits = float(total_email_credits)
+        except (TypeError, ValueError):
+            return jsonify({"error": "monthly_cost and total_email_credits must be numeric"}), 400
+
+        if credits <= 0:
+            return jsonify({"error": "total_email_credits must be greater than 0"}), 400
+        per_email_cost = monthly / credits
+    else:
+        try:
+            per_email_cost = float(per_email_cost)
+        except (TypeError, ValueError):
+            return jsonify({"error": "per_email_cost must be numeric"}), 400
+
+    try:
+        supabase = get_supabase_client()
+        saved = set_user_per_email_cost(supabase, per_email_cost=per_email_cost)
+    except Exception as exc:
+        return _db_error_response(exc)
+
+    return jsonify({"per_email_cost": saved})
 
 
 @app.route("/api/run-api2", methods=["POST"])

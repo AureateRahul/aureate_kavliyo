@@ -6,6 +6,9 @@ export interface Campaign {
   click_rate: number | null
   conversion_value: number | null
   click_to_open_rate: number | null
+  total_sent: number | null
+  cost: number | null
+  roas: number | null
   timeframe_start: string | null
   timeframe_end: string | null
   campaign_message_id: string | null

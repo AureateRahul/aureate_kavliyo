@@ -7,17 +7,45 @@ export interface RefreshResult {
   updated: number
   inserted: number
   new_campaign_ids: string[]
+  per_email_cost?: number
 }
 
-export async function refreshMetrics(timeframe: string): Promise<RefreshResult> {
+export async function refreshMetrics(timeframe: string, userId?: string): Promise<RefreshResult> {
   const res = await fetch(`${BACKEND}/api/refresh-metrics`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ timeframe }),
+    body: JSON.stringify({ timeframe, user_id: userId }),
   })
   const json = await res.json()
   if (!res.ok) throw new Error(json.error || 'Refresh failed')
   return json
+}
+
+export async function fetchUserEmailCost(): Promise<number> {
+  const { data, error } = await supabase
+    .from('user_profiles')
+    .select('per_email_cost')
+    .eq('id', 1)
+    .maybeSingle()
+
+  if (error) throw error
+
+  return Number(data?.per_email_cost ?? 0)
+}
+
+export async function saveUserEmailCost(payload: {
+  monthlyCost: number
+  totalEmailCredits: number
+}): Promise<number> {
+  const perEmailCost = payload.monthlyCost / payload.totalEmailCredits
+
+  const { error } = await supabase
+    .from('user_profiles')
+    .upsert({ id: 1, per_email_cost: String(perEmailCost) }, { onConflict: 'id' })
+
+  if (error) throw error
+
+  return perEmailCost
 }
 
 export async function runApi2(campaignIds: string[]): Promise<{ processed: number }> {
@@ -45,6 +73,7 @@ export async function runApi3(campaignIds: string[]): Promise<{ processed: numbe
 const CAMPAIGN_COLUMNS = [
   'id', 'campaign_id', 'send_channel',
   'open_rate', 'click_rate', 'conversion_value', 'click_to_open_rate',
+  'total_sent', 'cost', 'roas',
   'timeframe_start', 'timeframe_end',
   'campaign_message_id', 'label', 'send_time', 'template_created', 'subject', 'template_link',
   'template_file_path',
@@ -73,6 +102,9 @@ export async function fetchCampaigns(): Promise<Campaign[]> {
     click_rate:          (row.click_rate as number) ?? null,
     conversion_value:    (row.conversion_value as number) ?? null,
     click_to_open_rate:  (row.click_to_open_rate as number) ?? null,
+    total_sent:          (row.total_sent as number) ?? null,
+    cost:                (row.cost as number) ?? null,
+    roas:                (row.roas as number) ?? null,
     timeframe_start:     (row.timeframe_start as string) ?? null,
     timeframe_end:       (row.timeframe_end as string) ?? null,
     campaign_message_id: (row.campaign_message_id as string) ?? null,

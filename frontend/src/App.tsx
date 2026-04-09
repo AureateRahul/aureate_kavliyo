@@ -9,6 +9,7 @@ import CampaignTable from './components/CampaignTable'
 import PreviewModal from './components/PreviewModal'
 import AIInsights from './components/AIInsights'
 import RefreshMetricsModal from './components/RefreshMetricsModal'
+import EmailCostModal from './components/EmailCostModal'
 import { Lamp } from './components/Lamp'
 import { AuthForm } from './components/AuthForm'
 
@@ -33,7 +34,7 @@ function AuthPage() {
   )
 }
 
-function Dashboard() {
+function Dashboard({ userId }: { userId: string }) {
   const [campaigns, setCampaigns] = useState<Campaign[]>([])
   const [stats, setStats]         = useState<Stats | null>(null)
   const [loading, setLoading]     = useState(true)
@@ -41,6 +42,7 @@ function Dashboard() {
   const [selected, setSelected]   = useState<Campaign | null>(null)
   const [page, setPage]           = useState<'dashboard' | 'ai'>('dashboard')
   const [pullOpen, setPullOpen]   = useState(false)
+  const [costOpen, setCostOpen]   = useState(false)
 
   const loadData = useCallback(async () => {
     setLoading(true)
@@ -64,6 +66,7 @@ function Dashboard() {
         lastUpdated={lastUpdated}
         onRefresh={loadData}
         onPullData={() => setPullOpen(true)}
+        onEmailCostSettings={() => setCostOpen(true)}
         onLogout={() => supabase.auth.signOut()}
         page={page}
         onNavigate={setPage}
@@ -79,8 +82,13 @@ function Dashboard() {
       <PreviewModal campaign={selected} onClose={() => setSelected(null)} />
       <RefreshMetricsModal
         open={pullOpen}
+        userId={userId}
         onClose={() => setPullOpen(false)}
         onDataRefreshed={loadData}
+      />
+      <EmailCostModal
+        open={costOpen}
+        onClose={() => setCostOpen(false)}
       />
     </div>
   )
@@ -105,5 +113,5 @@ export default function App() {
     )
   }
 
-  return session ? <Dashboard /> : <AuthPage />
+  return session ? <Dashboard userId={session.user.id} /> : <AuthPage />
 }

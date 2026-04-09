@@ -14,6 +14,8 @@ from db.repository import (
     is_api_done,
     reset_api_flag,
     get_status_summary,
+    get_user_per_email_cost,
+    apply_cost_roas,
 )
 from api.klaviyo import (
     fetch_campaign_values_report,
@@ -156,6 +158,12 @@ def run(args: argparse.Namespace) -> None:
             except Exception as exc:
                 print(f"[FAIL] API 1 — {exc}")
                 sys.exit(1)
+            per_email_cost = get_user_per_email_cost(conn)
+            if per_email_cost:
+                print(f"[INFO] per_email_cost = {per_email_cost} — computing cost & ROAS")
+                rows = apply_cost_roas(rows, per_email_cost)
+            else:
+                print("[WARN] per_email_cost not set — cost & ROAS will be NULL")
             upsert_campaign_values(conn, rows)
             print(f"[DONE] API 1 — {len(rows)} campaigns saved\n")
 

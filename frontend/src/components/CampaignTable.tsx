@@ -9,7 +9,7 @@ interface CampaignTableProps {
   onPreview: (c: Campaign) => void
 }
 
-type SortKey = 'open_rate' | 'click_rate' | 'conversion_value' | 'click_to_open_rate' | 'label' | 'send_time'
+type SortKey = 'open_rate' | 'click_rate' | 'conversion_value' | 'click_to_open_rate' | 'total_sent' | 'cost' | 'roas' | 'label' | 'send_time'
 type SortDir = 'asc' | 'desc'
 
 function pct(val: number | null, digits = 2) {
@@ -20,6 +20,14 @@ function usd(val: number | null) {
   if (val === null || val === undefined) return '—'
   return '$' + val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 }
+function num(val: number | null) {
+  if (val === null || val === undefined) return '—'
+  return val.toLocaleString('en-US')
+}
+function ratio(val: number | null) {
+  if (val === null || val === undefined) return '—'
+  return val.toFixed(2) + 'x'
+}
 
 const PAGE_SIZES = [10, 25, 50, 100]
 
@@ -28,6 +36,9 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
   { key: 'open_rate',          label: 'Open Rate'  },
   { key: 'click_rate',         label: 'Click Rate' },
   { key: 'conversion_value',   label: 'Revenue'    },
+  { key: 'total_sent',         label: 'Total Sent' },
+  { key: 'cost',               label: 'Cost'       },
+  { key: 'roas',               label: 'ROAS'       },
   { key: 'click_to_open_rate', label: 'CTO Rate'   },
   { key: 'label',              label: 'Label'      },
 ]
@@ -118,7 +129,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
     resetPage()
   }
 
-  const SortBtn = ({ col }: { col: SortKey }) => (
+  const renderSortBtn = (col: SortKey) => (
     <button
       onClick={() => toggleSort(col)}
       className={`inline-flex items-center gap-0.5 ml-0.5 ${sortKey === col ? 'text-green-400' : 'text-gray-600 hover:text-gray-400'}`}
@@ -244,15 +255,18 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
           <thead>
             <tr className="bg-gray-900/60 border-b border-gray-700/50 text-gray-400 uppercase tracking-wider">
               <th className="px-3 py-3 font-semibold w-[72px]">Preview</th>
-              <th className="px-3 py-3 font-semibold">Label <SortBtn col="label" /></th>
+              <th className="px-3 py-3 font-semibold">Label {renderSortBtn('label')}</th>
               <th className="px-3 py-3 font-semibold whitespace-nowrap">
-                Send Date <SortBtn col="send_time" />
+                Send Date {renderSortBtn('send_time')}
               </th>
               <th className="px-3 py-3 font-semibold whitespace-nowrap">Channel</th>
-              <th className="px-3 py-3 font-semibold whitespace-nowrap">Open Rate <SortBtn col="open_rate" /></th>
-              <th className="px-3 py-3 font-semibold whitespace-nowrap">Click Rate <SortBtn col="click_rate" /></th>
-              <th className="px-3 py-3 font-semibold whitespace-nowrap">Revenue <SortBtn col="conversion_value" /></th>
-              <th className="px-3 py-3 font-semibold whitespace-nowrap">CTO Rate <SortBtn col="click_to_open_rate" /></th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Open Rate {renderSortBtn('open_rate')}</th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Click Rate {renderSortBtn('click_rate')}</th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Revenue {renderSortBtn('conversion_value')}</th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Total Sent {renderSortBtn('total_sent')}</th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">Cost {renderSortBtn('cost')}</th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">ROAS {renderSortBtn('roas')}</th>
+              <th className="px-3 py-3 font-semibold whitespace-nowrap">CTO Rate {renderSortBtn('click_to_open_rate')}</th>
               <th className="px-3 py-3 font-semibold whitespace-nowrap">Downloads</th>
             </tr>
           </thead>
@@ -260,7 +274,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
             {loading && (
               [...Array(8)].map((_, i) => (
                 <tr key={i}>
-                  {[...Array(9)].map((_, j) => (
+                  {[...Array(12)].map((_, j) => (
                     <td key={j} className="px-3 py-3">
                       <div className="h-3 bg-gray-700/60 rounded animate-pulse w-16" />
                     </td>
@@ -270,7 +284,7 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
             )}
             {!loading && paginated.length === 0 && (
               <tr>
-                <td colSpan={9} className="text-center py-16 text-gray-500">
+                <td colSpan={12} className="text-center py-16 text-gray-500">
                   No campaigns match the current filters.
                 </td>
               </tr>
@@ -314,6 +328,9 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
                 <td className="px-3 py-2.5 font-mono text-sky-400 whitespace-nowrap">{pct(c.open_rate)}</td>
                 <td className="px-3 py-2.5 font-mono text-sky-400 whitespace-nowrap">{pct(c.click_rate, 3)}</td>
                 <td className="px-3 py-2.5 font-mono font-semibold text-green-400 whitespace-nowrap">{usd(c.conversion_value)}</td>
+                <td className="px-3 py-2.5 font-mono text-gray-200 whitespace-nowrap">{num(c.total_sent)}</td>
+                <td className="px-3 py-2.5 font-mono text-amber-300 whitespace-nowrap">{usd(c.cost)}</td>
+                <td className="px-3 py-2.5 font-mono text-violet-300 whitespace-nowrap">{ratio(c.roas)}</td>
                 <td className="px-3 py-2.5 font-mono text-sky-400 whitespace-nowrap">{pct(c.click_to_open_rate, 3)}</td>
 
                 {/* Downloads */}
