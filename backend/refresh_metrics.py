@@ -14,11 +14,41 @@ Usage:
 
 import sys
 
-from db.repository import get_db_connection, refresh_metrics_last_90_days, get_user_per_email_cost, apply_cost_roas
+from db.repository import (
+    get_db_connection,
+    refresh_metrics_last_90_days,
+    get_user_per_email_cost,
+    apply_cost_roas,
+    get_null_send_time_ids,
+    update_send_times,
+)
 from db.schema import initialize_db
-from api.klaviyo import fetch_campaign_values_report
+from api.klaviyo import fetch_campaign_values_report, fetch_campaign_messages
 
 TIMEFRAME = {"key": "last_90_days"}
+
+
+def _backfill_send_times(conn, all_campaign_ids: list) -> None:
+    """
+    Re-fetches API 2 (campaign-messages) for any campaign that was touched by
+    the metrics refresh but still has send_time IS NULL in the DB.
+
+    This handles the case where a campaign was first stored while still
+    scheduled (no send_time yet) and has since been sent.
+    """
+    null_ids = get_null_send_time_ids(conn, all_campaign_ids)
+    if not null_ids:
+        return
+
+    print(f"[INFO] {len(null_ids)} campaign(s) have null send_time — backfilling via API 2...")
+    try:
+        messages = fetch_campaign_messages(null_ids)
+    except Exception as exc:
+        print(f"[WARN] API 2 backfill error: {exc}")
+        return
+
+    updated = update_send_times(conn, messages)
+    print(f"[INFO] Backfilled send_time for {updated} campaign(s).")
 
 
 def main() -> None:
@@ -47,6 +77,10 @@ def main() -> None:
         f"[DONE] Updated: {result['updated']} existing campaigns | "
         f"Inserted: {result['inserted']} new campaigns"
     )
+
+    # Backfill send_time for any campaigns that were scheduled when first stored
+    all_touched_ids = [r["campaign_id"] for r in rows if r.get("campaign_id")]
+    _backfill_send_times(conn, all_touched_ids)
 
 
 if __name__ == "__main__":

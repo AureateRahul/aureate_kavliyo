@@ -16,6 +16,8 @@ from db.repository import (
     update_template_paths,
     get_pending_campaign_ids,
     get_pending_campaign_messages,
+    get_null_send_time_ids,
+    update_send_times,
 )
 from api.klaviyo import fetch_campaign_values_report, fetch_campaign_messages, fetch_templates
 
@@ -207,11 +209,24 @@ def api_refresh_metrics():
         result = refresh_metrics_last_90_days(supabase, computed_rows)
     except Exception as exc:
         return _db_error_response(exc)
+
+    # Backfill send_time for campaigns that were scheduled when first stored
+    backfilled = 0
+    try:
+        all_ids = [r["campaign_id"] for r in rows if r.get("campaign_id")]
+        null_ids = get_null_send_time_ids(supabase, all_ids)
+        if null_ids:
+            messages = fetch_campaign_messages(null_ids)
+            backfilled = update_send_times(supabase, messages)
+    except Exception:
+        pass  # backfill is best-effort; don't fail the whole refresh
+
     return jsonify({
         "updated":          result["updated"],
         "inserted":         result["inserted"],
         "new_campaign_ids": result["new_campaign_ids"],
         "per_email_cost":   per_email_cost,
+        "send_time_backfilled": backfilled,
     })
 
 
@@ -290,11 +305,15 @@ def api_run_api3():
     try:
         supabase = get_supabase_client()
         if campaign_ids:
-            # Filter pending messages for the given campaign IDs
-            messages = [
-                m for m in get_pending_campaign_messages(supabase)
-                if m["campaign_id"] in campaign_ids
-            ]
+            # Bypass api_call_3 flag — directly fetch rows for the given IDs
+            # so already-processed campaigns can be re-fetched on demand
+            result = (
+                supabase.table("campaigns")
+                .select("campaign_id, campaign_message_id, template_link")
+                .in_("campaign_id", campaign_ids)
+                .execute()
+            )
+            messages = [m for m in result.data if m.get("template_link")]
         else:
             messages = get_pending_campaign_messages(supabase)
     except Exception as exc:

@@ -2,11 +2,13 @@ import { useState, useMemo } from 'react'
 import type { Campaign } from '../types'
 import ThumbCell from './ThumbCell'
 import { getTemplateUrl, getScreenshotUrl, downloadFromStorage } from '../lib/storage'
+import { runApi2, runApi3 } from '../lib/api'
 
 interface CampaignTableProps {
   campaigns: Campaign[]
   loading: boolean
   onPreview: (c: Campaign) => void
+  onRefresh?: () => void
 }
 
 type SortKey = 'open_rate' | 'click_rate' | 'conversion_value' | 'click_to_open_rate' | 'total_sent' | 'cost' | 'roas' | 'label' | 'send_time'
@@ -46,7 +48,22 @@ const SORT_OPTIONS: { key: SortKey; label: string }[] = [
 const inputCls = 'text-xs border border-gray-700 rounded-lg bg-gray-900 text-gray-300 focus:outline-none focus:border-green-500 transition-colors'
 const selectCls = `${inputCls} px-2.5 py-1.5`
 
-export default function CampaignTable({ campaigns, loading, onPreview }: CampaignTableProps) {
+export default function CampaignTable({ campaigns, loading, onPreview, onRefresh }: CampaignTableProps) {
+  const [fetchingIds, setFetchingIds] = useState<Set<string>>(new Set())
+
+  async function handleFetch(campaignId: string, needsApi2: boolean) {
+    setFetchingIds(prev => new Set(prev).add(campaignId))
+    try {
+      if (needsApi2) await runApi2([campaignId])
+      await runApi3([campaignId])
+      onRefresh?.()
+    } catch (err) {
+      console.error('Fetch failed for', campaignId, err)
+    } finally {
+      setFetchingIds(prev => { const s = new Set(prev); s.delete(campaignId); return s })
+    }
+  }
+
   const [search, setSearch]           = useState('')
   const [channelFilter, setChannel]   = useState<string>('all')
   const [templateFilter, setTemplate] = useState<string>('all')
@@ -296,7 +313,29 @@ export default function CampaignTable({ campaigns, loading, onPreview }: Campaig
                 <td className="px-3 py-2">
                   {c.template_filename
                     ? <ThumbCell campaignId={c.campaign_id} subject={c.subject || ''} onClick={() => onPreview(c)} />
-                    : <div className="w-[60px] h-[44px] rounded border border-dashed border-gray-700 bg-gray-900/50 flex items-center justify-center text-gray-600 text-base">📄</div>
+                    : fetchingIds.has(c.campaign_id)
+                      ? <div className="w-[60px] h-[44px] rounded border border-dashed border-gray-600 bg-gray-900/50 flex items-center justify-center">
+                          <div className="w-3.5 h-3.5 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
+                        </div>
+                      : c.api_call_2 === 0
+                        ? <button
+                            onClick={() => handleFetch(c.campaign_id, true)}
+                            title="Fetch label, subject & template (API 2 + 3)"
+                            className="w-[60px] h-[44px] rounded border border-dashed border-amber-600/60 bg-amber-900/20 hover:bg-amber-900/40 flex flex-col items-center justify-center gap-0.5 transition-colors"
+                          >
+                            <span className="text-amber-400 text-[9px] font-semibold leading-none">FETCH</span>
+                            <span className="text-amber-600 text-[8px] leading-none">API 2+3</span>
+                          </button>
+                        : c.api_call_3 === 0
+                          ? <button
+                              onClick={() => handleFetch(c.campaign_id, false)}
+                              title="Fetch template HTML & screenshot (API 3)"
+                              className="w-[60px] h-[44px] rounded border border-dashed border-sky-600/60 bg-sky-900/20 hover:bg-sky-900/40 flex flex-col items-center justify-center gap-0.5 transition-colors"
+                            >
+                              <span className="text-sky-400 text-[9px] font-semibold leading-none">FETCH</span>
+                              <span className="text-sky-600 text-[8px] leading-none">API 3</span>
+                            </button>
+                          : <div className="w-[60px] h-[44px] rounded border border-dashed border-gray-700 bg-gray-900/50 flex items-center justify-center text-gray-600 text-base">📄</div>
                   }
                 </td>
 

@@ -273,6 +273,53 @@ def update_template_paths(client: Client, saved: list) -> None:
                     raise
 
 
+def get_null_send_time_ids(client: Client, campaign_ids: list) -> list:
+    """
+    Returns the subset of campaign_ids that currently have send_time IS NULL.
+    Used to backfill send_time after a scheduled campaign has actually been sent.
+    """
+    if not campaign_ids:
+        return []
+    found = []
+    chunk_size = 200
+    for i in range(0, len(campaign_ids), chunk_size):
+        chunk = campaign_ids[i : i + chunk_size]
+        result = (
+            client.table("campaigns")
+            .select("campaign_id")
+            .in_("campaign_id", chunk)
+            .is_("send_time", "null")
+            .execute()
+        )
+        found.extend(r["campaign_id"] for r in result.data)
+    return found
+
+
+def update_send_times(client: Client, rows: list) -> int:
+    """
+    Updates send_time (and template_created if present) for each row that has a non-null send_time.
+    Only overwrites if the DB value is still NULL to avoid clobbering good data.
+    Returns the count of rows updated.
+    """
+    updated = 0
+    for r in rows:
+        if not r.get("send_time"):
+            continue
+        payload = {"send_time": r["send_time"]}
+        if r.get("template_created"):
+            payload["template_created"] = r["template_created"]
+        result = (
+            client.table("campaigns")
+            .update(payload)
+            .eq("campaign_id", r["campaign_id"])
+            .is_("send_time", "null")
+            .execute()
+        )
+        if result.data:
+            updated += len(result.data)
+    return updated
+
+
 def get_pending_campaign_messages(client: Client, limit: int = None) -> list:
     """Returns rows where api_call_2=1 AND api_call_3=0."""
     q = (

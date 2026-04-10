@@ -74,7 +74,7 @@ function Dashboard({ userId }: { userId: string }) {
       {page === 'dashboard' ? (
         <main className="max-w-[1600px] mx-auto px-6 py-6 space-y-6">
           <StatsBar stats={loading ? null : stats} />
-          <CampaignTable campaigns={campaigns} loading={loading} onPreview={setSelected} />
+          <CampaignTable campaigns={campaigns} loading={loading} onPreview={setSelected} onRefresh={loadData} />
         </main>
       ) : (
         <AIInsights />
