@@ -135,10 +135,10 @@ def refresh_metrics_last_90_days(client: Client, rows: list) -> dict:
       - Existing campaign_id → UPDATE only the 4 metrics columns.
       - New campaign_id      → INSERT full row with api_call_1=1.
 
-    Returns {"updated": int, "inserted": int}.
+    Returns {"updated": int, "inserted": int, "new_campaign_ids": list}.
     """
     if not rows:
-        return {"updated": 0, "inserted": 0}
+        return {"updated": 0, "inserted": 0, "new_campaign_ids": []}
 
     # Fetch all existing campaign_ids in one query
     incoming_ids = [r["campaign_id"] for r in rows if r.get("campaign_id")]
