@@ -159,28 +159,18 @@ def refresh_metrics_last_90_days(client: Client, rows: list) -> dict:
     to_update = [r for r in rows if r.get("campaign_id") in existing]
     to_insert = [r for r in rows if r.get("campaign_id") not in existing]
 
-    # UPDATE — only the 4 metrics + updated_at (leave all other columns untouched)
+    # UPDATE — metrics + cost/roas (recalculated each refresh so roas stays in sync with revenue)
     for r in to_update:
-        client.table("campaigns").update({
+        payload = {
             "open_rate":          r["open_rate"],
             "click_rate":         r["click_rate"],
             "conversion_value":   r["conversion_value"],
             "click_to_open_rate": r["click_to_open_rate"],
             "total_sent":         r.get("total_sent"),
-        }).eq("campaign_id", r["campaign_id"]).execute()
-
-        # Keep historical cost snapshots stable, but backfill old rows missing cost.
-        if r.get("cost") is not None:
-            try:
-                (
-                    client.table("campaigns")
-                    .update({"cost": r.get("cost"), "roas": r.get("roas")})
-                    .eq("campaign_id", r["campaign_id"])
-                    .is_("cost", "null")
-                    .execute()
-                )
-            except Exception:
-                pass
+            "cost":               r.get("cost"),
+            "roas":               r.get("roas"),
+        }
+        client.table("campaigns").update(payload).eq("campaign_id", r["campaign_id"]).execute()
 
     # INSERT — full row for brand-new campaigns
     if to_insert:
